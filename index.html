@@ -15,7 +15,7 @@ body{
     background-size:500% 500%;
     animation:bgFlow 14s ease infinite;
     position:relative;
-    overflow:hidden;
+    overflow-x:hidden; /* Yatay kaydırma gizlendi, dikey kaydırma açık */
 }
 
 /* GRAIN / NOISE */
@@ -37,9 +37,9 @@ body::after{
 .wrapper{
     min-height:100vh;
     display:flex;
-    align-items:center;
+    align-items:flex-start; /* İçerik uzun olsa bile alta doğru akıyor */
     justify-content:center;
-    padding:40px;
+    padding:60px 40px;
     position:relative;
     z-index:1;
 }
@@ -105,6 +105,7 @@ h1{
 .countdown{
     display:flex;
     justify-content:center;
+    flex-wrap:wrap;
     gap:36px;
     margin-bottom:42px;
 }
@@ -160,6 +161,13 @@ h1{
     transform:scale(1.06);
     background:#1ebe5d;
 }
+
+/* RESPONSIVE */
+@media(max-width:600px){
+    h1{font-size:2.4em;}
+    .countdown .time span{font-size:1.8em;}
+    .panel{padding:50px 30px;}
+}
 </style>
 </head>
 
@@ -168,6 +176,7 @@ h1{
 <div class="wrapper">
     <div class="panel">
 
+        <!-- PREMIUM SVG KUM SAATI -->
         <div class="hourglass">
             <svg viewBox="0 0 24 24">
                 <path d="M6 2h12M6 22h12M8 2v4c0 2 2 4 4 6-2 2-4 4-4 6v4M16 2v4c0 2-2 4-4 6 2 2 4 4 4 6v4"/>
