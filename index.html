@@ -11,11 +11,24 @@ body{
     margin:0;
     font-family:Arial, Helvetica, sans-serif;
     color:#e5e7eb;
-    background:linear-gradient(-45deg,#0e1626,#0b1f3a,#132f5f,#0e1626);
-    background-size:400% 400%;
-    animation:gradientMove 18s ease infinite;
+    background:linear-gradient(-45deg,#020617,#0b1f3a,#1e3a8a,#020617);
+    background-size:500% 500%;
+    animation:bgFlow 14s ease infinite;
+    position:relative;
+    overflow:hidden;
 }
-@keyframes gradientMove{
+
+/* GRAIN / NOISE */
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+    pointer-events:none;
+    z-index:0;
+}
+
+@keyframes bgFlow{
     0%{background-position:0% 50%}
     50%{background-position:100% 50%}
     100%{background-position:0% 50%}
@@ -26,93 +39,127 @@ body{
     display:flex;
     align-items:center;
     justify-content:center;
-    padding:30px;
-}
-.panel{
-    width:100%;
-    max-width:740px;
-    background:rgba(255,255,255,0.04);
-    border:1px solid rgba(255,255,255,0.08);
-    border-radius:22px;
-    padding:65px 55px;
-    text-align:center;
-    backdrop-filter:blur(10px);
-}
-h1{
-    margin:0;
-    font-size:2.4em;
-    letter-spacing:1px;
-    font-weight:600;
-}
-.status{
-    margin-top:14px;
-    font-size:1.1em;
-    color:#9ca3af;
-}
-.divider{
-    width:60px;
-    height:2px;
-    background:#3b82f6;
-    margin:28px auto 34px;
-    border-radius:2px;
+    padding:40px;
+    position:relative;
+    z-index:1;
 }
 
-/* Countdown */
+/* PANEL */
+.panel{
+    width:100%;
+    max-width:760px;
+    background:linear-gradient(180deg,rgba(255,255,255,0.10),rgba(255,255,255,0.04));
+    border:1px solid rgba(255,255,255,0.18);
+    border-radius:26px;
+    padding:70px 60px;
+    text-align:center;
+    backdrop-filter:blur(16px);
+    box-shadow:0 40px 100px rgba(0,0,0,0.6);
+    animation:panelIntro 1.2s ease forwards;
+    opacity:0;
+    transform:scale(0.96);
+}
+@keyframes panelIntro{
+    to{opacity:1;transform:scale(1)}
+}
+
+/* SVG HOURGLASS */
+.hourglass{
+    width:64px;
+    margin:0 auto 20px;
+}
+.hourglass svg{
+    width:100%;
+    fill:none;
+    stroke:#93c5fd;
+    stroke-width:2;
+    animation:glassFloat 2.8s ease-in-out infinite;
+}
+@keyframes glassFloat{
+    0%{transform:rotate(-4deg)}
+    50%{transform:rotate(4deg)}
+    100%{transform:rotate(-4deg)}
+}
+
+h1{
+    margin:0;
+    font-size:3.2em;
+    letter-spacing:1.4px;
+    font-weight:700;
+}
+.status{
+    margin-top:12px;
+    font-size:1.15em;
+    color:#c7d2fe;
+}
+
+.divider{
+    width:90px;
+    height:2px;
+    background:linear-gradient(90deg,#60a5fa,#3b82f6);
+    margin:34px auto 40px;
+    border-radius:3px;
+}
+
+/* COUNTDOWN */
 .countdown{
     display:flex;
     justify-content:center;
-    gap:28px;
-    margin-bottom:36px;
-}
-.time{
-    text-align:center;
+    gap:36px;
+    margin-bottom:42px;
 }
 .time span{
     display:block;
-    font-size:2em;
+    font-size:2.3em;
     font-weight:600;
     color:#fff;
 }
 .time small{
     font-size:0.75em;
     letter-spacing:1px;
-    color:#9ca3af;
+    color:#a5b4fc;
 }
 
 .contact{
     font-size:1.05em;
-    line-height:1.9;
-    color:#d1d5db;
+    line-height:2;
+    color:#e0e7ff;
 }
+
 .services{
-    margin-top:38px;
+    margin-top:44px;
     display:flex;
     flex-wrap:wrap;
     justify-content:center;
-    gap:18px;
+    gap:20px;
     font-size:0.95em;
-    color:#9ca3af;
 }
 .services span{
-    padding:6px 16px;
-    border:1px solid rgba(255,255,255,0.1);
-    border-radius:30px;
+    padding:8px 20px;
+    border:1px solid rgba(255,255,255,0.2);
+    border-radius:40px;
+    background:rgba(255,255,255,0.05);
 }
 
+/* WHATSAPP */
 .whatsapp{
     position:fixed;
-    bottom:22px;
-    right:22px;
+    bottom:26px;
+    right:26px;
     background:#25D366;
     color:#fff;
-    padding:14px 22px;
+    padding:15px 26px;
     border-radius:50px;
     text-decoration:none;
     font-weight:600;
-    box-shadow:0 6px 18px rgba(0,0,0,0.3);
+    box-shadow:0 10px 26px rgba(0,0,0,0.5);
     transition:0.3s;
+    z-index:2;
 }
-.whatsapp:hover{background:#1ebe5d}
+.whatsapp:hover{
+    transform:scale(1.06);
+    background:#1ebe5d;
+}
 </style>
 </head>
 
@@ -120,6 +167,13 @@ h1{
 
 <div class="wrapper">
     <div class="panel">
+
+        <div class="hourglass">
+            <svg viewBox="0 0 24 24">
+                <path d="M6 2h12M6 22h12M8 2v4c0 2 2 4 4 6-2 2-4 4-4 6v4M16 2v4c0 2-2 4-4 6 2 2 4 4 4 6v4"/>
+            </svg>
+        </div>
+
         <h1>Güzey Grup</h1>
         <div class="status">Sitemiz Hazırlanıyor</div>
 
@@ -157,19 +211,14 @@ launchDate.setMonth(launchDate.getMonth() + 3);
 
 function updateCountdown(){
     const now = new Date().getTime();
-    const distance = launchDate - now;
+    const d = launchDate - now;
 
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    document.getElementById("days").innerText = days;
-    document.getElementById("hours").innerText = hours;
-    document.getElementById("minutes").innerText = minutes;
-    document.getElementById("seconds").innerText = seconds;
+    document.getElementById("days").innerText = Math.floor(d / (1000*60*60*24));
+    document.getElementById("hours").innerText = Math.floor((d%(1000*60*60*24))/(1000*60*60));
+    document.getElementById("minutes").innerText = Math.floor((d%(1000*60*60))/(1000*60));
+    document.getElementById("seconds").innerText = Math.floor((d%(1000*60))/1000);
 }
-setInterval(updateCountdown, 1000);
+setInterval(updateCountdown,1000);
 updateCountdown();
 </script>
 
