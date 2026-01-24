@@ -6,33 +6,172 @@
 <title>Güzey Grup | Sitemiz Hazırlanıyor</title>
 
 <style>
+*{box-sizing:border-box}
 body{
     margin:0;
-    font-family:Arial, sans-serif;
-    background:#0b1f3a;
+    font-family:Arial, Helvetica, sans-serif;
+    color:#e5e7eb;
+    background:linear-gradient(-45deg,#0e1626,#0b1f3a,#132f5f,#0e1626);
+    background-size:400% 400%;
+    animation:gradientMove 18s ease infinite;
 }
-.box{
-    max-width:700px;
-    margin:120px auto;
-    background:#fff;
-    padding:50px;
+@keyframes gradientMove{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+.wrapper{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:30px;
+}
+.panel{
+    width:100%;
+    max-width:740px;
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:22px;
+    padding:65px 55px;
     text-align:center;
-    border-radius:12px;
+    backdrop-filter:blur(10px);
 }
-h1{color:#0b1f3a}
-p{color:#444;font-size:18px}
+h1{
+    margin:0;
+    font-size:2.4em;
+    letter-spacing:1px;
+    font-weight:600;
+}
+.status{
+    margin-top:14px;
+    font-size:1.1em;
+    color:#9ca3af;
+}
+.divider{
+    width:60px;
+    height:2px;
+    background:#3b82f6;
+    margin:28px auto 34px;
+    border-radius:2px;
+}
+
+/* Countdown */
+.countdown{
+    display:flex;
+    justify-content:center;
+    gap:28px;
+    margin-bottom:36px;
+}
+.time{
+    text-align:center;
+}
+.time span{
+    display:block;
+    font-size:2em;
+    font-weight:600;
+    color:#fff;
+}
+.time small{
+    font-size:0.75em;
+    letter-spacing:1px;
+    color:#9ca3af;
+}
+
+.contact{
+    font-size:1.05em;
+    line-height:1.9;
+    color:#d1d5db;
+}
+.services{
+    margin-top:38px;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:18px;
+    font-size:0.95em;
+    color:#9ca3af;
+}
+.services span{
+    padding:6px 16px;
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:30px;
+}
+
+.whatsapp{
+    position:fixed;
+    bottom:22px;
+    right:22px;
+    background:#25D366;
+    color:#fff;
+    padding:14px 22px;
+    border-radius:50px;
+    text-decoration:none;
+    font-weight:600;
+    box-shadow:0 6px 18px rgba(0,0,0,0.3);
+    transition:0.3s;
+}
+.whatsapp:hover{background:#1ebe5d}
 </style>
 </head>
 
 <body>
 
-<div class="box">
-    <h1>Güzey Grup</h1>
-    <p><strong>Sitemiz Hazırlanıyor</strong></p>
-    <p>Biz yönetelim, siz tasarruf edin.</p>
-    <p>0507 472 58 77</p>
-    <p>info@gzygrup.com</p>
+<div class="wrapper">
+    <div class="panel">
+        <h1>Güzey Grup</h1>
+        <div class="status">Sitemiz Hazırlanıyor</div>
+
+        <div class="divider"></div>
+
+        <div class="countdown">
+            <div class="time"><span id="days">00</span><small>GÜN</small></div>
+            <div class="time"><span id="hours">00</span><small>SAAT</small></div>
+            <div class="time"><span id="minutes">00</span><small>DK</small></div>
+            <div class="time"><span id="seconds">00</span><small>SN</small></div>
+        </div>
+
+        <div class="contact">
+            0507 472 58 77<br>
+            0552 662 01 58<br>
+            0232 484 73 32<br><br>
+            info@gzygrup.com
+        </div>
+
+        <div class="services">
+            <span>Bina ve Site Yönetimi</span>
+            <span>Emlak Danışmanlığı</span>
+            <span>Hukuki Danışmanlık</span>
+            <span>Peyzaj</span>
+            <span>Güvenlik</span>
+        </div>
+    </div>
 </div>
+
+<a href="https://wa.me/905074725877" class="whatsapp" target="_blank">WhatsApp</a>
+
+<script>
+const launchDate = new Date();
+launchDate.setMonth(launchDate.getMonth() + 3);
+
+function updateCountdown(){
+    const now = new Date().getTime();
+    const distance = launchDate - now;
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("days").innerText = days;
+    document.getElementById("hours").innerText = hours;
+    document.getElementById("minutes").innerText = minutes;
+    document.getElementById("seconds").innerText = seconds;
+}
+setInterval(updateCountdown, 1000);
+updateCountdown();
+</script>
 
 </body>
 </html>
