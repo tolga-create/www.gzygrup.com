@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Güzey Grup | Bina & Site Yönetimi • Hukuk</title>
+<title>Güzey Grup</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
 
@@ -27,7 +27,7 @@ body{
     100%{background-position:0% 50%}
 }
 
-/* Üst Başlıklar Panel */
+/* Üst Panel Başlıkları */
 .top-panel{
     display:flex;
     justify-content:center;
@@ -43,7 +43,7 @@ body{
 .top-panel span{
     padding:10px 18px;
     font-weight:700;
-    color:#ffffff; /* Beyaz başlıklar */
+    color:#ffffff; 
     border-radius:12px;
     cursor:pointer;
     transition:0.3s ease;
@@ -53,51 +53,52 @@ body{
     transform:translateY(-3px) scale(1.05);
 }
 
-/* HERO */
+/* Hero Logo Fullscreen */
 .hero{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    height:90vh;
     position:relative;
-    z-index:1;
+    width:100%;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
 }
 .hero img{
-    width:220px;
-    height:auto;
+    position:absolute;
+    width:100%;
+    height:100%;
     object-fit:contain;
-    animation:logoFloat 3s ease-in-out infinite alternate, logoGlow 2s ease-in-out infinite alternate;
-    filter:drop-shadow(0 0 12px #d4af37) drop-shadow(0 4px 8px rgba(0,0,0,0.6));
+    opacity:0.1; /* Saydamlık */
+    animation:logoFloat 10s ease-in-out infinite alternate;
+    filter:drop-shadow(0 0 12px #d4af37);
+    z-index:1;
 }
 @keyframes logoFloat{
-    0%{transform:translateY(0);}
-    50%{transform:translateY(-15px);}
-    100%{transform:translateY(0);}
-}
-@keyframes logoGlow{
-    0%{filter:drop-shadow(0 0 8px #d4af37);}
-    50%{filter:drop-shadow(0 0 18px #ffd700);}
-    100%{filter:drop-shadow(0 0 8px #d4af37);}
+    0%{transform:scale(1) translateY(0);}
+    50%{transform:scale(1.05) translateY(-20px);}
+    100%{transform:scale(1) translateY(0);}
 }
 
-/* Hizmetlerimiz Bölümü (Eski Görünüm) */
-section{
-    padding:120px 30px 80px;
+/* İçerik bölümleri */
+.content{
+    position:relative;
+    z-index:2;
     max-width:1100px;
     margin:0 auto;
+    padding:60px 20px;
+}
+
+/* Hakkımızda ve Hizmetler */
+section{
+    padding:80px 20px;
     text-align:center;
 }
 h2{
-    text-align:center;
     color:#d4af37;
     font-size:2.8em;
-    margin-bottom:12px;
+    margin-bottom:20px;
 }
 .intro{
-    text-align:center;
-    max-width:720px;
-    margin:20px auto 60px;
     color:#e7d48b;
     line-height:2;
     font-size:1.15em;
@@ -109,7 +110,7 @@ h2{
     grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
     gap:36px;
     justify-items:center;
-    margin-top:60px;
+    margin-top:40px;
 }
 .service-box{
     padding:24px 30px;
@@ -153,28 +154,7 @@ h2{
     line-height:1.8;
 }
 
-/* About & Contact Animations */
-.about, .contact{
-    display:inline-block;
-    background:rgba(255,255,255,0.05);
-    padding:30px 25px;
-    border-radius:20px;
-    border:1px solid rgba(212,175,55,0.3);
-    box-shadow:0 25px 60px rgba(0,0,0,0.55);
-    line-height:2.1;
-    font-size:1.15em;
-    color:#f5f5f5;
-    text-align:center;
-    transform:translateY(50px);
-    opacity:0;
-    transition:1s ease;
-}
-.about.active, .contact.active{
-    transform:translateY(0);
-    opacity:1;
-}
-
-/* Scroll Reveal */
+/* Scroll reveal */
 .reveal{
     opacity:0;
     transform:translateY(40px);
@@ -202,7 +182,6 @@ h2{
 
 /* Responsive */
 @media(max-width:600px){
-    .hero img{width:160px;}
     .top-panel{gap:10px; padding:15px 5px;}
     .top-panel span{padding:8px 12px; font-size:0.9em;}
     .services-grid{gap:20px;}
@@ -210,10 +189,9 @@ h2{
 }
 </style>
 </head>
-
 <body>
 
-<!-- Üst Panel - Yalnızca Başlıklar -->
+<!-- Üst Panel Başlıkları -->
 <div class="top-panel">
     <span>Bina ve Site Yönetimi</span>
     <span>Hukuk Hizmetleri</span>
@@ -224,23 +202,21 @@ h2{
     <span>Peyzaj</span>
 </div>
 
-<!-- Hero -->
+<!-- Hero Logo Fullscreen -->
 <div class="hero">
     <img src="logo.png" alt="Güzey Grup Logo">
 </div>
 
+<!-- İçerik -->
+<div class="content">
+
 <!-- Hakkımızda -->
 <section id="about" class="reveal">
     <h2>Hakkımızda</h2>
-    <p class="intro">2005 yılından bu yana kurumsal yönetim anlayışı</p>
-    <div class="about">
-        Güzey Grup, 2005 yılında İzmir’de kurulmuştur.
-        Bina ve site yönetimi ile hukuki danışmanlık alanlarında
-        Ege Bölgesi genelinde profesyonel hizmet sunmaktadır.
-    </div>
+    <p class="intro">2005 yılında İzmir’de kurulan Güzey Grup, Ege Bölgesi genelinde Bina ve Site Yönetimi ile Hukuk Hizmetleri alanlarında profesyonel hizmet sunmaktadır.</p>
 </section>
 
-<!-- Hizmetlerimiz Alt Bölümü (Eski Hal) -->
+<!-- Hizmetlerimiz -->
 <section id="services" class="reveal">
     <h2>Hizmetlerimiz</h2>
     <div class="services-grid">
@@ -264,7 +240,6 @@ h2{
         <strong>E-posta</strong><br>
         info@gzygrup.com
     </div>
-    <div class="footer-note">Güzey Grup © 2005 – Günümüz</div>
 </section>
 
 <a href="https://wa.me/905074725877" class="whatsapp" target="_blank">WhatsApp</a>
@@ -277,10 +252,6 @@ reveals.forEach(section=>{
         entries.forEach(entry=>{
             if(entry.isIntersecting){
                 section.classList.add("active");
-                const about=section.querySelector(".about");
-                const contact=section.querySelector(".contact");
-                if(about) about.classList.add("active");
-                if(contact) contact.classList.add("active");
             }
         });
     },{threshold:0.3});
