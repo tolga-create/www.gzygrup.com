@@ -27,18 +27,42 @@ body{
     100%{background-position:0% 50%}
 }
 
+/* Üst Başlıklar Panel */
+.top-panel{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:16px;
+    padding:16px 10px;
+    background:rgba(0,0,0,0.45);
+    position:sticky;
+    top:0;
+    z-index:999;
+    backdrop-filter:blur(8px);
+}
+.top-panel span{
+    padding:10px 18px;
+    font-weight:700;
+    color:#ffd700;
+    border-radius:12px;
+    cursor:pointer;
+    transition:0.3s ease;
+}
+.top-panel span:hover{
+    background:rgba(212,175,55,0.25);
+    transform:translateY(-3px) scale(1.05);
+}
+
 /* HERO */
 .hero{
     display:flex;
     align-items:center;
     justify-content:center;
     text-align:center;
-    height:100vh;
+    height:90vh;
     position:relative;
     z-index:1;
 }
-
-/* Logo Ortala ve Animasyonlu */
 .hero img{
     width:220px;
     height:auto;
@@ -46,54 +70,20 @@ body{
     animation:logoFloat 3s ease-in-out infinite alternate, logoGlow 2s ease-in-out infinite alternate;
     filter:drop-shadow(0 0 12px #d4af37) drop-shadow(0 4px 8px rgba(0,0,0,0.6));
 }
-
-/* Logo hareketi */
 @keyframes logoFloat{
     0%{transform:translateY(0);}
     50%{transform:translateY(-15px);}
     100%{transform:translateY(0);}
 }
-
-/* Altın Glow Animasyonu */
 @keyframes logoGlow{
     0%{filter:drop-shadow(0 0 8px #d4af37);}
     50%{filter:drop-shadow(0 0 18px #ffd700);}
     100%{filter:drop-shadow(0 0 8px #d4af37);}
 }
 
-/* Hizmetler Panel */
-.services-panel{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:16px;
-    padding:20px 10px;
-    background:rgba(0,0,0,0.4);
-    position:sticky;
-    top:0;
-    z-index:999;
-    backdrop-filter:blur(8px);
-}
-.service-tab{
-    padding:12px 20px;
-    background:rgba(212,175,55,0.15);
-    color:#fff;
-    font-weight:700;
-    border-radius:12px;
-    cursor:pointer;
-    box-shadow:0 8px 20px rgba(0,0,0,0.6);
-    transition:0.4s ease;
-    text-align:center;
-}
-.service-tab:hover{
-    transform:translateY(-5px) scale(1.05);
-    background:rgba(212,175,55,0.3);
-    box-shadow:0 12px 28px rgba(212,175,55,0.8);
-}
-
-/* Sections */
+/* Hizmetlerimiz Bölümü (Eski Görünüm) */
 section{
-    padding:140px 30px 80px;
+    padding:120px 30px 80px;
     max-width:1100px;
     margin:0 auto;
     text-align:center;
@@ -111,6 +101,56 @@ h2{
     color:#e7d48b;
     line-height:2;
     font-size:1.15em;
+}
+
+/* Hizmet kutucukları */
+.services-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:36px;
+    justify-items:center;
+    margin-top:60px;
+}
+.service-box{
+    padding:24px 30px;
+    background:rgba(255,255,255,0.08);
+    border:2px solid rgba(212,175,55,0.6);
+    border-radius:20px;
+    box-shadow:0 20px 50px rgba(0,0,0,0.6);
+    transition:0.5s ease;
+    cursor:pointer;
+    width:100%;
+    max-width:280px;
+    position:relative;
+    overflow:hidden;
+}
+.service-box::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(120deg,rgba(212,175,55,0.3),rgba(255,255,255,0));
+    transform:translateX(-100%);
+    transition:0.6s ease;
+}
+.service-box:hover::before{
+    transform:translateX(0);
+}
+.service-box:hover{
+    transform:translateY(-10px) scale(1.06);
+    box-shadow:0 35px 80px rgba(212,175,55,0.9);
+    border-color:#d4af37;
+    background:rgba(212,175,55,0.12);
+}
+.service-box h3{
+    margin-bottom:12px;
+    color:#ffd700;
+    font-size:1.4em;
+    font-weight:800;
+    text-shadow:2px 2px 12px rgba(0,0,0,0.6);
+}
+.service-box p{
+    color:#f5f5f5;
+    line-height:1.8;
 }
 
 /* About & Contact Animations */
@@ -145,32 +185,51 @@ h2{
     transform:none;
 }
 
+/* WhatsApp */
+.whatsapp{
+    position:fixed;
+    bottom:26px;
+    right:26px;
+    background:#25d366;
+    color:#fff;
+    padding:14px 24px;
+    border-radius:50px;
+    font-weight:600;
+    box-shadow:0 10px 26px rgba(0,0,0,0.5);
+    transition:0.3s;
+}
+.whatsapp:hover{transform:scale(1.06);}
+
 /* Responsive */
 @media(max-width:600px){
     .hero img{width:160px;}
-    .services-panel{gap:10px; padding:15px 5px;}
-    .service-tab{padding:10px 14px; font-size:0.9em;}
+    .top-panel{gap:10px; padding:15px 5px;}
+    .top-panel span{padding:8px 12px; font-size:0.9em;}
+    .services-grid{gap:20px;}
+    .service-box{max-width:100%;}
 }
 </style>
 </head>
 
 <body>
 
+<!-- Üst Panel - Yalnızca Başlıklar -->
+<div class="top-panel">
+    <span>Bina ve Site Yönetimi</span>
+    <span>Hukuk Hizmetleri</span>
+    <span>Temizlik</span>
+    <span>Emlak</span>
+    <span>İlaçlama</span>
+    <span>Güvenlik</span>
+    <span>Peyzaj</span>
+</div>
+
+<!-- Hero -->
 <div class="hero">
     <img src="logo.png" alt="Güzey Grup Logo">
 </div>
 
-<!-- Hizmetler Panel -->
-<div class="services-panel">
-    <div class="service-tab">Bina ve Site Yönetimi</div>
-    <div class="service-tab">Hukuk Hizmetleri</div>
-    <div class="service-tab">Temizlik</div>
-    <div class="service-tab">Emlak</div>
-    <div class="service-tab">İlaçlama</div>
-    <div class="service-tab">Güvenlik</div>
-    <div class="service-tab">Peyzaj</div>
-</div>
-
+<!-- Hakkımızda -->
 <section id="about" class="reveal">
     <h2>Hakkımızda</h2>
     <p class="intro">2005 yılından bu yana kurumsal yönetim anlayışı</p>
@@ -181,6 +240,21 @@ h2{
     </div>
 </section>
 
+<!-- Hizmetlerimiz Alt Bölümü (Eski Hal) -->
+<section id="services" class="reveal">
+    <h2>Hizmetlerimiz</h2>
+    <div class="services-grid">
+        <div class="service-box"><h3>Bina ve Site Yönetimi</h3><p>Şeffaf ve mevzuata uygun yönetim.</p></div>
+        <div class="service-box"><h3>Hukuk Hizmetleri</h3><p>Kat mülkiyeti ve site yönetimi hukuku.</p></div>
+        <div class="service-box"><h3>Temizlik</h3><p>Hijyen odaklı periyodik temizlik.</p></div>
+        <div class="service-box"><h3>Emlak</h3><p>Güvenilir gayrimenkul danışmanlığı.</p></div>
+        <div class="service-box"><h3>İlaçlama</h3><p>Çevre dostu zararlı mücadelesi.</p></div>
+        <div class="service-box"><h3>Güvenlik</h3><p>Yaşam alanlarında huzur.</p></div>
+        <div class="service-box"><h3>Peyzaj</h3><p>Estetik çevre düzenlemeleri.</p></div>
+    </div>
+</section>
+
+<!-- İletişim -->
 <section id="contact" class="reveal">
     <h2>İletişim</h2>
     <div class="contact">
