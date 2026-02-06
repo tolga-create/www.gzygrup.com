@@ -31,46 +31,27 @@ body{
 /* HERO */
 .hero{
     display:flex;
-    flex-direction:column;
     align-items:center;
     justify-content:center;
     text-align:center;
     height:100vh;
-    color:#f5f5f5;
     position:relative;
     z-index:1;
-    overflow:hidden;
 }
 
-/* Logo Şerit */
-.hero .logo-bar{
-    background:rgba(11,21,32,0.8); /* Arka plan rengi şeritle aynı */
-    padding:20px 30px;
-    border-radius:15px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:20px;
-    animation:fadeIn 1.5s ease forwards;
-}
-.hero .logo-bar img{
-    height:100px; /* Logo boyutu */
+/* Logo Ortala */
+.hero img{
+    width:180px; /* Logo boyutu */
+    height:auto;
     object-fit:contain;
-}
-.hero .logo-bar .subtitle{
-    font-family:'Montserrat', sans-serif;
-    font-size:1.8em;
-    font-weight:800;
-    color:#d4af37;
-    letter-spacing:1.5px;
-    white-space:nowrap; /* Tek satır */
-    text-shadow: 2px 2px 12px rgba(0,0,0,0.6);
+    animation:logoFloat 3s ease-in-out infinite alternate;
 }
 
-/* Fade In Animation */
-@keyframes fadeIn{
-    0%{opacity:0;transform:translateY(-20px);}
-    100%{opacity:1;transform:translateY(0);}
+/* Logo hareketi */
+@keyframes logoFloat{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-10px);}
+    100%{transform:translateY(0);}
 }
 
 /* Sections */
@@ -177,8 +158,7 @@ h2{
 
 /* Responsive */
 @media(max-width:600px){
-    .hero .logo-bar img{height:70px;}
-    .hero .logo-bar .subtitle{font-size:1.2em;}
+    .hero img{width:120px;}
     .services-logo{max-width:180px;}
 }
 </style>
@@ -187,10 +167,7 @@ h2{
 <body>
 
 <div class="hero">
-    <div class="logo-bar">
-        <img src="logo.png" alt="Güzey Grup Logo">
-        <span class="subtitle">Bina ve Site Yönetimi • Hukuki Danışmanlık</span>
-    </div>
+    <img src="logo.png" alt="Güzey Grup Logo">
 </div>
 
 <section id="about" class="reveal">
