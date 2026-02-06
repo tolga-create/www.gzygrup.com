@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Güzey Grup | Bina & Site Yönetimi • Hukuk</title>
 
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet">
+
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
@@ -39,8 +42,8 @@ body{
     overflow:hidden;
 }
 .hero img{
-    width:50vw;
-    max-width:350px;
+    width:55vw; /* Biraz büyütüldü */
+    max-width:400px;
     height:auto;
     object-fit:contain;  
     position:absolute;
@@ -48,28 +51,33 @@ body{
     left:50%;
     transform:translate(-50%,-50%);
     z-index:-1;
-    opacity:0.35;
+    opacity:0.45;
 }
 .hero h1{
-    font-size:2.5em; /* Küçültüldü */
-    font-weight:900;
+    font-family:'Montserrat', sans-serif; /* Keskin font */
+    font-size:2.8em;
+    font-weight:800;
     color:#d4af37;
     letter-spacing:2px;
     text-shadow: 2px 2px 15px rgba(0,0,0,0.7);
     position:absolute;
     top:20px;
-    left:20px; /* Sol üst köşeye taşı */
+    left:20px; /* Sol üst köşede */
     animation:textFloat 6s ease-in-out infinite;
 }
 @keyframes textFloat{
     0%,100%{transform:translateY(0);}
     50%{transform:translateY(-5px);}
 }
-.hero p{
-    margin-top:60px; /* Aşağıya taşı */
+.hero .subtitle{
     font-size:1.6em;
     font-weight:600;
     color:#f0e5a8;
+    margin-bottom:20px;
+    position:absolute;
+    top:calc(50% - 100px); /* Logo üstüne taşındı */
+    left:50%;
+    transform:translateX(-50%);
     animation:textFloat 6s ease-in-out infinite alternate;
 }
 
@@ -177,8 +185,8 @@ h2{
 
 /* Responsive */
 @media(max-width:600px){
-    .hero h1{font-size:1.8em; top:15px; left:15px;}
-    .hero p{font-size:1.2em; margin-top:80px;}
+    .hero h1{font-size:2em; top:15px; left:15px;}
+    .hero .subtitle{font-size:1.2em; top:calc(50% - 80px);}
     .services-logo{max-width:180px;}
 }
 </style>
@@ -189,7 +197,7 @@ h2{
 <div class="hero">
     <img src="logo.png" alt="Güzey Grup Logo">
     <h1>GÜZEY GRUP</h1>
-    <p>Bina ve Site Yönetimi • Hukuki Danışmanlık</p>
+    <p class="subtitle">Bina ve Site Yönetimi • Hukuki Danışmanlık</p>
 </div>
 
 <section id="about" class="reveal">
