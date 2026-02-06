@@ -25,19 +25,6 @@ body{
     100%{background-position:0% 50%}
 }
 
-/* Floating Logos in Background */
-.bg-logo{
-    position:absolute;
-    width:80px;
-    opacity:0.05;
-    animation:floatLogo linear infinite;
-}
-@keyframes floatLogo{
-    0%{transform:translateY(0) rotate(0deg);}
-    50%{transform:translateY(-50px) rotate(45deg);}
-    100%{transform:translateY(0) rotate(0deg);}
-}
-
 /* Header */
 header{
     position:fixed;
@@ -51,13 +38,13 @@ header{
 .nav{
     max-width:1100px;
     margin:0 auto;
-    padding:14px 30px;
+    padding:14px 0;
     display:flex;
     align-items:center;
-    justify-content:flex-end;
+    justify-content:center; /* Ortala */
 }
 .nav a{
-    margin-left:26px;
+    margin:0 26px;
     color:#e7d48b;
     font-size:1.05em;
     text-decoration:none;
@@ -90,20 +77,21 @@ header{
     color:#f5f5f5;
     position:relative;
     z-index:1;
+    overflow:hidden;
 }
 .hero img{
-    width:250px;
-    opacity:0.15; /* saydam logo */
-    margin-bottom:20px;
-    animation:logoFloat 6s ease-in-out infinite;
-}
-@keyframes logoFloat{
-    0%,100%{transform:translateY(0);}
-    50%{transform:translateY(-20px);}
+    width:100vw;
+    height:100vh;
+    object-fit:cover;
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:-1;
+    opacity:0.25;
 }
 .hero h1{
     font-size:5em;
-    font-weight:800;
+    font-weight:900;
     color:#d4af37;
     letter-spacing:4px;
     animation:textFloat 6s ease-in-out infinite;
@@ -113,7 +101,7 @@ header{
     50%{transform:translateY(-15px);}
 }
 .hero p{
-    margin-top:16px;
+    margin-top:20px;
     font-size:1.6em;
     font-weight:600;
     color:#f0e5a8;
@@ -125,6 +113,7 @@ section{
     padding:140px 30px 80px;
     max-width:1100px;
     margin:0 auto;
+    text-align:center;
 }
 h2{
     text-align:center;
@@ -140,7 +129,10 @@ h2{
     line-height:2;
     font-size:1.15em;
 }
+
+/* About & Contact Animations */
 .about, .contact{
+    display:inline-block;
     background:rgba(255,255,255,0.05);
     padding:30px 25px;
     border-radius:20px;
@@ -149,6 +141,14 @@ h2{
     line-height:2.1;
     font-size:1.15em;
     color:#f5f5f5;
+    text-align:center;
+    transform:translateY(50px);
+    opacity:0;
+    transition:1s ease;
+}
+.about.active, .contact.active{
+    transform:translateY(0);
+    opacity:1;
 }
 
 /* Services */
@@ -206,7 +206,6 @@ h2{
 
 /* Responsive */
 @media(max-width:600px){
-    .hero img{width:160px;}
     .hero h1{font-size:3.5em;}
     .hero p{font-size:1.2em;}
 }
@@ -222,12 +221,6 @@ h2{
         <a href="#contact">İletişim</a>
     </div>
 </header>
-
-<!-- Floating logos in background -->
-<img src="logo.png" class="bg-logo" style="top:10%; left:15%;">
-<img src="logo.png" class="bg-logo" style="top:40%; left:70%;">
-<img src="logo.png" class="bg-logo" style="top:65%; left:30%;">
-<img src="logo.png" class="bg-logo" style="top:80%; left:80%;">
 
 <div class="hero">
     <img src="logo.png" alt="Güzey Grup Logo">
@@ -274,16 +267,22 @@ h2{
 <a href="https://wa.me/905074725877" class="whatsapp" target="_blank">WhatsApp</a>
 
 <script>
-// Scroll reveal
+// Scroll reveal for sections
 const reveals=document.querySelectorAll(".reveal");
-const observer=new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{
-        if(entry.isIntersecting){
-            entry.target.classList.add("active");
-        }
-    });
-},{threshold:0.25});
-reveals.forEach(r=>observer.observe(r));
+reveals.forEach(section=>{
+    const observer=new IntersectionObserver(entries=>{
+        entries.forEach(entry=>{
+            if(entry.isIntersecting){
+                section.classList.add("active");
+                const about=section.querySelector(".about");
+                const contact=section.querySelector(".contact");
+                if(about) about.classList.add("active");
+                if(contact) contact.classList.add("active");
+            }
+        });
+    },{threshold:0.3});
+    observer.observe(section);
+});
 </script>
 
 </body>
