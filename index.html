@@ -41,40 +41,36 @@ body{
     z-index:1;
     overflow:hidden;
 }
-.hero img{
-    width:120px; /* Küçültüldü */
-    height:auto;
-    object-fit:contain;  
-    position:absolute;
-    top:20px; /* Sol üst köşe */
-    left:20px;
-    z-index:1;
-}
-.hero .subtitle-wrapper{
-    padding:12px 25px;
-    border:2px solid #d4af37;
+
+/* Logo Şerit */
+.hero .logo-bar{
+    background:rgba(11,21,32,0.8); /* Arka plan rengi şeritle aynı */
+    padding:20px 30px;
     border-radius:15px;
-    display:inline-block;
-    background:rgba(0,0,0,0.25);
-    animation:textFloat 6s ease-in-out infinite alternate;
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%, -50%);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:20px;
+    animation:fadeIn 1.5s ease forwards;
 }
-.hero .subtitle{
+.hero .logo-bar img{
+    height:100px; /* Logo boyutu */
+    object-fit:contain;
+}
+.hero .logo-bar .subtitle{
     font-family:'Montserrat', sans-serif;
     font-size:1.8em;
     font-weight:800;
     color:#d4af37;
     letter-spacing:1.5px;
+    white-space:nowrap; /* Tek satır */
     text-shadow: 2px 2px 12px rgba(0,0,0,0.6);
 }
 
-/* Text float animation */
-@keyframes textFloat{
-    0%,100%{transform:translate(-50%, -50%) translateY(0);}
-    50%{transform:translate(-50%, -50%) translateY(-8px);}
+/* Fade In Animation */
+@keyframes fadeIn{
+    0%{opacity:0;transform:translateY(-20px);}
+    100%{opacity:1;transform:translateY(0);}
 }
 
 /* Sections */
@@ -181,8 +177,8 @@ h2{
 
 /* Responsive */
 @media(max-width:600px){
-    .hero img{width:90px; top:15px; left:15px;}
-    .hero .subtitle{font-size:1.2em;}
+    .hero .logo-bar img{height:70px;}
+    .hero .logo-bar .subtitle{font-size:1.2em;}
     .services-logo{max-width:180px;}
 }
 </style>
@@ -191,8 +187,8 @@ h2{
 <body>
 
 <div class="hero">
-    <img src="logo.png" alt="Güzey Grup Logo">
-    <div class="subtitle-wrapper">
+    <div class="logo-bar">
+        <img src="logo.png" alt="Güzey Grup Logo">
         <span class="subtitle">Bina ve Site Yönetimi • Hukuki Danışmanlık</span>
     </div>
 </div>
