@@ -3,143 +3,128 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Güzey Grup | Sitemiz Hazırlanıyor</title>
+<title>Güzey Grup | Bina & Site Yönetimi • Hukuk Hizmetleri</title>
 
 <style>
 *{box-sizing:border-box}
 body{
     margin:0;
-    font-family:Arial, Helvetica, sans-serif;
-    color:#e5e7eb;
-    background:linear-gradient(-45deg,#020617,#0b1f3a,#1e3a8a,#020617);
-    background-size:500% 500%;
-    animation:bgFlow 14s ease infinite;
-    position:relative;
-    overflow-x:hidden; /* Yatay kaydırma gizlendi, dikey kaydırma açık */
+    font-family:"Segoe UI", Arial, sans-serif;
+    color:#f5f5f5;
+    background:linear-gradient(-45deg,#0f1b24,#152733,#0f1b24);
+    background-size:400% 400%;
+    animation:bgFlow 18s ease infinite;
 }
-
-/* GRAIN / NOISE */
-body::after{
-    content:"";
-    position:fixed;
-    inset:0;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
-    pointer-events:none;
-    z-index:0;
-}
-
 @keyframes bgFlow{
     0%{background-position:0% 50%}
     50%{background-position:100% 50%}
     100%{background-position:0% 50%}
 }
 
-.wrapper{
-    min-height:100vh;
-    display:flex;
-    align-items:flex-start; /* İçerik uzun olsa bile alta doğru akıyor */
-    justify-content:center;
-    padding:60px 40px;
-    position:relative;
-    z-index:1;
+.container{
+    max-width:1100px;
+    margin:0 auto;
+    padding:90px 30px;
 }
 
-/* PANEL */
-.panel{
-    width:100%;
-    max-width:760px;
-    background:linear-gradient(180deg,rgba(255,255,255,0.10),rgba(255,255,255,0.04));
-    border:1px solid rgba(255,255,255,0.18);
-    border-radius:26px;
-    padding:70px 60px;
+.hero{
     text-align:center;
-    backdrop-filter:blur(16px);
-    box-shadow:0 40px 100px rgba(0,0,0,0.6);
-    animation:panelIntro 1.2s ease forwards;
-    opacity:0;
-    transform:scale(0.96);
-}
-@keyframes panelIntro{
-    to{opacity:1;transform:scale(1)}
+    padding-top:60px;
 }
 
-/* SVG HOURGLASS */
-.hourglass{
-    width:64px;
-    margin:0 auto 20px;
-}
-.hourglass svg{
-    width:100%;
-    fill:none;
-    stroke:#93c5fd;
-    stroke-width:2;
-    animation:glassFloat 2.8s ease-in-out infinite;
-}
-@keyframes glassFloat{
-    0%{transform:rotate(-4deg)}
-    50%{transform:rotate(4deg)}
-    100%{transform:rotate(-4deg)}
+.logo{
+    width:180px;
+    margin-bottom:26px;
 }
 
-h1{
+.hero h1{
+    font-size:3em;
+    letter-spacing:2px;
     margin:0;
-    font-size:3.2em;
-    letter-spacing:1.4px;
-    font-weight:700;
+    color:#d4af37;
 }
-.status{
-    margin-top:12px;
+
+.hero p{
+    margin-top:14px;
     font-size:1.15em;
-    color:#c7d2fe;
+    color:#e7d48b;
 }
 
 .divider{
     width:90px;
     height:2px;
-    background:linear-gradient(90deg,#60a5fa,#3b82f6);
-    margin:34px auto 40px;
+    background:#d4af37;
+    margin:40px auto;
     border-radius:3px;
 }
 
-/* COUNTDOWN */
-.countdown{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:36px;
-    margin-bottom:42px;
+/* SECTION */
+section{
+    margin-top:120px;
 }
-.time span{
-    display:block;
-    font-size:2.3em;
-    font-weight:600;
-    color:#fff;
+section h2{
+    text-align:center;
+    font-size:2.1em;
+    color:#d4af37;
 }
-.time small{
-    font-size:0.75em;
-    letter-spacing:1px;
-    color:#a5b4fc;
+section .intro{
+    text-align:center;
+    max-width:720px;
+    margin:20px auto 70px;
+    color:#e7d48b;
+    line-height:1.9;
 }
 
-.contact{
-    font-size:1.05em;
+/* ABOUT */
+.about{
+    max-width:900px;
+    margin:0 auto;
     line-height:2;
-    color:#e0e7ff;
+    font-size:1.05em;
+    color:#f1f1f1;
 }
 
-.services{
-    margin-top:44px;
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:20px;
-    font-size:0.95em;
+/* SERVICES */
+.services-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
 }
-.services span{
-    padding:8px 20px;
-    border:1px solid rgba(255,255,255,0.2);
-    border-radius:40px;
+.service-box{
+    padding:34px 30px;
     background:rgba(255,255,255,0.05);
+    border:1px solid rgba(212,175,55,0.35);
+    border-radius:22px;
+    backdrop-filter:blur(14px);
+    box-shadow:0 25px 70px rgba(0,0,0,0.55);
+}
+.service-box h3{
+    margin-top:0;
+    margin-bottom:14px;
+    font-size:1.25em;
+    color:#d4af37;
+}
+.service-box p{
+    font-size:0.98em;
+    line-height:1.8;
+    color:#f1f1f1;
+}
+
+/* CONTACT */
+.contact{
+    text-align:center;
+    font-size:1.1em;
+    line-height:2.1;
+}
+.contact strong{
+    color:#d4af37;
+}
+
+.footer-note{
+    text-align:center;
+    margin-top:60px;
+    font-size:0.9em;
+    color:#e7d48b;
 }
 
 /* WHATSAPP */
@@ -149,87 +134,117 @@ h1{
     right:26px;
     background:#25D366;
     color:#fff;
-    padding:15px 26px;
+    padding:14px 24px;
     border-radius:50px;
-    text-decoration:none;
     font-weight:600;
     box-shadow:0 10px 26px rgba(0,0,0,0.5);
     transition:0.3s;
-    z-index:2;
 }
 .whatsapp:hover{
     transform:scale(1.06);
-    background:#1ebe5d;
 }
 
 /* RESPONSIVE */
 @media(max-width:600px){
-    h1{font-size:2.4em;}
-    .countdown .time span{font-size:1.8em;}
-    .panel{padding:50px 30px;}
+    .hero h1{font-size:2.3em;}
+    .logo{width:140px;}
 }
 </style>
 </head>
 
 <body>
 
-<div class="wrapper">
-    <div class="panel">
-
-        <!-- PREMIUM SVG KUM SAATI -->
-        <div class="hourglass">
-            <svg viewBox="0 0 24 24">
-                <path d="M6 2h12M6 22h12M8 2v4c0 2 2 4 4 6-2 2-4 4-4 6v4M16 2v4c0 2-2 4-4 6 2 2 4 4 4 6v4"/>
-            </svg>
-        </div>
-
-        <h1>Güzey Grup</h1>
-        <div class="status">Sitemiz Hazırlanıyor</div>
-
-        <div class="divider"></div>
-
-        <div class="countdown">
-            <div class="time"><span id="days">00</span><small>GÜN</small></div>
-            <div class="time"><span id="hours">00</span><small>SAAT</small></div>
-            <div class="time"><span id="minutes">00</span><small>DK</small></div>
-            <div class="time"><span id="seconds">00</span><small>SN</small></div>
-        </div>
-
-        <div class="contact">
-            0507 472 58 77<br>
-            0552 662 01 58<br>
-            0232 484 73 32<br><br>
-            info@gzygrup.com
-        </div>
-
-        <div class="services">
-            <span>Bina ve Site Yönetimi</span>
-            <span>Emlak Danışmanlığı</span>
-            <span>Hukuki Danışmanlık</span>
-            <span>Peyzaj</span>
-            <span>Güvenlik</span>
-        </div>
-    </div>
+<!-- HERO -->
+<div class="container hero">
+    <img src="logo.png" alt="Güzey Grup Logo" class="logo">
+    <h1>GÜZEY GRUP</h1>
+    <p>Bina ve Site Yönetimi • Hukuki Danışmanlık</p>
+    <div class="divider"></div>
+    <p>Profesyonel yönetim anlayışı, şeffaf süreçler ve güvenilir çözümler.</p>
 </div>
 
-<a href="https://wa.me/905074725877" class="whatsapp" target="_blank">WhatsApp</a>
+<!-- ABOUT -->
+<section class="container">
+    <h2>Hakkımızda</h2>
+    <p class="intro">2005 yılından bu yana kurumsal yönetim anlayışı</p>
 
-<script>
-const launchDate = new Date();
-launchDate.setMonth(launchDate.getMonth() + 3);
+    <div class="about">
+        Güzey Grup, 2005 yılında İzmir’de <strong>Güzey Yönetim</strong> adıyla kurulmuştur.
+        Kuruluşundan bu yana kalite, dürüstlük ve profesyonellik ilkeleri doğrultusunda
+        faaliyetlerini sürdürmektedir.<br><br>
 
-function updateCountdown(){
-    const now = new Date().getTime();
-    const d = launchDate - now;
+        Zaman içerisinde büyüyerek <strong>Güzey Grup</strong> çatısı altında
+        Ege Bölgesi genelinde bina ve site yönetimi, hukuki danışmanlık ve emlak alanlarında
+        hizmet sunan kurumsal bir yapıya dönüşmüştür.<br><br>
 
-    document.getElementById("days").innerText = Math.floor(d / (1000*60*60*24));
-    document.getElementById("hours").innerText = Math.floor((d%(1000*60*60*24))/(1000*60*60));
-    document.getElementById("minutes").innerText = Math.floor((d%(1000*60*60))/(1000*60));
-    document.getElementById("seconds").innerText = Math.floor((d%(1000*60))/1000);
-}
-setInterval(updateCountdown,1000);
-updateCountdown();
-</script>
+        Müşteri odaklı yaklaşımımızla, her projede güvenilir ve sürdürülebilir
+        çözümler üretmeyi hedefliyoruz.
+    </div>
+</section>
+
+<!-- SERVICES -->
+<section class="container">
+    <h2>Hizmetlerimiz</h2>
+    <p class="intro">Yaşam alanlarına değer katan entegre çözümler</p>
+
+    <div class="services-grid">
+        <div class="service-box">
+            <h3>Bina ve Site Yönetimi</h3>
+            <p>Aidat takibi, bakım-onarım ve tüm yönetim süreçlerinin profesyonel yürütülmesi.</p>
+        </div>
+
+        <div class="service-box">
+            <h3>Hukuk Hizmetleri</h3>
+            <p>Kat Mülkiyeti Kanunu kapsamında hukuki danışmanlık ve yönlendirme.</p>
+        </div>
+
+        <div class="service-box">
+            <h3>Profesyonel Temizlik</h3>
+            <p>Ortak alanlar için periyodik ve hijyen odaklı temizlik hizmetleri.</p>
+        </div>
+
+        <div class="service-box">
+            <h3>Emlak Hizmetleri</h3>
+            <p>Alım, satım ve kiralama süreçlerinde güvenilir emlak danışmanlığı.</p>
+        </div>
+
+        <div class="service-box">
+            <h3>İlaçlama Hizmetleri</h3>
+            <p>İnsan sağlığına duyarlı, çevre dostu ilaçlama çözümleri.</p>
+        </div>
+
+        <div class="service-box">
+            <h3>Güvenlik Hizmetleri</h3>
+            <p>Yaşam alanlarında huzur ve düzen için profesyonel güvenlik uygulamaları.</p>
+        </div>
+
+        <div class="service-box">
+            <h3>Peyzaj & Çevre Düzenleme</h3>
+            <p>Yeşil alanların estetik ve bakımlı şekilde düzenlenmesi.</p>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="container">
+    <h2>İletişim</h2>
+    <p class="intro">Bizimle doğrudan iletişime geçebilirsiniz</p>
+
+    <div class="contact">
+        <strong>Telefon</strong><br>
+        0507 472 58 77 • 0552 662 01 58<br>
+        0232 484 73 32<br><br>
+
+        <strong>E-posta</strong><br>
+        info@gzygrup.com
+    </div>
+
+    <div class="footer-note">
+        Güzey Grup © 2005 – Günümüz
+    </div>
+</section>
+
+<a href="https://wa.me/905074725877" target="_blank" class="whatsapp">WhatsApp</a>
 
 </body>
 </html>
