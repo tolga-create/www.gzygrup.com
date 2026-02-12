@@ -3,310 +3,225 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Güzey Grup</title>
+<title>Güzey Grup | Profesyonel Site ve Bina Yönetimi</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0;}
+*{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
+
 body{
-    font-family:"Segoe UI", Arial, sans-serif;
-    color:#f5f5f5;
-    background: linear-gradient(-45deg,#0b1520,#132432,#0b1520,#132432);
-    background-size:400% 400%;
-    animation:bgFlow 30s ease infinite;
-    overflow-x:hidden;
-    position:relative;
-}
-
-/* Background Animation */
-@keyframes bgFlow{
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
-}
-
-/* Üst Panel Başlıkları */
-.top-panel{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:16px;
-    padding:16px 10px;
-    background:rgba(245, 222, 179, 0.85); /* Krem ton */
-    position:sticky;
-    top:0;
-    z-index:999;
-    backdrop-filter:blur(8px);
-}
-.top-panel span{
-    padding:10px 18px;
-    font-weight:700;
-    color:#222; 
-    opacity:0.9; /* Hafif saydam */
-    border-radius:12px;
-    cursor:pointer;
-    transition:0.3s ease;
-}
-.top-panel span:hover{
-    background:rgba(212,175,55,0.25);
-    transform:translateY(-3px) scale(1.05);
-}
-
-/* Hero Logo Fullscreen */
-.hero{
-    position:relative;
-    width:100%;
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    overflow:hidden;
-}
-.hero img{
-    position:absolute;
-    width:140%; /* Daha büyük logo */
-    height:140%;
-    object-fit:contain;
-    opacity:0.12; /* Saydamlık */
-    animation:logoFloat 10s ease-in-out infinite alternate;
-    filter:drop-shadow(0 0 20px #d4af37);
-    z-index:1;
-}
-@keyframes logoFloat{
-    0%{transform:scale(1) translateY(0);}
-    50%{transform:scale(1.1) translateY(-25px);}
-    100%{transform:scale(1) translateY(0);}
-}
-
-/* İçerik bölümleri */
-.content{
-    position:relative;
-    z-index:2;
-    max-width:1100px;
-    margin:0 auto;
-    padding:60px 20px;
-}
-
-/* Hakkımızda ve Hizmetler */
-section{
-    padding:80px 20px;
-    text-align:center;
-}
-h2{
-    color:#d4af37;
-    font-size:2.8em;
-    margin-bottom:20px;
-}
-.intro{
-    color:#e7d48b;
-    line-height:2;
-    font-size:1.15em;
-}
-
-/* Hizmet kutucukları */
-.services-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:36px;
-    justify-items:center;
-    margin-top:40px;
-}
-.service-box{
-    padding:24px 30px;
-    background:rgba(255,255,255,0.08);
-    border:2px solid rgba(212,175,55,0.6);
-    border-radius:20px;
-    box-shadow:0 20px 50px rgba(0,0,0,0.6);
-    transition:0.5s ease;
-    cursor:pointer;
-    width:100%;
-    max-width:280px;
-    position:relative;
-    overflow:hidden;
-}
-.service-box::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:linear-gradient(120deg,rgba(212,175,55,0.3),rgba(255,255,255,0));
-    transform:translateX(-100%);
-    transition:0.6s ease;
-}
-.service-box:hover::before{
-    transform:translateX(0);
-}
-.service-box:hover{
-    transform:translateY(-10px) scale(1.06);
-    box-shadow:0 35px 80px rgba(212,175,55,0.9);
-    border-color:#d4af37;
-    background:rgba(212,175,55,0.12);
-}
-.service-box h3{
-    margin-bottom:12px;
-    color:#ffd700;
-    font-size:1.4em;
-    font-weight:800;
-    text-shadow:2px 2px 12px rgba(0,0,0,0.6);
-}
-.service-box p{
-    color:#f5f5f5;
-    line-height:1.8;
-}
-
-/* İletişim Animasyonlu Eski Çerçeveli Stil - Gri Tonları */
-#contact{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    background:linear-gradient(135deg, rgba(50,50,50,0.3), rgba(100,100,100,0.05));
-    border:3px solid rgba(200,200,200,0.8);
-    border-radius:26px;
-    padding:60px 40px;
-    margin-top:60px;
-    box-shadow:0 40px 100px rgba(0,0,0,0.6);
-    transform:translateY(40px);
-    opacity:0;
-    transition:1s ease;
-}
-#contact.active{
-    transform:translateY(0);
-    opacity:1;
-}
-#contact h2{
-    font-size:3em;
-    color:#f0f0f0;
-    margin-bottom:30px;
-    text-shadow:2px 2px 20px rgba(0,0,0,0.7);
-}
-#contact .contact{
-    font-size:1.25em;
-    line-height:2;
-    color:#e0e0e0;
-    text-align:center;
-    text-shadow:1px 1px 12px rgba(0,0,0,0.6);
-}
-
-/* Scroll reveal */
-.reveal{
-    opacity:0;
-    transform:translateY(40px);
-    transition:0.9s ease;
-}
-.reveal.active{
-    opacity:1;
-    transform:none;
-}
-
-/* WhatsApp */
-.whatsapp{
-    position:fixed;
-    bottom:26px;
-    right:26px;
-    background:#25d366;
+    font-family: 'Montserrat', sans-serif;
+    background:#0f1720;
     color:#fff;
-    padding:14px 24px;
-    border-radius:50px;
-    font-weight:600;
-    box-shadow:0 10px 26px rgba(0,0,0,0.5);
+}
+
+/* NAVBAR */
+nav{
+    position:fixed;
+    width:100%;
+    top:0;
+    background:rgba(15,23,32,0.95);
+    backdrop-filter:blur(10px);
+    padding:18px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:1000;
+    border-bottom:1px solid rgba(212,175,55,0.2);
+}
+
+nav h1{
+    color:#d4af37;
+    font-size:22px;
+    font-weight:800;
+}
+
+nav a{
+    color:#fff;
+    text-decoration:none;
+    margin-left:25px;
+    font-weight:500;
     transition:0.3s;
 }
-.whatsapp:hover{transform:scale(1.06);}
 
-/* Responsive */
-@media(max-width:600px){
-    .top-panel{gap:10px; padding:15px 5px;}
-    .top-panel span{padding:8px 12px; font-size:0.9em;}
-    .services-grid{gap:20px;}
-    .service-box{max-width:100%;}
-    #contact{padding:40px 20px;}
-    #contact h2{font-size:2.2em;}
-    #contact .contact{font-size:1.1em;}
+nav a:hover{
+    color:#d4af37;
+}
+
+/* HERO */
+.hero{
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url('logo.png') center/contain no-repeat;
+}
+
+.hero-content{
+    max-width:800px;
+}
+
+.hero h2{
+    font-size:48px;
+    font-weight:800;
+    margin-bottom:20px;
+}
+
+.hero p{
+    font-size:18px;
+    opacity:0.85;
+    margin-bottom:30px;
+}
+
+.btn{
+    display:inline-block;
+    padding:14px 30px;
+    background:#d4af37;
+    color:#000;
+    border-radius:40px;
+    font-weight:700;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:scale(1.08);
+    box-shadow:0 10px 30px rgba(212,175,55,0.5);
+}
+
+/* SECTION */
+section{
+    padding:100px 8%;
+    text-align:center;
+}
+
+section h2{
+    font-size:36px;
+    color:#d4af37;
+    margin-bottom:20px;
+}
+
+/* SERVICES */
+.services{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+    margin-top:50px;
+}
+
+.card{
+    padding:30px;
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(212,175,55,0.3);
+    border-radius:20px;
+    transition:0.4s;
+}
+
+.card:hover{
+    transform:translateY(-12px);
+    background:rgba(212,175,55,0.1);
+    box-shadow:0 20px 50px rgba(212,175,55,0.3);
+}
+
+.card h3{
+    margin-bottom:15px;
+    color:#fff;
+}
+
+/* CONTACT */
+.contact-box{
+    margin-top:40px;
+    font-size:18px;
+    line-height:2;
+}
+
+/* FOOTER */
+footer{
+    background:#0b1218;
+    padding:30px;
+    text-align:center;
+    font-size:14px;
+    opacity:0.6;
+}
+
+/* WHATSAPP */
+.whatsapp{
+    position:fixed;
+    bottom:25px;
+    right:25px;
+    background:#25d366;
+    color:#fff;
+    padding:14px 22px;
+    border-radius:50px;
+    font-weight:600;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.whatsapp:hover{
+    transform:scale(1.1);
+}
+
+@media(max-width:768px){
+    .hero h2{font-size:32px;}
+    nav{padding:15px 5%;}
 }
 </style>
 </head>
 <body>
 
-<!-- Üst Panel Başlıkları -->
-<div class="top-panel">
-    <span>Bina ve Site Yönetimi</span>
-    <span>Hukuk Hizmetleri</span>
-    <span>Temizlik</span>
-    <span>Emlak</span>
-    <span>İlaçlama</span>
-    <span>Güvenlik</span>
-    <span>Peyzaj</span>
-</div>
+<nav>
+    <h1>Güzey Grup</h1>
+    <div>
+        <a href="#about">Hakkımızda</a>
+        <a href="#services">Hizmetler</a>
+        <a href="#contact">İletişim</a>
+    </div>
+</nav>
 
-<!-- Hero Logo Fullscreen -->
 <div class="hero">
-    <img src="logo.png" alt="Güzey Grup Logo">
+    <div class="hero-content">
+        <h2>Profesyonel Bina & Site Yönetimi</h2>
+        <p>Ege Bölgesi’nde entegre yönetim, hukuk ve yaşam alanı hizmetleri.</p>
+        <a href="#contact" class="btn">Teklif Alın</a>
+    </div>
 </div>
 
-<!-- İçerik -->
-<div class="content">
-
-<!-- Hakkımızda -->
-<section id="about" class="reveal">
+<section id="about">
     <h2>Hakkımızda</h2>
-    <p class="intro">2005 yılında İzmir’de kurulan Güzey Grup, Ege Bölgesi genelinde Bina ve Site Yönetimi ile Hukuk Hizmetleri alanlarında profesyonel hizmet sunmaktadır.</p>
+    <p>2005 yılında İzmir’de kurulan Güzey Grup, bina ve site yönetimi başta olmak üzere hukuk, temizlik, emlak, güvenlik ve peyzaj hizmetlerini tek çatı altında sunmaktadır.</p>
 </section>
 
-<!-- Hizmetlerimiz -->
-<section id="services" class="reveal">
+<section id="services">
     <h2>Hizmetlerimiz</h2>
-    <div class="services-grid">
-        <div class="service-box"><h3>Bina ve Site Yönetimi</h3><p>Şeffaf ve mevzuata uygun yönetim.</p></div>
-        <div class="service-box"><h3>Hukuk Hizmetleri</h3><p>Kat mülkiyeti ve site yönetimi hukuku.</p></div>
-        <div class="service-box"><h3>Temizlik</h3><p>Hijyen odaklı periyodik temizlik.</p></div>
-        <div class="service-box"><h3>Emlak</h3><p>Güvenilir gayrimenkul danışmanlığı.</p></div>
-        <div class="service-box"><h3>İlaçlama</h3><p>Çevre dostu zararlı mücadelesi.</p></div>
-        <div class="service-box"><h3>Güvenlik</h3><p>Yaşam alanlarında huzur.</p></div>
-        <div class="service-box"><h3>Peyzaj</h3><p>Estetik çevre düzenlemeleri.</p></div>
+    <div class="services">
+        <div class="card"><h3>Bina & Site Yönetimi</h3><p>Şeffaf, mevzuata uygun ve profesyonel yönetim.</p></div>
+        <div class="card"><h3>Hukuk Hizmetleri</h3><p>Kat mülkiyeti ve site hukuku uzmanlığı.</p></div>
+        <div class="card"><h3>Temizlik</h3><p>Periyodik ve profesyonel hijyen hizmetleri.</p></div>
+        <div class="card"><h3>Emlak</h3><p>Güvenilir gayrimenkul danışmanlığı.</p></div>
+        <div class="card"><h3>İlaçlama</h3><p>Çevre dostu zararlı kontrolü.</p></div>
+        <div class="card"><h3>Güvenlik & Peyzaj</h3><p>Yaşam alanlarında huzur ve estetik.</p></div>
     </div>
 </section>
 
-<!-- İletişim -->
 <section id="contact">
     <h2>İletişim</h2>
-    <div class="contact">
-        <strong>Telefon</strong><br>
-        0507 472 58 77 • 0552 662 01 58<br>
-        0232 484 73 32<br><br>
-        <strong>E-posta</strong><br>
+    <div class="contact-box">
+        <strong>Telefon:</strong><br>
+        0507 472 58 77 • 0552 662 01 58 • 0232 484 73 32<br><br>
+        <strong>E-posta:</strong><br>
         info@gzygrup.com
     </div>
 </section>
 
+<footer>
+© 2026 Güzey Grup | Tüm Hakları Saklıdır
+</footer>
+
 <a href="https://wa.me/905074725877" class="whatsapp" target="_blank">WhatsApp</a>
-
-<script>
-// Scroll reveal for sections
-const reveals=document.querySelectorAll(".reveal");
-reveals.forEach(section=>{
-    const observer=new IntersectionObserver(entries=>{
-        entries.forEach(entry=>{
-            if(entry.isIntersecting){
-                section.classList.add("active");
-            }
-        });
-    },{threshold:0.3});
-    observer.observe(section);
-});
-
-// İletişim animasyon
-const contactSection = document.getElementById('contact');
-const contactObserver = new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{
-        if(entry.isIntersecting){
-            contactSection.classList.add('active');
-        }
-    });
-},{threshold:0.3});
-contactObserver.observe(contactSection);
-</script>
 
 </body>
 </html>
