@@ -3,116 +3,253 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Güzey Grup | Profesyonel Yönetim & Hizmetler</title>
+<title>Güzey Grup | Profesyonel Yönetim</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 <style>
-/* GLOBAL */
-*{margin:0; padding:0; box-sizing:border-box;}
+*{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-body{font-family:'Inter',sans-serif; background:#fff; color:#111; line-height:1.6;}
+
+body{
+    font-family:'Montserrat',sans-serif;
+    background:#0b1c2d;
+    color:#fff;
+    overflow-x:hidden;
+    position:relative;
+}
+
+/* BACKGROUND LOGO */
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:url('logo.png') center center no-repeat;
+    background-size:60%;
+    opacity:0.05;
+    filter:blur(4px);
+    z-index:0;
+}
 
 /* NAV */
 nav{
-    width:100%; padding:18px 8%; display:flex; justify-content:space-between; align-items:center;
-    position:fixed; top:0; left:0; background:rgba(255,255,255,0.95); box-shadow:0 2px 8px rgba(0,0,0,0.08); z-index:999;
+    position:fixed;
+    width:100%;
+    padding:20px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(11,28,45,0.85);
+    backdrop-filter:blur(8px);
+    z-index:1000;
 }
-nav .logo{font-size:26px; font-weight:700; color:#0a2a49;}
-nav .menu a{margin-left:24px; text-decoration:none; color:#0a2a49; font-weight:500;}
-nav .menu a:hover{color:#0077cc;}
+
+nav .logo{
+    font-family:'Playfair Display',serif;
+    font-size:28px;
+    font-weight:700;
+    background:linear-gradient(90deg,#e6c76b,#ffd700);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+nav a{
+    color:#fff;
+    text-decoration:none;
+    margin-left:28px;
+    font-weight:500;
+    transition:0.3s;
+}
+nav a:hover{
+    color:#ffd700;
+}
 
 /* HERO */
 .hero{
-    padding-top:100px; text-align:center; background:#f9f9f9; padding-bottom:80px;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    position:relative;
+    z-index:1;
 }
-.hero h1{font-size:44px; font-weight:700; color:#0a2a49; margin-bottom:18px;}
-.hero p{font-size:18px; margin-bottom:24px; color:#333;}
-.btn-primary{
-    padding:12px 28px; background:#0077cc; color:#fff; border:none;
-    border-radius:36px; font-weight:600; text-decoration:none; transition:0.3s;
+
+.hero h1{
+    font-family:'Playfair Display',serif;
+    font-size:60px;
+    line-height:1.2;
+    background:linear-gradient(90deg,#e6c76b,#ffd700);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    text-shadow:0 0 20px rgba(255,215,0,0.25);
 }
-.btn-primary:hover{background:#005fa3;}
+
+.hero p{
+    margin-top:20px;
+    font-size:20px;
+    opacity:0.9;
+}
+
+.btn{
+    margin-top:30px;
+    display:inline-block;
+    padding:14px 36px;
+    border:2px solid #ffd700;
+    border-radius:40px;
+    font-weight:600;
+    color:#ffd700;
+    text-decoration:none;
+    transition:0.3s;
+}
+.btn:hover{
+    background:#ffd700;
+    color:#0b1c2d;
+}
 
 /* SECTION */
-section{padding:80px 8%;}
-section h2{font-size:32px; color:#0a2a49; font-weight:700; margin-bottom:16px; text-align:center;}
+section{
+    padding:120px 8%;
+    position:relative;
+    z-index:1;
+}
+
+section h2{
+    font-family:'Playfair Display',serif;
+    font-size:42px;
+    text-align:center;
+    margin-bottom:40px;
+    background:linear-gradient(90deg,#e6c76b,#ffd700);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
 
 /* SERVICES */
-.services-list{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:28px; margin-top:40px;}
-.service-card{
-    border:1px solid rgba(0,119,204,0.25); border-radius:18px; padding:24px;
-    transition:0.4s; background:#fff;
+.services{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
 }
-.service-card:hover{
-    box-shadow:0 18px 45px rgba(0,119,204,0.15); transform:translateY(-8px);
-}
-.service-card h3{font-size:22px; font-weight:600; margin-bottom:10px; color:#0077cc;}
 
-/* PACKAGES TABLE */
-.packages{margin-top:40px;}
-.package{border:1px solid rgba(0,119,204,0.3); padding:22px; border-radius:18px; margin-bottom:18px;}
-.package h4{font-size:20px; font-weight:600; margin-bottom:8px; color:#0077cc;}
+.card{
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,215,0,0.4);
+    padding:30px;
+    border-radius:20px;
+    backdrop-filter:blur(10px);
+    transition:0.4s;
+}
+.card:hover{
+    transform:translateY(-12px);
+    box-shadow:0 20px 50px rgba(255,215,0,0.2);
+}
+
+.card h3{
+    font-size:22px;
+    margin-bottom:12px;
+    color:#ffd700;
+}
+
+.card p{
+    opacity:0.9;
+}
 
 /* CONTACT */
-.contact-box{margin-top:24px; text-align:center; font-size:18px;}
-.contact-box strong{color:#0077cc;}
+.contact-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
+}
 
-/* FOOTER */
+.contact-card{
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,215,0,0.4);
+    border-radius:20px;
+    padding:30px;
+    text-align:center;
+    transition:0.4s;
+}
+.contact-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 20px 50px rgba(255,215,0,0.25);
+}
+
+.contact-card i{
+    font-size:32px;
+    margin-bottom:15px;
+    color:#ffd700;
+}
+
 footer{
-    text-align:center; padding:26px 0; margin-top:60px; font-size:14px; color:#666;
+    text-align:center;
+    padding:30px;
+    margin-top:60px;
+    opacity:0.6;
+}
+
+@media(max-width:768px){
+    .hero h1{font-size:38px;}
 }
 </style>
+
+<script src="https://kit.fontawesome.com/4d5d5f3c1a.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
 
 <nav>
     <div class="logo">Güzey Grup</div>
-    <div class="menu">
+    <div>
         <a href="#about">Hakkımızda</a>
         <a href="#services">Hizmetler</a>
-        <a href="#packages">Paketler</a>
         <a href="#contact">İletişim</a>
     </div>
 </nav>
 
 <div class="hero">
-    <h1>Profesyonel Yönetim & Yaşam Hizmetleri</h1>
-    <p>Ege Bölgesi’nin lider bina, site yönetimi ve entegre hizmet sağlayıcısı</p>
-    <a href="#contact" class="btn-primary">Teklif Al</a>
+    <div>
+        <h1>Site & Bina Yönetiminde<br>Profesyonel Çözüm Ortağınız</h1>
+        <p>Şeffaf mali yapı • Hukuki güvence • 7/24 operasyon desteği</p>
+        <a href="#contact" class="btn">Bizimle İletişime Geçin</a>
+    </div>
 </div>
 
 <section id="about">
     <h2>Hakkımızda</h2>
-    <p>2005 yılında İzmir’de kurulan Güzey Grup; bina yönetimi, hukuk, temizlik, emlak, ilaçlama, güvenlik ve peyzaj hizmetlerinde deneyimli ekiplerle çözüm sunar.</p>
+    <p style="text-align:center; max-width:800px; margin:auto;">
+        2005 yılından bu yana İzmir ve Ege Bölgesi’nde bina ve site yönetimi alanında 
+        entegre çözümler sunan Güzey Grup; hukuk, temizlik, güvenlik, emlak ve peyzaj 
+        hizmetlerini tek çatı altında profesyonel şekilde yürütmektedir.
+    </p>
 </section>
 
 <section id="services">
     <h2>Hizmetlerimiz</h2>
-    <div class="services-list">
-        <div class="service-card"><h3>Bina & Site Yönetimi</h3><p>Mevzuata uygun, şeffaf ve profesyonel yönetim çözümleri.</p></div>
-        <div class="service-card"><h3>Hukuk Hizmetleri</h3><p>Kat mülkiyeti ve yönetim hukuku uzman desteği.</p></div>
-        <div class="service-card"><h3>Temizlik & Hijyen</h3><p>Ortak alanlar için ileri hijyenik temizlik.</p></div>
-        <div class="service-card"><h3>Emlak Danışmanlığı</h3><p>Güvenilir portföy ve alım/satım hizmeti.</p></div>
-        <div class="service-card"><h3>Güvenlik Çözümleri</h3><p>Alan güvenliği ve personel desteği.</p></div>
-        <div class="service-card"><h3>Peyzaj</h3><p>Estetik dış mekan düzenlemeleri.</p></div>
+    <div class="services">
+        <div class="card"><h3>Bina & Site Yönetimi</h3><p>Mevzuata uygun şeffaf yönetim süreçleri.</p></div>
+        <div class="card"><h3>Hukuk Hizmetleri</h3><p>Kat mülkiyeti ve icra süreçlerinde uzmanlık.</p></div>
+        <div class="card"><h3>Temizlik</h3><p>Hijyen odaklı periyodik bakım hizmetleri.</p></div>
+        <div class="card"><h3>Emlak</h3><p>Güvenilir alım-satım ve kiralama danışmanlığı.</p></div>
+        <div class="card"><h3>Güvenlik</h3><p>Yaşam alanlarında huzur ve kontrol.</p></div>
+        <div class="card"><h3>Peyzaj</h3><p>Estetik ve sürdürülebilir çevre düzenlemeleri.</p></div>
     </div>
-</section>
-
-<section id="packages">
-    <h2>Paketlerimiz</h2>
-    <div class="package"><h4>Standart Yönetim</h4><p>Aylık genel kurul raporu, aidat takibi, ortak alan temizlik.</p></div>
-    <div class="package"><h4>Gelişmiş Yönetim</h4><p>Standart + periyodik bakım, detaylı mali raporlama.</p></div>
-    <div class="package"><h4>Premium Yönetim</h4><p>Gelişmiş + 7/24 destek, güvenlik ve tam operasyon yönetimi.</p></div>
 </section>
 
 <section id="contact">
     <h2>İletişim</h2>
-    <div class="contact-box">
-        <strong>Telefon:</strong><br>
-        0507 472 58 77 • 0552 662 01 58 • 0232 484 73 32<br><br>
-        <strong>E-posta:</strong><br>
-        info@gzygrup.com
+    <div class="contact-grid">
+        <div class="contact-card">
+            <i class="fas fa-phone"></i>
+            <p>0507 472 58 77<br>0552 662 01 58<br>0232 484 73 32</p>
+        </div>
+        <div class="contact-card">
+            <i class="fas fa-envelope"></i>
+            <p>info@gzygrup.com</p>
+        </div>
+        <div class="contact-card">
+            <i class="fas fa-map-marker-alt"></i>
+            <p>İzmir / Türkiye</p>
+        </div>
     </div>
 </section>
 
