@@ -3,225 +3,181 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Güzey Grup | Profesyonel Site ve Bina Yönetimi</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+<title>Güzey Grup | Profesyonel Yönetim Hizmetleri</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
+/* GLOBAL */
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-
 body{
-    font-family: 'Montserrat', sans-serif;
-    background:#0f1720;
-    color:#fff;
+  font-family:'Poppins',sans-serif;
+  background:#0d1117;
+  color:#fff;
 }
 
-/* NAVBAR */
+/* NAV */
 nav{
-    position:fixed;
-    width:100%;
-    top:0;
-    background:rgba(15,23,32,0.95);
-    backdrop-filter:blur(10px);
-    padding:18px 8%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    z-index:1000;
-    border-bottom:1px solid rgba(212,175,55,0.2);
+  width:100%;
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:1000;
+  padding:18px 8%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  transition:0.4s;
 }
+nav.scrolled{background:rgba(13,17,23,0.95);backdrop-filter:blur(6px);}
 
-nav h1{
-    color:#d4af37;
-    font-size:22px;
-    font-weight:800;
+nav .logo{
+  font-size:26px;
+  font-weight:800;
+  color:rgba(0,230,255,0.85);
+  text-shadow:0 0 12px rgba(0,230,255,0.6);
+  opacity:0.9;
+  animation:logoFloat 6s ease-in-out infinite alternate;
+}
+@keyframes logoFloat{
+  from{transform:translateY(0);}
+  to{transform:translateY(-6px);}
 }
 
 nav a{
-    color:#fff;
-    text-decoration:none;
-    margin-left:25px;
-    font-weight:500;
-    transition:0.3s;
+  color:#fff;
+  text-decoration:none;
+  margin-left:24px;
+  font-weight:500;
+  transition:0.3s;
 }
-
-nav a:hover{
-    color:#d4af37;
-}
+nav a:hover{color:#00E6FF;}
 
 /* HERO */
 .hero{
-    height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url('logo.png') center/contain no-repeat;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  background:linear-gradient(135deg, #0d1117, #001f27, #003442);
+  text-align:center;
+}
+.hero-text h1{
+  font-size:48px;
+  font-weight:700;
+  color:#00E6FF;
+}
+.hero-text p{
+  margin-top:14px;
+  opacity:0.85;
+  font-size:18px;
 }
 
-.hero-content{
-    max-width:800px;
-}
-
-.hero h2{
-    font-size:48px;
-    font-weight:800;
-    margin-bottom:20px;
-}
-
-.hero p{
-    font-size:18px;
-    opacity:0.85;
-    margin-bottom:30px;
-}
-
+/* BUTTON */
 .btn{
-    display:inline-block;
-    padding:14px 30px;
-    background:#d4af37;
-    color:#000;
-    border-radius:40px;
-    font-weight:700;
-    text-decoration:none;
-    transition:0.3s;
+  margin-top:24px;
+  padding:14px 28px;
+  background:#00E6FF;
+  font-weight:600;
+  border-radius:40px;
+  color:#000;
+  transition:0.3s;
 }
-
-.btn:hover{
-    transform:scale(1.08);
-    box-shadow:0 10px 30px rgba(212,175,55,0.5);
-}
+.btn:hover{background:#37FFC2;transform:scale(1.05);}
 
 /* SECTION */
-section{
-    padding:100px 8%;
-    text-align:center;
-}
-
+section{padding:100px 8%;}
 section h2{
-    font-size:36px;
-    color:#d4af37;
-    margin-bottom:20px;
+  font-size:34px;
+  color:#00E6FF;
+  margin-bottom:16px;
+  text-align:center;
 }
 
 /* SERVICES */
-.services{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:30px;
-    margin-top:50px;
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
+  margin-top:40px;
 }
-
-.card{
-    padding:30px;
-    background:rgba(255,255,255,0.05);
-    border:1px solid rgba(212,175,55,0.3);
-    border-radius:20px;
-    transition:0.4s;
+.service-card{
+  background:rgba(0,230,255,0.12);
+  border:1px solid rgba(0,230,255,0.4);
+  border-radius:20px;
+  padding:22px;
+  text-align:center;
+  transition:0.5s;
 }
-
-.card:hover{
-    transform:translateY(-12px);
-    background:rgba(212,175,55,0.1);
-    box-shadow:0 20px 50px rgba(212,175,55,0.3);
+.service-card:hover{
+  transform:translateY(-10px) scale(1.04);
+  background:rgba(55,255,194,0.15);
+  box-shadow:0 20px 50px rgba(0,230,255,0.25);
 }
-
-.card h3{
-    margin-bottom:15px;
-    color:#fff;
-}
-
-/* CONTACT */
-.contact-box{
-    margin-top:40px;
-    font-size:18px;
-    line-height:2;
-}
+.service-card h3{margin-bottom:10px;font-size:22px; font-weight:700;}
+.service-card p{opacity:0.9;}
 
 /* FOOTER */
 footer{
-    background:#0b1218;
-    padding:30px;
-    text-align:center;
-    font-size:14px;
-    opacity:0.6;
-}
-
-/* WHATSAPP */
-.whatsapp{
-    position:fixed;
-    bottom:25px;
-    right:25px;
-    background:#25d366;
-    color:#fff;
-    padding:14px 22px;
-    border-radius:50px;
-    font-weight:600;
-    text-decoration:none;
-    transition:0.3s;
-}
-
-.whatsapp:hover{
-    transform:scale(1.1);
-}
-
-@media(max-width:768px){
-    .hero h2{font-size:32px;}
-    nav{padding:15px 5%;}
+  text-align:center;
+  padding:26px 0;
+  opacity:0.6;
+  font-size:14px;
+  margin-top:60px;
 }
 </style>
 </head>
+
 <body>
 
-<nav>
-    <h1>Güzey Grup</h1>
-    <div>
-        <a href="#about">Hakkımızda</a>
-        <a href="#services">Hizmetler</a>
-        <a href="#contact">İletişim</a>
-    </div>
+<nav id="nav">
+  <div class="logo">Güzey Grup</div>
+  <div class="menu">
+    <a href="#about">Hakkımızda</a>
+    <a href="#services">Hizmetler</a>
+    <a href="#contact">İletişim</a>
+  </div>
 </nav>
 
 <div class="hero">
-    <div class="hero-content">
-        <h2>Profesyonel Bina & Site Yönetimi</h2>
-        <p>Ege Bölgesi’nde entegre yönetim, hukuk ve yaşam alanı hizmetleri.</p>
-        <a href="#contact" class="btn">Teklif Alın</a>
-    </div>
+  <div class="hero-text">
+    <h1>Profesyonel Yönetim & Yaşam Hizmetleri</h1>
+    <p>Ege Bölgesi’nde Site & Apartman Yönetimi, Hukuk, Temizlik, Emlak</p>
+    <a href="#contact" class="btn">Teklif Al</a>
+  </div>
 </div>
 
 <section id="about">
-    <h2>Hakkımızda</h2>
-    <p>2005 yılında İzmir’de kurulan Güzey Grup, bina ve site yönetimi başta olmak üzere hukuk, temizlik, emlak, güvenlik ve peyzaj hizmetlerini tek çatı altında sunmaktadır.</p>
+  <h2>Hakkımızda</h2>
+  <p>2005’ten beri güven, hijyen ve müşteri memnuniyeti odaklı hizmet anlayışıyla faaliyet gösteriyoruz.</p>
 </section>
 
 <section id="services">
-    <h2>Hizmetlerimiz</h2>
-    <div class="services">
-        <div class="card"><h3>Bina & Site Yönetimi</h3><p>Şeffaf, mevzuata uygun ve profesyonel yönetim.</p></div>
-        <div class="card"><h3>Hukuk Hizmetleri</h3><p>Kat mülkiyeti ve site hukuku uzmanlığı.</p></div>
-        <div class="card"><h3>Temizlik</h3><p>Periyodik ve profesyonel hijyen hizmetleri.</p></div>
-        <div class="card"><h3>Emlak</h3><p>Güvenilir gayrimenkul danışmanlığı.</p></div>
-        <div class="card"><h3>İlaçlama</h3><p>Çevre dostu zararlı kontrolü.</p></div>
-        <div class="card"><h3>Güvenlik & Peyzaj</h3><p>Yaşam alanlarında huzur ve estetik.</p></div>
-    </div>
+  <h2>Hizmetlerimiz</h2>
+  <div class="services-grid">
+    <div class="service-card"><h3>Bina Yönetimi</h3><p>Mevzuata uygun şeffaf yönetim.</p></div>
+    <div class="service-card"><h3>Hukuk & Danışmanlık</h3><p>Sözleşme & süreç yönetimi.</p></div>
+    <div class="service-card"><h3>Temizlik & Hijyen</h3><p>Periyodik derin temizlik.</p></div>
+    <div class="service-card"><h3>Emlak Danışmanlık</h3><p>Güvenilir portföy hizmeti.</p></div>
+    <div class="service-card"><h3>Güvenlik</h3><p>Alan güvenliği & izleme.</p></div>
+    <div class="service-card"><h3>Peyzaj</h3><p>Yeşil alan planlama.</p></div>
+  </div>
 </section>
 
 <section id="contact">
-    <h2>İletişim</h2>
-    <div class="contact-box">
-        <strong>Telefon:</strong><br>
-        0507 472 58 77 • 0552 662 01 58 • 0232 484 73 32<br><br>
-        <strong>E-posta:</strong><br>
-        info@gzygrup.com
-    </div>
+  <h2>İletişim</h2>
+  <p>📞 0507 472 58 77 • 0552 662 01 58 • 0232 484 73 32</p>
+  <p>📧 info@gzygrup.com</p>
 </section>
 
-<footer>
-© 2026 Güzey Grup | Tüm Hakları Saklıdır
-</footer>
+<footer>© 2026 Güzey Grup</footer>
 
-<a href="https://wa.me/905074725877" class="whatsapp" target="_blank">WhatsApp</a>
+<script>
+// Navbar scroll
+window.addEventListener('scroll', ()=>{
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 50);
+});
+</script>
 
 </body>
 </html>
