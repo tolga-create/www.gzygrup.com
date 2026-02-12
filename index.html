@@ -5,279 +5,294 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Güzey Grup</title>
 
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
+:root{
+--lacivert:#0F2230;
+--gold:#D8C97A;
+--white:#ffffff;
+}
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
 }
 
 body{
-    background:#0F2230;
-    color:#fff;
-    font-family:'Montserrat', sans-serif;
-    overflow-x:hidden;
+background:var(--lacivert);
+color:var(--white);
+font-family:'Montserrat',sans-serif;
+}
+
+section{
+padding:120px 10%;
+}
+
+h2{
+font-family:'Cinzel',serif;
+font-size:44px;
+color:var(--gold);
+margin-bottom:50px;
+letter-spacing:2px;
+}
+
+p{
+line-height:1.8;
+font-size:17px;
 }
 
 /* NAVBAR */
 
 nav{
-    width:100%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:20px 80px;
-    position:fixed;
-    top:0;
-    background:rgba(15,34,48,0.85);
-    backdrop-filter:blur(10px);
-    z-index:999;
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 10%;
+background:rgba(15,34,48,0.95);
+border-bottom:1px solid rgba(216,201,122,0.3);
+z-index:999;
 }
 
-nav h1{
-    font-family:'Cinzel', serif;
-    color:#D8C97A;
-    font-size:28px;
-    letter-spacing:2px;
+nav img{
+height:55px;
 }
 
 nav ul{
-    display:flex;
-    gap:40px;
-    list-style:none;
+display:flex;
+gap:40px;
+list-style:none;
 }
 
-nav ul li{
-    position:relative;
-    cursor:pointer;
-    font-weight:500;
+nav a{
+text-decoration:none;
+color:var(--white);
+font-weight:500;
+position:relative;
 }
 
-nav ul li::after{
-    content:"";
-    position:absolute;
-    left:0;
-    bottom:-6px;
-    width:0%;
-    height:2px;
-    background:#D8C97A;
-    transition:0.4s;
+nav a::after{
+content:"";
+position:absolute;
+left:0;
+bottom:-6px;
+width:0%;
+height:2px;
+background:var(--gold);
+transition:0.3s;
 }
 
-nav ul li:hover::after{
-    width:100%;
+nav a:hover::after{
+width:100%;
 }
 
 /* HERO */
 
-.hero{
-    height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:0 20px;
-    position:relative;
+#anasayfa{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+position:relative;
 }
 
-.hero::before{
-    content:"";
-    position:absolute;
-    width:700px;
-    height:700px;
-    background:url('logo.png') no-repeat center;
-    background-size:contain;
-    opacity:0.12;
-    animation:float 8s ease-in-out infinite;
+#anasayfa::before{
+content:"";
+position:absolute;
+width:700px;
+height:700px;
+background:url('logo.png') no-repeat center;
+background-size:contain;
+opacity:0.08;
 }
 
-@keyframes float{
-    0%{transform:translateY(0px);}
-    50%{transform:translateY(-20px);}
-    100%{transform:translateY(0px);}
+.hero-title{
+font-family:'Cinzel',serif;
+font-size:60px;
+color:var(--gold);
+margin-bottom:20px;
 }
 
-.hero h2{
-    font-family:'Cinzel', serif;
-    font-size:60px;
-    color:#D8C97A;
-    margin-bottom:20px;
-    letter-spacing:3px;
+.hero-text{
+max-width:800px;
+font-size:20px;
+opacity:0.9;
 }
 
-.hero p{
-    max-width:800px;
-    font-size:20px;
-    opacity:0.9;
-    margin-bottom:40px;
+/* SERVICES */
+
+.services-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:40px;
 }
 
-.btn{
-    padding:15px 40px;
-    border:2px solid #D8C97A;
-    color:#D8C97A;
-    text-decoration:none;
-    font-weight:600;
-    transition:0.4s;
+.service-box{
+padding:40px 30px;
+border:1px solid var(--gold);
+transition:0.3s;
+background:rgba(255,255,255,0.02);
 }
 
-.btn:hover{
-    background:#D8C97A;
-    color:#0F2230;
-    box-shadow:0 0 20px rgba(216,201,122,0.5);
+.service-box:hover{
+transform:translateY(-5px);
 }
 
-/* HAKKIMIZDA */
-
-.section{
-    padding:120px 80px;
-    text-align:center;
+.service-box h3{
+font-family:'Cinzel',serif;
+color:var(--gold);
+margin-bottom:15px;
+font-size:20px;
 }
 
-.section h3{
-    font-family:'Cinzel', serif;
-    color:#D8C97A;
-    font-size:40px;
-    margin-bottom:40px;
-    border:2px solid #D8C97A;
-    display:inline-block;
-    padding:10px 40px;
-}
+/* CONTACT */
 
-.section p{
-    max-width:900px;
-    margin:auto;
-    font-size:18px;
-    font-weight:500;
-    line-height:1.8;
-    opacity:0.95;
-}
-
-/* HİZMETLER */
-
-.cards{
-    display:flex;
-    gap:40px;
-    margin-top:60px;
-    justify-content:center;
-    flex-wrap:wrap;
-}
-
-.card{
-    width:320px;
-    padding:40px;
-    border:2px solid #D8C97A;
-    transition:0.4s;
-}
-
-.card:hover{
-    box-shadow:0 0 25px rgba(216,201,122,0.4);
-    transform:translateY(-10px);
-}
-
-.card h4{
-    font-family:'Cinzel', serif;
-    color:#D8C97A;
-    margin-bottom:20px;
-}
-
-/* İLETİŞİM */
-
-.contact-card{
-    max-width:700px;
-    margin:60px auto 0;
-    padding:50px;
-    border:2px solid #D8C97A;
-    backdrop-filter:blur(8px);
-    background:rgba(15,34,48,0.7);
+.contact-box{
+max-width:700px;
+margin:auto;
+padding:50px;
+border:1px solid var(--gold);
+background:rgba(255,255,255,0.03);
 }
 
 .contact-item{
-    margin:20px 0;
-    font-size:18px;
-    font-weight:500;
+margin-bottom:20px;
+font-weight:500;
+}
+
+/* FOOTER */
+
+footer{
+padding:30px;
+text-align:center;
+border-top:1px solid rgba(216,201,122,0.3);
+font-size:14px;
 }
 
 /* WHATSAPP */
 
 .whatsapp{
-    position:fixed;
-    bottom:25px;
-    right:25px;
-    width:60px;
-    height:60px;
-    border-radius:50%;
-    background:#0F2230;
-    border:2px solid #D8C97A;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:#D8C97A;
-    font-size:22px;
-    text-decoration:none;
-    transition:0.4s;
+position:fixed;
+bottom:25px;
+right:25px;
+width:60px;
+height:60px;
+border-radius:50%;
+background:var(--lacivert);
+border:2px solid var(--gold);
+display:flex;
+align-items:center;
+justify-content:center;
+color:var(--gold);
+text-decoration:none;
+font-weight:600;
+transition:0.3s;
 }
 
 .whatsapp:hover{
-    background:#D8C97A;
-    color:#0F2230;
-    box-shadow:0 0 20px rgba(216,201,122,0.6);
+background:var(--gold);
+color:var(--lacivert);
 }
 </style>
 </head>
 <body>
 
 <nav>
-    <h1>GÜZEY GRUP</h1>
-    <ul>
-        <li>Anasayfa</li>
-        <li>Hakkımızda</li>
-        <li>Hizmetler</li>
-        <li>İletişim</li>
-    </ul>
+<img src="logo.png" alt="Güzey Grup Logo">
+<ul>
+<li><a href="#anasayfa">Anasayfa</a></li>
+<li><a href="#hakkimizda">Hakkımızda</a></li>
+<li><a href="#hizmetler">Hizmetlerimiz</a></li>
+<li><a href="#iletisim">İletişim</a></li>
+</ul>
 </nav>
 
-<section class="hero">
-    <h2>Profesyonel Site ve Bina Yönetimi</h2>
-    <p>Şeffaf mali yönetim, güçlü operasyon altyapısı ve kurumsal disiplinle yaşam alanlarınıza değer katıyoruz.</p>
-    <a href="#" class="btn">Hizmetlerimizi İnceleyin</a>
+<section id="anasayfa">
+<h1 class="hero-title">Profesyonel Site ve Bina Yönetimi</h1>
+<p class="hero-text">
+Şeffaf mali yönetim, güçlü operasyon altyapısı ve kurumsal disiplinle
+yaşam alanlarınıza değer katıyoruz.
+</p>
 </section>
 
-<section class="section">
-    <h3>HAKKIMIZDA</h3>
-    <p>Güzey Grup olarak site ve bina yönetiminde profesyonel, şeffaf ve disiplinli hizmet anlayışıyla faaliyet göstermekteyiz. Mali, hukuki ve operasyonel süreçleri tek merkezden yöneterek yaşam alanlarınıza değer katıyoruz.</p>
+<section id="hakkimizda">
+<h2>Hakkımızda</h2>
+<p>
+Güzey Grup; site, apartman ve toplu yaşam alanlarında mali, idari ve operasyonel
+süreçleri profesyonel disiplinle yöneten kurumsal bir yönetim firmasıdır.
+Şeffaflık, sürdürülebilirlik ve düzen temel prensibimizdir.
+</p>
 </section>
 
-<section class="section">
-    <h3>HİZMETLER</h3>
-    <div class="cards">
-        <div class="card">
-            <h4>Site Yönetimi</h4>
-            <p>Mali ve idari tüm süreçlerin profesyonel yönetimi.</p>
-        </div>
-        <div class="card">
-            <h4>Temizlik & Operasyon</h4>
-            <p>Ortak alanların düzenli ve disiplinli kontrolü.</p>
-        </div>
-        <div class="card">
-            <h4>Mali & Hukuki Takip</h4>
-            <p>Şeffaf muhasebe ve yasal süreç yönetimi.</p>
-        </div>
-    </div>
+<section id="hizmetler">
+<h2>Hizmetlerimiz</h2>
+
+<div class="services-grid">
+
+<div class="service-box">
+<h3>Site ve Apartman Yönetimi</h3>
+<p>Kat malikleri adına mali, idari ve operasyonel süreçlerin profesyonel yönetimi.</p>
+</div>
+
+<div class="service-box">
+<h3>Muhasebe ve Finans Yönetimi</h3>
+<p>Gelir-gider takibi, şeffaf raporlama ve APSİYON entegrasyonu.</p>
+</div>
+
+<div class="service-box">
+<h3>Hukuk Hizmetleri</h3>
+<p>İcra takibi ve Kat Mülkiyeti Kanunu kapsamında hukuki danışmanlık.</p>
+</div>
+
+<div class="service-box">
+<h3>Emlak Hizmetleri</h3>
+<p>Satış, kiralama ve değerleme süreçlerinin profesyonel takibi.</p>
+</div>
+
+<div class="service-box">
+<h3>Temizlik Hizmetleri</h3>
+<p>Ortak alan temizlik organizasyonu ve personel denetimi.</p>
+</div>
+
+<div class="service-box">
+<h3>Güvenlik Hizmetleri</h3>
+<p>Site güvenlik planlaması ve saha kontrol süreçleri.</p>
+</div>
+
+<div class="service-box">
+<h3>İlaçlama Hizmetleri</h3>
+<p>Periyodik haşere kontrolü ve hijyen uygulamaları.</p>
+</div>
+
+<div class="service-box">
+<h3>Peyzaj ve Çevre Düzenleme</h3>
+<p>Yeşil alan bakımı ve çevre düzenleme hizmetleri.</p>
+</div>
+
+</div>
 </section>
 
-<section class="section">
-    <h3>İLETİŞİM</h3>
-    <div class="contact-card">
-        <div class="contact-item">📍 İstanbul / Türkiye</div>
-        <div class="contact-item">📞 0 (5xx) xxx 58 77</div>
-        <div class="contact-item">✉ info@guzeygrup.com</div>
-    </div>
+<section id="iletisim">
+<h2>İletişim</h2>
+
+<div class="contact-box">
+<div class="contact-item">📍 İstanbul / Türkiye</div>
+<div class="contact-item">📞 0 (5xx) xxx 58 77</div>
+<div class="contact-item">✉ info@guzeygrup.com</div>
+</div>
+
 </section>
+
+<footer>
+© 2026 Güzey Grup – Tüm Hakları Saklıdır.
+</footer>
 
 <a href="https://wa.me/905xxxxxxxxx" class="whatsapp" target="_blank">WA</a>
 
