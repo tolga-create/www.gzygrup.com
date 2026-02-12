@@ -3,236 +3,353 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Guzey Grup</title>
+<title>Güzey Grup</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-scroll-behavior:smooth;
+:root{
+--gold:#C6A84A;
+--dark:#0f1720;
 }
 
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+
 body{
-background:#0b0f18;
-color:#fff;
-font-family:'Orbitron',sans-serif;
+font-family:'Montserrat',sans-serif;
+background:var(--dark);
+color:#eee;
 overflow-x:hidden;
 }
 
-/* ===== NETFLIX INTRO ===== */
-
-#intro{
+/* CANVAS */
+#stars{
 position:fixed;
 top:0;
 left:0;
 width:100%;
+height:100%;
+z-index:-1;
+background:radial-gradient(circle at 50% 30%, #1a1f2b 0%, #0f1720 60%);
+}
+
+/* GOLD GLOW */
+@keyframes goldGlow{
+0%{box-shadow:0 0 0 rgba(198,168,74,0);}
+50%{box-shadow:0 0 25px rgba(198,168,74,0.35);}
+100%{box-shadow:0 0 0 rgba(198,168,74,0);}
+}
+
+/* HEADER */
+header{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:22px 60px;
+background:rgba(15,23,32,0.9);
+border-bottom:1px solid rgba(198,168,74,0.4);
+animation:goldGlow 6s infinite;
+z-index:999;
+}
+
+.logo{
+font-family:'Cinzel',serif;
+font-size:24px;
+color:var(--gold);
+}
+
+nav a{
+color:#ddd;
+text-decoration:none;
+margin-left:35px;
+font-weight:600;
+}
+nav a:hover{color:var(--gold);}
+
+/* HERO */
+.hero{
 height:100vh;
 display:flex;
 align-items:center;
 justify-content:center;
-background:radial-gradient(circle at center,#111827 0%,#05070d 80%);
-z-index:9999;
+text-align:center;
+position:relative;
 overflow:hidden;
 }
 
-#intro img{
-width:55%;
-opacity:0.15;
-filter:drop-shadow(0 0 40px rgba(198,168,74,0.7));
-animation:introZoom 3s ease forwards;
-transition:transform 0.2s ease;
-}
-
-@keyframes introZoom{
-0%{transform:scale(0.6);opacity:0;}
-60%{opacity:0.35;}
-100%{transform:scale(1);opacity:0.18;}
-}
-
-/* gold pulse lines */
-
-.gold-line{
+.hero img{
 position:absolute;
-width:200%;
-height:2px;
-background:linear-gradient(90deg,transparent,#C6A84A,transparent);
-animation:goldMove 4s linear infinite;
-opacity:0.4;
+width:150%;
+opacity:0.06;
+transition:transform 0.2s ease-out;
 }
 
-.gold-line.top{top:30%;}
-.gold-line.bottom{bottom:30%;animation-delay:2s;}
-
-@keyframes goldMove{
-0%{transform:translateX(-50%);}
-100%{transform:translateX(0%);}
+.hero-content{
+position:relative;
+z-index:2;
 }
 
-/* ===== CONTENT ===== */
+.hero h1{
+font-family:'Cinzel',serif;
+font-size:56px;
+color:var(--gold);
+}
 
+.hero .line2{
+display:block;
+margin-top:18px;
+}
+
+.hero p{
+margin-top:40px;
+font-size:20px;
+max-width:800px;
+margin-left:auto;
+margin-right:auto;
+}
+
+/* SECTIONS */
 section{
-padding:120px 10%;
+padding:120px 60px;
+max-width:1200px;
+margin:auto;
 text-align:center;
 }
 
-h1{
-font-size:52px;
-margin-bottom:20px;
-letter-spacing:3px;
-}
-
-h1 span{
-display:block;
-font-size:32px;
-margin-top:10px;
-color:#C6A84A;
-}
-
-p{
-font-size:18px;
-opacity:0.85;
-line-height:1.8;
-}
-
-.card{
-background:rgba(255,255,255,0.05);
-backdrop-filter:blur(8px);
-border-radius:30px;
-box-shadow:0 0 40px rgba(0,0,0,0.5);
-padding:50px;
-margin:40px auto;
-max-width:900px;
-}
-
-/* ===== CONTACT ===== */
-
-.contact{
-background:rgba(255,255,255,0.06);
-border-radius:40px;
-padding:60px;
-box-shadow:0 0 60px rgba(0,0,0,0.6);
-}
-
-.contact h2{
+h2{
+font-family:'Cinzel',serif;
+color:var(--gold);
 font-size:36px;
 margin-bottom:40px;
-border:2px solid #C6A84A;
-display:inline-block;
-padding:15px 40px;
-border-radius:40px;
 }
 
-.contact-item{
-font-size:22px;
-margin:25px 0;
-font-weight:800;
-opacity:0.85;
+/* SERVICES */
+.services-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
 }
 
-.contact-item i{
-color:#C6A84A;
-margin-right:15px;
+.service{
+background:rgba(255,255,255,0.05);
+padding:40px;
+border-radius:30px;
+border:1px solid rgba(198,168,74,0.4);
+animation:goldGlow 8s infinite;
 }
 
-/* whatsapp */
+.service svg{
+width:32px;
+height:32px;
+fill:var(--gold);
+margin-bottom:15px;
+}
 
+.service h3{
+color:var(--gold);
+margin-bottom:15px;
+}
+
+.service p{
+line-height:1.7;
+}
+
+/* CONTACT */
+.contact-box{
+background:rgba(255,255,255,0.05);
+padding:50px;
+border-radius:30px;
+border:1px solid var(--gold);
+animation:goldGlow 7s infinite;
+}
+
+.contact-box div{
+margin-bottom:18px;
+font-size:18px;
+font-weight:600;
+}
+
+.phone-icon{
+fill:var(--gold);
+width:18px;
+vertical-align:middle;
+margin-right:8px;
+}
+
+/* WHATSAPP */
 .whatsapp{
 position:fixed;
-right:25px;
 bottom:25px;
-background:#C6A84A;
-color:#000;
-padding:15px 22px;
+right:25px;
+background:var(--gold);
+color:#111;
+padding:14px 22px;
 border-radius:50px;
-font-weight:bold;
+font-weight:700;
 text-decoration:none;
-box-shadow:0 0 20px rgba(198,168,74,0.6);
-transition:0.3s;
-}
-
-.whatsapp:hover{
-transform:scale(1.1);
-}
-
-/* fade intro */
-
-.fade-out{
-animation:fadeOut 1.5s forwards;
-}
-
-@keyframes fadeOut{
-to{opacity:0;visibility:hidden;}
 }
 
 </style>
 </head>
-
 <body>
 
-<div id="intro">
-<div class="gold-line top"></div>
-<div class="gold-line bottom"></div>
-<img src="logo.png" id="logo">
+<canvas id="stars"></canvas>
+
+<header>
+<div class="logo">GÜZEY GRUP</div>
+<nav>
+<a href="#about">Hakkımızda</a>
+<a href="#services">Hizmetler</a>
+<a href="#contact">İletişim</a>
+</nav>
+</header>
+
+<div class="hero">
+<img src="logo.png" id="heroLogo">
+<div class="hero-content">
+<h1>
+Profesyonel
+<span class="line2">Bina ve Site Yönetimi</span>
+</h1>
+<p>Ege Bölgesi genelinde yönetim, hukuk ve destek hizmetlerinde kurumsal çözümler sunuyoruz.</p>
+</div>
 </div>
 
-<section>
-<h1>
-PROFESYONEL
-<span>BİNA VE SİTE YÖNETİMİ</span>
-</h1>
-<p>
-Guzey Grup olarak profesyonel bina ve site yönetimi hizmeti sunmaktayız.
-</p>
-</section>
-
-<section class="card">
+<section id="about">
 <h2>Hakkımızda</h2>
 <p>
-Deneyimli kadromuz ile apartman ve site yönetim süreçlerini şeffaf, güvenilir ve sürdürülebilir şekilde yürütüyoruz.
+2005 yılında İzmir’de kurulan Güzey Grup, Ege Bölgesi genelinde
+Bina ve Site Yönetimi ile Hukuk Hizmetleri alanlarında profesyonel hizmet sunmaktadır.
 </p>
 </section>
 
-<section class="contact">
-<h2>İletişim</h2>
+<section id="services">
+<h2>Hizmetlerimiz</h2>
 
-<div class="contact-item">
-<i>📍</i> İstanbul / Türkiye
+<div class="services-grid">
+
+<div class="service">
+<svg viewBox="0 0 24 24"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
+<h3>Bina ve Site Yönetimi</h3>
+<p>Şeffaf ve mevzuata uygun yönetim.</p>
 </div>
 
-<div class="contact-item">
-<i>📞</i> 0 (5xx) xxx 58 77
+<div class="service">
+<svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5 3.8 9.7 9 11 5.2-1.3 9-6 9-11V5l-9-4z"/></svg>
+<h3>Hukuk Hizmetleri</h3>
+<p>Kat mülkiyeti ve site yönetimi hukuku.</p>
 </div>
 
-<div class="contact-item">
-<i>✉</i> info@guzeygrup.com
+<div class="service">
+<svg viewBox="0 0 24 24"><path d="M3 6h18v2H3zm2 4h14v2H5zm-2 4h18v2H3z"/></svg>
+<h3>Temizlik</h3>
+<p>Hijyen odaklı periyodik temizlik.</p>
 </div>
 
+<div class="service">
+<svg viewBox="0 0 24 24"><path d="M12 3l9 8h-3v9h-12v-9h-3z"/></svg>
+<h3>Emlak</h3>
+<p>Güvenilir gayrimenkul danışmanlığı.</p>
+</div>
+
+<div class="service">
+<svg viewBox="0 0 24 24"><path d="M12 2l7 4v6c0 5-3.5 9-7 10-3.5-1-7-5-7-10V6l7-4z"/></svg>
+<h3>İlaçlama</h3>
+<p>Çevre dostu zararlı mücadelesi.</p>
+</div>
+
+<div class="service">
+<svg viewBox="0 0 24 24"><path d="M12 2l10 5v6c0 5.5-3.8 10-10 11-6.2-1-10-5.5-10-11V7l10-5z"/></svg>
+<h3>Güvenlik</h3>
+<p>Yaşam alanlarında huzur.</p>
+</div>
+
+<div class="service">
+<svg viewBox="0 0 24 24"><path d="M12 2C8 6 4 10 4 15a8 8 0 0016 0c0-5-4-9-8-13z"/></svg>
+<h3>Peyzaj</h3>
+<p>Estetik çevre düzenlemeleri.</p>
+</div>
+
+</div>
 </section>
 
-<a class="whatsapp" href="https://wa.me/905xxxxxxxx7" target="_blank">
+<section id="contact">
+<h2>İletişim</h2>
+<div class="contact-box">
+
+<div>
+<svg class="phone-icon" viewBox="0 0 24 24">
+<path d="M6.6 10.8a15.1 15.1 0 006.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V21c0 .6-.4 1-1 1C10.3 22 2 13.7 2 3c0-.6.4-1 1-1h4.5c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1l-2.2 2.2z"/>
+</svg>
+0507 472 58 77
+</div>
+
+<div>
+<svg class="phone-icon" viewBox="0 0 24 24">
+<path d="M6.6 10.8a15.1 15.1 0 006.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V21c0 .6-.4 1-1 1C10.3 22 2 13.7 2 3c0-.6.4-1 1-1h4.5c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1l-2.2 2.2z"/>
+</svg>
+0552 662 01 58
+</div>
+
+<div>
+<svg class="phone-icon" viewBox="0 0 24 24">
+<path d="M6.6 10.8a15.1 15.1 0 006.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V21c0 .6-.4 1-1 1C10.3 22 2 13.7 2 3c0-.6.4-1 1-1h4.5c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1l-2.2 2.2z"/>
+</svg>
+0232 484 73 32
+</div>
+
+<div>✉ info@gzygrup.com</div>
+
+</div>
+</section>
+
+<a href="https://wa.me/905074725877" class="whatsapp" target="_blank">
 WhatsApp
 </a>
 
 <script>
-
-/* intro remove */
-setTimeout(()=>{
-document.getElementById("intro").classList.add("fade-out");
-},3500);
-
-/* logo mouse interaction */
-
-const logo=document.getElementById("logo");
-
+/* LOGO PARALLAX */
+const logo=document.getElementById("heroLogo");
 document.addEventListener("mousemove",(e)=>{
-let x=(window.innerWidth/2 - e.pageX)/40;
-let y=(window.innerHeight/2 - e.pageY)/40;
-logo.style.transform=`scale(1.05) rotateY(${x}deg) rotateX(${y}deg)`;
+let x=(window.innerWidth/2-e.pageX)/40;
+let y=(window.innerHeight/2-e.pageY)/40;
+logo.style.transform=`translate(${x}px,${y}px)`;
 });
 
+/* STAR EFFECT */
+const canvas=document.getElementById("stars");
+const ctx=canvas.getContext("2d");
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+
+let stars=[];
+for(let i=0;i<180;i++){
+stars.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+size:Math.random()*2,
+speed:Math.random()*0.4+0.1,
+opacity:Math.random()*0.5+0.3
+});
+}
+
+function animate(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+stars.forEach(s=>{
+s.y+=s.speed;
+if(s.y>canvas.height){s.y=0;}
+ctx.beginPath();
+ctx.arc(s.x,s.y,s.size,0,Math.PI*2);
+ctx.fillStyle=`rgba(198,168,74,${s.opacity})`;
+ctx.fill();
+});
+requestAnimationFrame(animate);
+}
+animate();
 </script>
 
 </body>
