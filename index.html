@@ -12,7 +12,6 @@
 :root{
 --gold:#C6A84A;
 --dark:#0f1720;
---soft:#1a2530;
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -35,8 +34,8 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 padding:22px 60px;
-background:rgba(15,23,32,0.95);
-backdrop-filter:blur(6px);
+background:rgba(15,23,32,0.85);
+backdrop-filter:blur(8px);
 z-index:999;
 border-bottom:1px solid rgba(198,168,74,0.3);
 }
@@ -56,9 +55,7 @@ font-weight:600;
 transition:0.3s;
 }
 
-nav a:hover{
-color:var(--gold);
-}
+nav a:hover{color:var(--gold);}
 
 /* HERO */
 
@@ -68,30 +65,45 @@ display:flex;
 align-items:center;
 justify-content:center;
 text-align:center;
-background:linear-gradient(180deg,#0f1720 0%, #1a2530 100%);
 position:relative;
+overflow:hidden;
 }
 
-.hero::after{
-content:"";
+/* SAYDAM TAM EKRAN LOGO */
+
+.hero img{
 position:absolute;
-width:500px;
-height:500px;
-background:radial-gradient(circle,var(--gold) 0%, transparent 70%);
-opacity:0.08;
-filter:blur(80px);
+width:160%;
+height:160%;
+object-fit:contain;
+opacity:0.07;
+animation:logoMove 18s ease-in-out infinite alternate;
+z-index:0;
+filter:drop-shadow(0 0 60px var(--gold));
+}
+
+@keyframes logoMove{
+0%{transform:scale(1) translateY(0);}
+50%{transform:scale(1.08) translateY(-40px);}
+100%{transform:scale(1) translateY(0);}
+}
+
+.hero-content{
+position:relative;
+z-index:2;
 }
 
 .hero h1{
 font-family:'Cinzel',serif;
 font-size:52px;
 color:var(--gold);
-margin-bottom:20px;
+line-height:1.2;
 }
 
 .hero p{
 font-size:20px;
 max-width:800px;
+margin:auto;
 opacity:0.9;
 }
 
@@ -101,6 +113,7 @@ section{
 padding:120px 60px;
 max-width:1200px;
 margin:auto;
+text-align:center;
 }
 
 h2{
@@ -110,12 +123,11 @@ font-size:36px;
 margin-bottom:40px;
 }
 
-/* ABOUT */
-
 #about p{
 font-size:18px;
 line-height:1.9;
 max-width:900px;
+margin:auto;
 }
 
 /* SERVICES */
@@ -127,15 +139,19 @@ gap:30px;
 }
 
 .service{
-background:var(--soft);
-padding:30px;
-border:1px solid rgba(198,168,74,0.3);
+background:rgba(255,255,255,0.06);
+padding:35px;
+border-radius:28px;
+border:1px solid rgba(198,168,74,0.4);
+box-shadow:0 20px 60px rgba(0,0,0,0.6);
+backdrop-filter:blur(12px);
 transition:0.3s;
 }
 
 .service:hover{
 transform:translateY(-6px);
 border-color:var(--gold);
+box-shadow:0 30px 80px rgba(198,168,74,0.3);
 }
 
 .service h3{
@@ -153,17 +169,30 @@ opacity:0.9;
 /* CONTACT */
 
 .contact-box{
-background:var(--soft);
+background:rgba(255,255,255,0.06);
 padding:50px;
+border-radius:32px;
 border:1px solid var(--gold);
+box-shadow:0 25px 70px rgba(0,0,0,0.7);
+backdrop-filter:blur(12px);
 max-width:700px;
+margin:auto;
 }
 
 .contact-box div{
-margin-bottom:15px;
+margin-bottom:18px;
 font-size:18px;
 font-weight:600;
 }
+
+/* GOLD TELEFON ICON */
+
+.phone-icon{
+color:var(--gold);
+margin-right:8px;
+}
+
+/* WHATSAPP */
 
 .whatsapp{
 position:fixed;
@@ -177,6 +206,8 @@ font-weight:700;
 text-decoration:none;
 box-shadow:0 8px 25px rgba(0,0,0,0.4);
 }
+
+/* FOOTER */
 
 footer{
 text-align:center;
@@ -209,8 +240,9 @@ section{padding:100px 25px;}
 </header>
 
 <div class="hero">
-<div>
-<h1>Profesyonel Bina ve Site Yönetimi</h1>
+<img src="logo.png" alt="Güzey Grup Logo">
+<div class="hero-content">
+<h1>Profesyonel Bina ve<br>Site Yönetimi</h1>
 <p>Ege Bölgesi genelinde yönetim, hukuk ve destek hizmetlerinde kurumsal çözümler sunuyoruz.</p>
 </div>
 </div>
@@ -225,7 +257,6 @@ Bina ve Site Yönetimi ile Hukuk Hizmetleri alanlarında profesyonel hizmet sunm
 
 <section id="services">
 <h2>Hizmetlerimiz</h2>
-
 <div class="services-grid">
 
 <div class="service"><h3>Bina ve Site Yönetimi</h3><p>Şeffaf ve mevzuata uygun yönetim.</p></div>
@@ -242,9 +273,9 @@ Bina ve Site Yönetimi ile Hukuk Hizmetleri alanlarında profesyonel hizmet sunm
 <section id="contact">
 <h2>İletişim</h2>
 <div class="contact-box">
-<div>📞 0507 472 58 77</div>
-<div>📞 0552 662 01 58</div>
-<div>📞 0232 484 73 32</div>
+<div><span class="phone-icon">📞</span>0507 472 58 77</div>
+<div><span class="phone-icon">📞</span>0552 662 01 58</div>
+<div><span class="phone-icon">📞</span>0232 484 73 32</div>
 <div>✉ info@gzygrup.com</div>
 </div>
 </section>
