@@ -43,9 +43,16 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 padding:22px 60px;
-background:rgba(15,23,32,0.95);
+background:rgba(15,23,32,0.9);
 border-bottom:1px solid rgba(198,168,74,0.4);
+animation:goldGlow 6s infinite;
 z-index:999;
+}
+
+@keyframes goldGlow{
+0%{box-shadow:0 0 0 rgba(198,168,74,0);}
+50%{box-shadow:0 0 25px rgba(198,168,74,0.35);}
+100%{box-shadow:0 0 0 rgba(198,168,74,0);}
 }
 
 .logo{
@@ -145,6 +152,23 @@ background:rgba(255,255,255,0.05);
 padding:40px;
 border-radius:30px;
 border:1px solid rgba(198,168,74,0.4);
+animation:goldGlow 8s infinite;
+}
+
+.service svg{
+width:32px;
+height:32px;
+fill:var(--gold);
+margin-bottom:15px;
+}
+
+.service h3{
+color:var(--gold);
+margin-bottom:15px;
+}
+
+.service p{
+line-height:1.7;
 }
 
 /* CONTACT */
@@ -153,6 +177,20 @@ background:rgba(255,255,255,0.05);
 padding:50px;
 border-radius:30px;
 border:1px solid var(--gold);
+animation:goldGlow 7s infinite;
+}
+
+.contact-box div{
+margin-bottom:18px;
+font-size:18px;
+font-weight:600;
+}
+
+.phone-icon{
+fill:var(--gold);
+width:18px;
+vertical-align:middle;
+margin-right:8px;
 }
 
 /* WHATSAPP */
@@ -258,7 +296,38 @@ Profesyonel
 </div>
 </div>
 
-<!-- Bölümler aynen korunmuştur -->
+<section id="about">
+<h2>Hakkımızda</h2>
+<p>
+2005 yılında İzmir’de kurulan Güzey Grup, Ege Bölgesi genelinde
+Bina ve Site Yönetimi ile Hukuk Hizmetleri alanlarında profesyonel hizmet sunmaktadır.
+</p>
+</section>
+
+<section id="services">
+<h2>Hizmetlerimiz</h2>
+<div class="services-grid">
+<div class="service"><h3>Bina ve Site Yönetimi</h3><p>Şeffaf ve mevzuata uygun yönetim.</p></div>
+<div class="service"><h3>Hukuk Hizmetleri</h3><p>Kat mülkiyeti ve site yönetimi hukuku.</p></div>
+<div class="service"><h3>Temizlik</h3><p>Hijyen odaklı periyodik temizlik.</p></div>
+<div class="service"><h3>Emlak</h3><p>Güvenilir gayrimenkul danışmanlığı.</p></div>
+<div class="service"><h3>İlaçlama</h3><p>Çevre dostu zararlı mücadelesi.</p></div>
+<div class="service"><h3>Güvenlik</h3><p>Yaşam alanlarında huzur.</p></div>
+<div class="service"><h3>Peyzaj</h3><p>Estetik çevre düzenlemeleri.</p></div>
+</div>
+</section>
+
+<section id="contact">
+<h2>İletişim</h2>
+<div class="contact-box">
+<div>0507 472 58 77</div>
+<div>0552 662 01 58</div>
+<div>0232 484 73 32</div>
+<div>✉ info@gzygrup.com</div>
+</div>
+</section>
+
+<a href="https://wa.me/905074725877" class="whatsapp" target="_blank">WhatsApp</a>
 
 <script>
 function toggleMenu(){
@@ -273,7 +342,7 @@ let y=(window.innerHeight/2-e.pageY)/40;
 logo.style.transform=`translate(${x}px,${y}px)`;
 });
 
-/* STAR EFFECT (DÜŞEN TANELER GERİ GELDİ) */
+/* STAR EFFECT */
 const canvas=document.getElementById("stars");
 const ctx=canvas.getContext("2d");
 canvas.width=window.innerWidth;
