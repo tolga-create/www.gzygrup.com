@@ -7,19 +7,19 @@
   <meta name="description" content="Güzey Grup; bina ve site yönetimi, hukuk, temizlik, güvenlik, peyzaj ve teknik destek alanlarında İzmir merkezli profesyonel çözümler sunar." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
       --gold: #c6a84a;
       --gold-soft: rgba(198, 168, 74, 0.14);
-      --bg: #0d141c;
-      --bg-2: #121b25;
-      --card: rgba(255,255,255,0.05);
-      --card-border: rgba(198,168,74,0.22);
-      --text: #ecf0f4;
-      --muted: #b5bfca;
+      --bg: #0f141a;
+      --bg-2: #151c24;
+      --card: #171f28;
+      --card-border: rgba(198,168,74,0.18);
+      --text: #f1f3f5;
+      --muted: #b7bec7;
       --white: #ffffff;
-      --shadow: 0 18px 50px rgba(0,0,0,0.28);
+      --shadow: 0 16px 40px rgba(0,0,0,0.18);
       --radius: 24px;
       --container: 1200px;
     }
@@ -27,32 +27,20 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
-      font-family: 'Montserrat', sans-serif;
-      background:
-        radial-gradient(circle at top, #1b2430 0%, #0d141c 45%, #091017 100%);
+      font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(180deg, #0f141a 0%, #121922 100%);
       color: var(--text);
       overflow-x: hidden;
       line-height: 1.6;
+      letter-spacing: -0.01em;
     }
 
     a { color: inherit; text-decoration: none; }
     img { max-width: 100%; display: block; }
 
-    #stars {
-      position: fixed;
-      inset: 0;
-      z-index: -2;
-    }
-
+    #stars,
     .bg-glow {
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      background:
-        radial-gradient(circle at 20% 20%, rgba(198,168,74,0.08), transparent 28%),
-        radial-gradient(circle at 80% 30%, rgba(198,168,74,0.05), transparent 24%),
-        radial-gradient(circle at 50% 80%, rgba(198,168,74,0.04), transparent 28%);
-      pointer-events: none;
+      display: none;
     }
 
     .container {
@@ -64,9 +52,9 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      backdrop-filter: blur(16px);
-      background: rgba(10, 16, 23, 0.78);
-      border-bottom: 1px solid rgba(198,168,74,0.18);
+      backdrop-filter: blur(12px);
+      background: rgba(15, 20, 26, 0.94);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
     }
 
     .header-inner {
@@ -85,32 +73,35 @@
     }
 
     .brand-mark {
-      width: 48px;
-      height: 48px;
+      width: 46px;
+      height: 46px;
       border-radius: 14px;
       display: grid;
       place-items: center;
-      background: linear-gradient(145deg, rgba(198,168,74,0.18), rgba(198,168,74,0.06));
-      border: 1px solid rgba(198,168,74,0.28);
+      background: #1b232d;
+      border: 1px solid rgba(255,255,255,0.06);
       box-shadow: var(--shadow);
       color: var(--gold);
-      font-family: 'Cinzel', serif;
+      font-family: 'Cormorant Garamond', Georgia, serif;
       font-weight: 700;
-      letter-spacing: 1px;
+      font-size: 1.05rem;
+      letter-spacing: 0.08em;
     }
 
     .brand-text strong {
       display: block;
-      font-family: 'Cinzel', serif;
-      font-size: 1.2rem;
-      color: var(--gold);
-      letter-spacing: 0.6px;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.55rem;
+      line-height: 1;
+      color: var(--white);
+      letter-spacing: 0.04em;
     }
 
     .brand-text span {
       display: block;
-      font-size: 0.88rem;
+      font-size: 0.84rem;
       color: var(--muted);
+      margin-top: 3px;
     }
 
     nav {
@@ -120,7 +111,7 @@
     }
 
     nav a {
-      color: #dbe1e8;
+      color: #dde2e7;
       font-weight: 600;
       font-size: 0.96rem;
       transition: 0.25s ease;
@@ -142,7 +133,7 @@
 
     nav a:hover,
     nav a:focus-visible {
-      color: var(--gold);
+      color: var(--white);
     }
 
     nav a:hover::after,
@@ -172,19 +163,19 @@
     .btn-primary {
       background: var(--gold);
       color: #111;
-      box-shadow: 0 10px 28px rgba(198,168,74,0.24);
+      box-shadow: 0 10px 24px rgba(198,168,74,0.18);
     }
 
     .btn-primary:hover { transform: translateY(-2px); }
 
     .btn-secondary {
-      background: rgba(255,255,255,0.02);
+      background: transparent;
       color: var(--white);
-      border-color: rgba(198,168,74,0.26);
+      border-color: rgba(255,255,255,0.1);
     }
 
     .btn-secondary:hover {
-      border-color: var(--gold);
+      border-color: rgba(198,168,74,0.32);
       color: var(--gold);
     }
 
@@ -198,15 +189,15 @@
     }
 
     .hero {
-      padding: 90px 0 70px;
+      padding: 84px 0 56px;
     }
 
     .hero-grid {
-      min-height: calc(100vh - 100px);
+      min-height: calc(100vh - 120px);
       display: grid;
       grid-template-columns: 1.15fr 0.85fr;
       align-items: center;
-      gap: 50px;
+      gap: 56px;
     }
 
     .hero-copy {
@@ -220,32 +211,33 @@
       gap: 10px;
       padding: 10px 16px;
       border-radius: 999px;
-      border: 1px solid rgba(198,168,74,0.22);
-      background: rgba(198,168,74,0.08);
-      color: #f3df9f;
-      font-size: 0.92rem;
+      border: 1px solid rgba(198,168,74,0.18);
+      background: rgba(198,168,74,0.06);
+      color: #ecd48c;
+      font-size: 0.88rem;
       font-weight: 700;
       margin-bottom: 22px;
     }
 
     .hero h1 {
-      font-family: 'Cinzel', serif;
-      font-size: clamp(2.5rem, 5vw, 4.8rem);
-      line-height: 1.08;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(3rem, 5vw, 5rem);
+      line-height: 0.98;
       color: var(--white);
-      margin-bottom: 20px;
+      margin-bottom: 18px;
+      letter-spacing: 0.01em;
     }
 
     .hero h1 span {
       color: var(--gold);
       display: block;
-      margin-top: 6px;
+      margin-top: 10px;
     }
 
     .hero p {
-      max-width: 720px;
+      max-width: 700px;
       color: var(--muted);
-      font-size: 1.08rem;
+      font-size: 1.06rem;
       margin-bottom: 30px;
     }
 
@@ -253,7 +245,24 @@
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
-      margin-bottom: 36px;
+      margin-bottom: 22px;
+    }
+
+    .hero-trust {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 34px;
+    }
+
+    .hero-trust span {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-weight: 600;
     }
 
     .hero-stats {
@@ -264,8 +273,8 @@
     }
 
     .stat {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(198,168,74,0.18);
+      background: #161d26;
+      border: 1px solid rgba(255,255,255,0.06);
       border-radius: 20px;
       padding: 18px;
       box-shadow: var(--shadow);
@@ -286,56 +295,200 @@
 
     .hero-card {
       position: relative;
-      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
-      border: 1px solid rgba(198,168,74,0.22);
-      border-radius: 30px;
-      padding: 30px;
+      background: linear-gradient(180deg, #171f28 0%, #141b23 100%);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 32px;
+      padding: 20px;
       box-shadow: var(--shadow);
       overflow: hidden;
     }
 
-    .hero-card::before {
+    .hero-showcase {
+      position: relative;
+      min-height: 520px;
+      border-radius: 28px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)),
+        linear-gradient(135deg, rgba(198,168,74,0.10), transparent 35%),
+        #111820;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .hero-showcase::before {
       content: "";
       position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(198,168,74,0.12), transparent 40%);
-      pointer-events: none;
+      top: 28px;
+      right: 28px;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(198,168,74,0.18), transparent 65%);
+      filter: blur(8px);
+    }
+
+    .showcase-topbar {
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      right: 18px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.05);
+      backdrop-filter: blur(8px);
+    }
+
+    .topbar-dots {
+      display: flex;
+      gap: 8px;
+    }
+
+    .topbar-dots span {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.22);
+    }
+
+    .topbar-label {
+      color: var(--muted);
+      font-size: 0.84rem;
+      font-weight: 600;
+    }
+
+    .showcase-content {
+      position: absolute;
+      inset: 86px 22px 22px 22px;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 18px;
+    }
+
+    .showcase-panel {
+      border-radius: 24px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.05);
+      padding: 26px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .showcase-panel h3 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      color: var(--white);
+      font-size: 2rem;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .showcase-panel p {
+      color: var(--muted);
+      font-size: 0.96rem;
+      max-width: 280px;
+    }
+
+    .showcase-mini-cards {
+      display: grid;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .showcase-mini-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .showcase-mini-card strong {
+      display: block;
+      color: var(--white);
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+    }
+
+    .showcase-mini-card span {
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+
+    .mini-status {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 0 6px rgba(198,168,74,0.12);
+      flex: 0 0 auto;
     }
 
     .logo-panel {
-      min-height: 420px;
+      min-height: auto;
       display: grid;
       place-items: center;
       border-radius: 24px;
-      background: radial-gradient(circle at center, rgba(198,168,74,0.12), rgba(255,255,255,0.02) 45%, transparent 70%);
-      border: 1px dashed rgba(198,168,74,0.22);
+      background: linear-gradient(180deg, #151c24 0%, #111820 100%);
+      border: 1px solid rgba(255,255,255,0.05);
       position: relative;
+      overflow: hidden;
+      padding: 24px;
+    }
+
+    .logo-panel {
+      min-height: 430px;
+      display: grid;
+      place-items: center;
+      border-radius: 26px;
+      background: linear-gradient(180deg, #151c24 0%, #111820 100%);
+      border: 1px solid rgba(255,255,255,0.05);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .logo-panel::before {
+      content: "";
+      position: absolute;
+      inset: 24px;
+      border: 1px solid rgba(198,168,74,0.16);
+      border-radius: 22px;
+      pointer-events: none;
     }
 
     .logo-panel img {
-      width: min(76%, 340px);
-      opacity: 0.92;
-      filter: drop-shadow(0 10px 26px rgba(0,0,0,0.28));
+      width: min(62%, 260px);
+      opacity: 0.96;
+      filter: drop-shadow(0 10px 24px rgba(0,0,0,0.18));
       transition: transform 0.18s ease-out;
     }
 
     .mini-badge {
       position: absolute;
-      right: 22px;
-      bottom: 22px;
-      background: rgba(10,16,23,0.82);
-      border: 1px solid rgba(198,168,74,0.22);
+      left: 24px;
+      right: 24px;
+      bottom: 24px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.05);
       border-radius: 18px;
-      padding: 14px 16px;
-      max-width: 250px;
+      padding: 16px 18px;
       box-shadow: var(--shadow);
+      backdrop-filter: blur(8px);
     }
 
     .mini-badge strong {
-      color: var(--gold);
+      color: var(--white);
       display: block;
       margin-bottom: 6px;
-      font-size: 0.96rem;
+      font-size: 0.98rem;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      letter-spacing: 0.03em;
     }
 
     .mini-badge p {
@@ -344,9 +497,7 @@
       margin: 0;
     }
 
-    section {
-      padding: 90px 0;
-    }
+    section { padding: 90px 0; }
 
     .section-head {
       max-width: 760px;
@@ -355,20 +506,21 @@
     }
 
     .section-head .tag {
-      color: #f3df9f;
+      color: #ecd48c;
       font-weight: 700;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       margin-bottom: 12px;
       display: inline-block;
     }
 
     .section-head h2 {
-      font-family: 'Cinzel', serif;
-      font-size: clamp(2rem, 3vw, 3rem);
-      color: var(--gold);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(2.3rem, 3vw, 3.3rem);
+      color: var(--white);
       margin-bottom: 14px;
+      letter-spacing: 0.02em;
     }
 
     .section-head p {
@@ -385,7 +537,7 @@
 
     .glass-card {
       background: var(--card);
-      border: 1px solid var(--card-border);
+      border: 1px solid rgba(255,255,255,0.06);
       border-radius: var(--radius);
       padding: 30px;
       box-shadow: var(--shadow);
@@ -414,9 +566,10 @@
       border-radius: 14px;
       display: grid;
       place-items: center;
-      background: rgba(198,168,74,0.12);
+      background: rgba(198,168,74,0.08);
       color: var(--gold);
       font-weight: 800;
+      border: 1px solid rgba(198,168,74,0.14);
     }
 
     .feature-item strong {
@@ -437,8 +590,8 @@
     }
 
     .service-card {
-      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.035));
-      border: 1px solid rgba(198,168,74,0.18);
+      background: #171f28;
+      border: 1px solid rgba(255,255,255,0.06);
       border-radius: 24px;
       padding: 28px;
       text-align: left;
@@ -448,7 +601,7 @@
 
     .service-card:hover {
       transform: translateY(-6px);
-      border-color: rgba(198,168,74,0.36);
+      border-color: rgba(198,168,74,0.24);
     }
 
     .service-icon {
@@ -457,17 +610,20 @@
       border-radius: 16px;
       display: grid;
       place-items: center;
-      background: rgba(198,168,74,0.12);
+      background: rgba(198,168,74,0.08);
       color: var(--gold);
       margin-bottom: 18px;
       font-size: 1.3rem;
       font-weight: 800;
+      border: 1px solid rgba(198,168,74,0.14);
     }
 
     .service-card h3 {
-      color: var(--gold);
-      font-size: 1.1rem;
+      color: var(--white);
+      font-size: 1.14rem;
       margin-bottom: 10px;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      letter-spacing: 0.02em;
     }
 
     .service-card p {
@@ -485,16 +641,17 @@
     .highlight-item {
       padding: 20px;
       border-radius: 20px;
-      background: rgba(198,168,74,0.08);
-      border: 1px solid rgba(198,168,74,0.16);
+      background: #171f28;
+      border: 1px solid rgba(255,255,255,0.06);
       text-align: center;
     }
 
     .highlight-item strong {
       display: block;
-      color: var(--gold);
+      color: var(--white);
       margin-bottom: 6px;
       font-size: 1rem;
+      font-family: 'Cormorant Garamond', Georgia, serif;
     }
 
     .highlight-item span {
@@ -510,9 +667,11 @@
 
     .contact-card h3,
     .contact-info h3 {
-      font-size: 1.4rem;
+      font-size: 2rem;
       margin-bottom: 14px;
-      color: var(--gold);
+      color: var(--white);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      letter-spacing: 0.02em;
     }
 
     .contact-card p,
@@ -533,8 +692,8 @@
       align-items: flex-start;
       padding: 16px 18px;
       border-radius: 18px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(198,168,74,0.12);
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.06);
     }
 
     .contact-row strong {
@@ -555,23 +714,22 @@
       margin-top: 24px;
       padding: 22px;
       border-radius: 20px;
-      background: rgba(198,168,74,0.08);
-      border: 1px solid rgba(198,168,74,0.18);
+      background: rgba(198,168,74,0.06);
+      border: 1px solid rgba(198,168,74,0.14);
     }
 
     .cta-box strong {
       display: block;
-      color: var(--gold);
+      color: var(--white);
       margin-bottom: 8px;
-      font-size: 1.02rem;
+      font-size: 1.3rem;
+      font-family: 'Cormorant Garamond', Georgia, serif;
     }
 
-    .cta-box p {
-      margin-bottom: 16px;
-    }
+    .cta-box p { margin-bottom: 16px; }
 
     footer {
-      border-top: 1px solid rgba(198,168,74,0.14);
+      border-top: 1px solid rgba(255,255,255,0.06);
       padding: 28px 0 40px;
       color: var(--muted);
     }
@@ -597,19 +755,146 @@
       right: 24px;
       bottom: 24px;
       z-index: 1000;
-      background: #d7b45a;
+      background: var(--gold);
       color: #111;
       border-radius: 999px;
       padding: 14px 20px;
       font-weight: 800;
-      box-shadow: 0 14px 30px rgba(0,0,0,0.28);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.2);
     }
 
-    .whatsapp-float:hover {
-      transform: translateY(-3px);
+    .whatsapp-float:hover { transform: translateY(-3px); }
+
+    .quote-section {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(6, 9, 12, 0.72);
+      backdrop-filter: blur(6px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 2000;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .quote-modal {
+      width: min(760px, 100%);
+      max-height: min(90vh, 920px);
+      overflow-y: auto;
+      background: #171f28;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 30px;
+      box-shadow: 0 24px 70px rgba(0,0,0,0.35);
+      padding: 30px;
+      position: relative;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 18px;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
+      color: var(--white);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .quote-modal-head h2 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      color: var(--white);
+      font-size: 2.4rem;
+      margin: 10px 0 10px;
+    }
+
+    .quote-modal-head p {
+      color: var(--muted);
+      margin-bottom: 26px;
+    }
+
+    .quote-form {
+      display: grid;
+      gap: 18px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .form-group {
+      display: grid;
+      gap: 8px;
+    }
+
+    .form-group label {
+      color: var(--white);
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: #111820;
+      color: var(--white);
+      border-radius: 16px;
+      padding: 14px 16px;
+      font: inherit;
+      outline: none;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: rgba(198,168,74,0.42);
+      box-shadow: 0 0 0 4px rgba(198,168,74,0.10);
+    }
+
+    .full-width {
+      grid-column: 1 / -1;
+    }
+
+    .form-note {
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(198,168,74,0.08);
+      border: 1px solid rgba(198,168,74,0.14);
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .form-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
     }
 
     @media (max-width: 1100px) {
+      .showcase-content {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-showcase {
+        min-height: 760px;
+      }
+
       .hero-grid,
       .about-grid,
       .contact-wrap {
@@ -626,13 +911,12 @@
     }
 
     @media (max-width: 860px) {
-      .header-inner {
-        min-height: 74px;
+      .form-grid {
+        grid-template-columns: 1fr;
       }
 
-      .menu-toggle {
-        display: inline-flex;
-      }
+      .header-inner { min-height: 74px; }
+      .menu-toggle { display: inline-flex; }
 
       nav {
         position: absolute;
@@ -644,57 +928,42 @@
         align-items: flex-start;
         gap: 18px;
         padding: 22px;
-        background: rgba(13,20,28,0.96);
-        border: 1px solid rgba(198,168,74,0.18);
+        background: rgba(15,20,26,0.98);
+        border: 1px solid rgba(255,255,255,0.06);
         border-radius: 22px;
         box-shadow: var(--shadow);
       }
 
       nav.active { display: flex; }
-
-      .nav-actions .btn-secondary {
-        display: none;
-      }
-
-      .hero {
-        padding: 60px 0 44px;
-      }
-
-      .hero-grid {
-        min-height: auto;
-      }
-
+      .nav-actions .btn-secondary { display: none; }
+      .hero { padding: 60px 0 44px; }
+      .hero-grid { min-height: auto; }
       .hero-stats,
       .services-grid,
-      .highlight-band {
-        grid-template-columns: 1fr;
-      }
+      .highlight-band { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 560px) {
-      .container {
-        width: min(var(--container), calc(100% - 28px));
+      .quote-modal {
+        padding: 24px 18px;
       }
 
-      .hero h1 {
-        font-size: 2.1rem;
+      .quote-modal-head h2 {
+        font-size: 2rem;
       }
 
+      .container { width: min(var(--container), calc(100% - 28px)); }
+      .hero h1 { font-size: 2.35rem; }
       .hero p,
       .section-head p,
       .about-text p,
       .service-card p,
       .contact-card p,
-      .contact-info p {
-        font-size: 0.96rem;
-      }
-
+      .contact-info p { font-size: 0.96rem; }
       .glass-card,
       .hero-card,
-      .service-card {
-        padding: 22px;
-      }
-
+      .service-card { padding: 22px; }
+      .logo-panel { min-height: 340px; }
       .whatsapp-float {
         right: 14px;
         bottom: 14px;
@@ -705,8 +974,7 @@
   </style>
 </head>
 <body>
-  <canvas id="stars"></canvas>
-  <div class="bg-glow"></div>
+  
 
   <header>
     <div class="container header-inner">
@@ -745,8 +1013,14 @@
             güvenlik, peyzaj ve destek hizmetlerinde düzenli, ulaşılabilir ve kurumsal çözümler sunuyoruz.
           </p>
           <div class="hero-actions">
-            <a href="#contact" class="btn btn-primary">Teklif Al</a>
+            <button type="button" class="btn btn-primary" id="openQuoteModal">Teklif Al</button>
             <a href="#services" class="btn btn-secondary">Hizmetleri İncele</a>
+          </div>
+
+          <div class="hero-trust">
+            <span>Profesyonel görünüm</span>
+            <span>Düzenli operasyon</span>
+            <span>Hızlı iletişim</span>
           </div>
 
           <div class="hero-stats">
@@ -766,11 +1040,53 @@
         </div>
 
         <div class="hero-card">
-          <div class="logo-panel">
-            <img src="logo.png" alt="Güzey Grup logo" id="heroLogo" />
-            <div class="mini-badge">
-              <strong>Ege Bölgesi Genelinde Hizmet</strong>
-              <p>Yönetim süreçlerinde hızlı iletişim, kontrollü operasyon ve profesyonel takip.</p>
+          <div class="hero-showcase">
+            <div class="showcase-topbar">
+              <div class="topbar-dots">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div class="topbar-label">Güzey Grup Kurumsal Hizmet Yapısı</div>
+            </div>
+
+            <div class="showcase-content">
+              <div class="showcase-panel">
+                <h3>Güven veren<br>yönetim modeli</h3>
+                <p>Site ve apartman yönetiminde düzenli süreç, güçlü iletişim ve kontrollü operasyon yapısı.</p>
+
+                <div class="showcase-mini-cards">
+                  <div class="showcase-mini-card">
+                    <div>
+                      <strong>Operasyon Takibi</strong>
+                      <span>Planlı ve kontrollü süreç yönetimi</span>
+                    </div>
+                    <div class="mini-status"></div>
+                  </div>
+                  <div class="showcase-mini-card">
+                    <div>
+                      <strong>Finansal Düzen</strong>
+                      <span>Takip edilebilir ve kurumsal yaklaşım</span>
+                    </div>
+                    <div class="mini-status"></div>
+                  </div>
+                  <div class="showcase-mini-card">
+                    <div>
+                      <strong>Hızlı İletişim</strong>
+                      <span>Teklif ve destek taleplerine dönüş</span>
+                    </div>
+                    <div class="mini-status"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="logo-panel">
+                <img src="logo.png" alt="Güzey Grup logo" id="heroLogo" />
+                <div class="mini-badge">
+                  <strong>Profesyonel Yönetim Anlayışı</strong>
+                  <p>Kurumsal görünüm, düzenli iletişim ve güven veren hizmet yaklaşımı.</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -975,7 +1291,80 @@
         </div>
       </div>
     </section>
+      <section id="quote-form-section" class="quote-section">
+      <div class="container">
+        <div class="section-head">
+          <span class="tag">Teklif Formu</span>
+          <h2>Hizmet talebinizi iletin</h2>
+          <p>Aşağıdaki formu doldurarak teklif talebinizi hızlıca iletebilirsiniz.</p>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <div class="modal-overlay" id="quoteModal" aria-hidden="true">
+    <div class="quote-modal" role="dialog" aria-modal="true" aria-labelledby="quoteModalTitle">
+      <button type="button" class="modal-close" id="closeQuoteModal" aria-label="Formu kapat">×</button>
+      <div class="quote-modal-head">
+        <span class="tag">Teklif Talebi</span>
+        <h2 id="quoteModalTitle">Teklif formunu doldurun</h2>
+        <p>Formu doldurduğunuzda varsayılan e-posta uygulamanız açılır ve bilgiler otomatik olarak hazırlanır.</p>
+      </div>
+
+      <form id="quoteForm" class="quote-form">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="fullName">Ad Soyad</label>
+            <input type="text" id="fullName" name="fullName" placeholder="Adınız Soyadınız" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Telefon</label>
+            <input type="tel" id="phone" name="phone" placeholder="05xx xxx xx xx" required>
+          </div>
+          <div class="form-group">
+            <label for="email">E-Posta</label>
+            <input type="email" id="email" name="email" placeholder="ornek@mail.com">
+          </div>
+          <div class="form-group">
+            <label for="siteName">Site / Apartman Adı</label>
+            <input type="text" id="siteName" name="siteName" placeholder="Site veya apartman adı" required>
+          </div>
+          <div class="form-group">
+            <label for="serviceType">Talep Edilen Hizmet</label>
+            <select id="serviceType" name="serviceType" required>
+              <option value="">Hizmet seçin</option>
+              <option>Bina ve Site Yönetimi</option>
+              <option>Hukuk Hizmetleri</option>
+              <option>Temizlik Hizmetleri</option>
+              <option>Güvenlik Hizmetleri</option>
+              <option>Peyzaj Hizmetleri</option>
+              <option>İlaçlama</option>
+              <option>Emlak Hizmetleri</option>
+              <option>Diğer</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="independentCount">Bağımsız Bölüm Sayısı</label>
+            <input type="number" id="independentCount" name="independentCount" placeholder="Örn: 48">
+          </div>
+        </div>
+
+        <div class="form-group full-width">
+          <label for="message">Talep Detayı</label>
+          <textarea id="message" name="message" rows="5" placeholder="İhtiyacınızı kısaca yazın"></textarea>
+        </div>
+
+        <div class="form-note">
+          Not: Bu sürümde form, bilgileri e-posta taslağı olarak hazırlar. Doğrudan otomatik mail düşmesi için ayrıca form servis entegrasyonu veya sunucu altyapısı gerekir.
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Teklif Talebini Oluştur</button>
+          <button type="button" class="btn btn-secondary" id="cancelQuoteModal">Vazgeç</button>
+        </div>
+      </form>
+    </div>
+  </div>
 
   <footer>
     <div class="container footer-inner">
@@ -993,6 +1382,12 @@
   <script>
     const menuToggle = document.getElementById('menuToggle');
     const navMenu = document.getElementById('navMenu');
+    const logo = document.getElementById('heroLogo');
+    const quoteModal = document.getElementById('quoteModal');
+    const openQuoteModal = document.getElementById('openQuoteModal');
+    const closeQuoteModal = document.getElementById('closeQuoteModal');
+    const cancelQuoteModal = document.getElementById('cancelQuoteModal');
+    const quoteForm = document.getElementById('quoteForm');
 
     menuToggle.addEventListener('click', () => {
       navMenu.classList.toggle('active');
@@ -1002,57 +1397,70 @@
       link.addEventListener('click', () => navMenu.classList.remove('active'));
     });
 
-    const logo = document.getElementById('heroLogo');
     document.addEventListener('mousemove', (e) => {
       if (!logo || window.innerWidth < 900) return;
-      const x = (window.innerWidth / 2 - e.clientX) / 45;
-      const y = (window.innerHeight / 2 - e.clientY) / 45;
+      const x = (window.innerWidth / 2 - e.clientX) / 90;
+      const y = (window.innerHeight / 2 - e.clientY) / 90;
       logo.style.transform = `translate(${x}px, ${y}px)`;
     });
 
-    const canvas = document.getElementById('stars');
-    const ctx = canvas.getContext('2d');
-    let stars = [];
-
-    function resizeCanvas() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      createStars();
+    function openModal() {
+      quoteModal.classList.add('active');
+      quoteModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
     }
 
-    function createStars() {
-      const count = window.innerWidth < 768 ? 90 : 160;
-      stars = Array.from({ length: count }, () => ({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        size: Math.random() * 1.8 + 0.3,
-        speed: Math.random() * 0.25 + 0.08,
-        opacity: Math.random() * 0.45 + 0.2
-      }));
+    function closeModal() {
+      quoteModal.classList.remove('active');
+      quoteModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
     }
 
-    function animateStars() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    openQuoteModal.addEventListener('click', openModal);
+    closeQuoteModal.addEventListener('click', closeModal);
+    cancelQuoteModal.addEventListener('click', closeModal);
 
-      for (const star of stars) {
-        star.y += star.speed;
-        if (star.y > canvas.height) {
-          star.y = -2;
-          star.x = Math.random() * canvas.width;
-        }
+    quoteModal.addEventListener('click', (e) => {
+      if (e.target === quoteModal) closeModal();
+    });
 
-        ctx.beginPath();
-        ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(198,168,74,${star.opacity})`;
-        ctx.fill();
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && quoteModal.classList.contains('active')) {
+        closeModal();
       }
+    });
 
-      requestAnimationFrame(animateStars);
-    }
+    quoteForm.addEventListener('submit', (e) => {
+      e.preventDefault();
 
-    resizeCanvas();
-    animateStars();
-    window.addEventListener('resize', resizeCanvas);
+      const fullName = document.getElementById('fullName').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const siteName = document.getElementById('siteName').value.trim();
+      const serviceType = document.getElementById('serviceType').value.trim();
+      const independentCount = document.getElementById('independentCount').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      const subject = `Teklif Talebi | ${siteName} | ${serviceType}`;
+      const body = [
+        'Yeni teklif talebi alındı.',
+        '',
+        `Ad Soyad: ${fullName}`,
+        `Telefon: ${phone}`,
+        `E-Posta: ${email || '-'}`,
+        `Site / Apartman Adı: ${siteName}`,
+        `Talep Edilen Hizmet: ${serviceType}`,
+        `Bağımsız Bölüm Sayısı: ${independentCount || '-'}`,
+        '',
+        'Talep Detayı:',
+        message || '-'
+      ].join('
+');
+
+      window.location.href = `mailto:info@gzygrup.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      closeModal();
+      quoteForm.reset();
+    });
   </script>
 </body>
 </html>
