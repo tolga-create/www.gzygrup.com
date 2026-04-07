@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Güzey Grup | Profesyonel Bina ve Site Yönetimi</title>
-  <meta name="description" content="Güzey Grup; bina ve site yönetimi, hukuk, temizlik, güvenlik, peyzaj ve teknik destek alanlarında profesyonel çözümler sunar." />
+  <meta name="description" content="Güzey Grup; bina, apartman, site ve tesis yönetimi alanında hukuk, temizlik, güvenlik, emlak, ilaçlama, peyzaj, mali yönetim ve APSİYON entegrasyonu ile profesyonel çözümler sunar." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -12,6 +12,8 @@
     :root {
       --gold: #b89133;
       --gold-dark: #8e6d1e;
+      --navy: #0d1b2a;
+      --navy-2: #10263b;
       --bg: #f7f7f5;
       --panel: #ffffff;
       --line: #e7e4dc;
@@ -37,6 +39,7 @@
 
     a { text-decoration: none; color: inherit; }
     img { max-width: 100%; display: block; }
+    ul { padding: 0; margin: 0; }
 
     .container {
       width: min(var(--container), calc(100% - 34px));
@@ -163,10 +166,17 @@
       box-shadow: 0 12px 26px rgba(184,145,51,0.22);
     }
 
+    .btn-primary:hover { transform: translateY(-2px); }
+
     .btn-secondary {
       background: #fff;
       color: var(--text);
       border-color: var(--line);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--line-dark);
+      color: var(--gold-dark);
     }
 
     .menu-toggle {
@@ -178,13 +188,15 @@
       cursor: pointer;
     }
 
+    section { padding: 92px 0; }
+
     .hero {
       padding: 76px 0 52px;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
+      grid-template-columns: 1.02fr 0.98fr;
       gap: 34px;
       align-items: center;
       min-height: calc(100vh - 120px);
@@ -268,7 +280,7 @@
     .stat strong {
       display: block;
       color: var(--gold-dark);
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       margin-bottom: 6px;
     }
 
@@ -277,7 +289,7 @@
       font-size: 0.92rem;
     }
 
-    .hero-card {
+    .hero-visual {
       background: linear-gradient(180deg, #ffffff 0%, #fbfaf7 100%);
       border: 1px solid var(--line);
       border-radius: 30px;
@@ -286,149 +298,45 @@
       padding: 18px;
     }
 
-    .hero-showcase {
-      min-height: 560px;
-      border-radius: 24px;
-      background: linear-gradient(180deg, #ffffff 0%, #f8f6f1 100%);
-      border: 1px solid var(--line);
-      overflow: hidden;
-    }
-
-    .showcase-topbar {
-      height: 58px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 18px;
-      background: rgba(255,255,255,0.8);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .topbar-dots {
-      display: flex;
-      gap: 8px;
-    }
-
-    .topbar-dots span {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: #d9d9d9;
-    }
-
-    .topbar-label {
-      color: var(--muted);
-      font-size: 0.88rem;
-      font-weight: 600;
-    }
-
-    .showcase-content {
-      padding: 22px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-    }
-
-    .showcase-panel,
-    .logo-panel {
-      border-radius: 22px;
-      background: #fff;
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow-soft);
-    }
-
-    .showcase-panel {
-      padding: 26px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .showcase-panel h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.3rem;
-      line-height: 1;
-      margin-bottom: 12px;
-    }
-
-    .showcase-panel p {
-      color: var(--muted);
-      max-width: 300px;
-    }
-
-    .showcase-mini-cards {
-      display: grid;
-      gap: 12px;
-      margin-top: 24px;
-    }
-
-    .showcase-mini-card {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 14px 16px;
-      border-radius: 18px;
-      background: #fcfbf8;
-      border: 1px solid var(--line);
-    }
-
-    .mini-status {
-      width: 13px;
-      height: 13px;
-      border-radius: 50%;
-      background: var(--gold);
-      box-shadow: 0 0 0 6px rgba(184,145,51,0.12);
-    }
-
-    .logo-panel {
-      padding: 26px;
-      display: grid;
-      place-items: center;
+    .hero-image-box {
       position: relative;
-      background: linear-gradient(180deg, #fff 0%, #fbfaf6 100%);
+      overflow: hidden;
+      border-radius: 24px;
+      border: 1px solid var(--line);
+      background: #fff;
+      min-height: 620px;
     }
 
-    .logo-wrap {
-      width: min(74%, 290px);
-      aspect-ratio: 1 / 1;
-      display: grid;
-      place-items: center;
-      border-radius: 26px;
-      background: linear-gradient(180deg, #fffdf8 0%, #f5efdf 100%);
-      border: 1px solid #eadfc5;
-      box-shadow: 0 16px 30px rgba(184,145,51,0.12);
-      padding: 22px;
+    .hero-image-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
-    .logo-wrap img {
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: contain;
-    }
-
-    .mini-badge {
-      margin-top: 18px;
-      padding: 16px 18px;
-      border-radius: 18px;
+    .hero-badge {
+      position: absolute;
+      left: 20px;
+      right: 20px;
+      bottom: 20px;
       background: rgba(255,255,255,0.95);
       border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 18px;
       box-shadow: var(--shadow-soft);
     }
 
-    .mini-badge strong {
+    .hero-badge strong {
       display: block;
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.25rem;
-      margin-bottom: 5px;
+      font-size: 1.45rem;
+      margin-bottom: 6px;
     }
 
-    .mini-badge p {
+    .hero-badge p {
+      margin: 0;
+      font-size: 0.95rem;
       color: var(--muted);
-      font-size: 0.9rem;
     }
-
-    section { padding: 92px 0; }
 
     .section-head {
       max-width: 760px;
@@ -459,13 +367,20 @@
     }
 
     .about-grid,
-    .contact-wrap {
+    .contact-wrap,
+    .why-grid,
+    .info-grid,
+    .apsiyon-grid,
+    .cert-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 24px;
     }
 
-    .glass-card {
+    .glass-card,
+    .info-card,
+    .apsiyon-card,
+    .cert-card {
       background: var(--panel);
       border: 1px solid var(--line);
       border-radius: var(--radius);
@@ -474,26 +389,101 @@
     }
 
     .feature-list,
-    .contact-list {
+    .contact-list,
+    .bullet-list,
+    .mini-list {
       display: grid;
       gap: 16px;
     }
 
     .feature-item,
-    .contact-row {
+    .contact-row,
+    .bullet-item {
       display: flex;
       gap: 14px;
       align-items: flex-start;
     }
 
     .feature-icon,
-    .contact-row svg {
+    .contact-row svg,
+    .bullet-dot {
       color: var(--gold-dark);
+      flex: 0 0 auto;
+    }
+
+    .bullet-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--gold);
+      margin-top: 8px;
+    }
+
+    .about-text p,
+    .contact-card p,
+    .contact-info p,
+    .info-card p,
+    .apsiyon-card p,
+    .contact-row span,
+    .contact-row a,
+    .feature-item p,
+    .mini-list li {
+      color: var(--muted);
+    }
+
+    .info-card h3,
+    .apsiyon-card h3,
+    .cert-card h3,
+    .contact-card h3,
+    .contact-info h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+
+    .highlight-cards {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 8px;
+    }
+
+    .highlight-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 22px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .highlight-card h4 {
+      color: var(--gold-dark);
+      margin-bottom: 8px;
+      font-size: 1rem;
+    }
+
+    .highlight-card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .show-image-card {
+      background: linear-gradient(180deg, #ffffff 0%, #fbfaf7 100%);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .show-image-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 20px;
     }
 
@@ -503,6 +493,12 @@
       border-radius: 24px;
       padding: 26px;
       box-shadow: var(--shadow-soft);
+      transition: 0.25s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      border-color: #dcc99a;
     }
 
     .service-icon {
@@ -523,13 +519,9 @@
       margin-bottom: 8px;
     }
 
-    .service-card p,
-    .about-text p,
-    .contact-card p,
-    .contact-info p,
-    .contact-row span,
-    .contact-row a {
+    .service-card p {
       color: var(--muted);
+      font-size: 0.96rem;
     }
 
     .highlight-band {
@@ -548,11 +540,48 @@
       box-shadow: var(--shadow-soft);
     }
 
-    .contact-card h3,
-    .contact-info h3 {
+    .highlight-item strong {
+      display: block;
       font-family: 'Cormorant Garamond', serif;
-      font-size: 2rem;
-      margin-bottom: 12px;
+      font-size: 1.22rem;
+      margin-bottom: 5px;
+    }
+
+    .highlight-item span {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .process-section {
+      background: linear-gradient(180deg, #f9f8f4 0%, #f4f2eb 100%);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .mini-list li {
+      list-style: none;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: #fcfbf8;
+      border: 1px solid var(--line);
+    }
+
+    .apsiyon-card--dark {
+      background: linear-gradient(180deg, #12273b 0%, #0d1d2f 100%);
+      color: #fff;
+      border-color: rgba(255,255,255,0.08);
+    }
+
+    .apsiyon-card--dark h3,
+    .apsiyon-card--dark p,
+    .apsiyon-card--dark li {
+      color: #fff;
+    }
+
+    .apsiyon-card--dark .mini-list li {
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.92);
     }
 
     .contact-row {
@@ -570,11 +599,25 @@
       border: 1px solid #ead9ab;
     }
 
+    .cta-box strong {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.45rem;
+      margin-bottom: 8px;
+    }
+
     .cta-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
       margin-top: 16px;
+    }
+
+    .cert-image {
+      border-radius: 22px;
+      border: 1px solid var(--line);
+      overflow: hidden;
+      background: #fff;
     }
 
     footer {
@@ -598,6 +641,8 @@
       flex-wrap: wrap;
     }
 
+    .footer-links a:hover { color: var(--gold-dark); }
+
     .whatsapp-float {
       position: fixed;
       right: 20px;
@@ -612,8 +657,17 @@
     }
 
     @media (max-width: 1100px) {
-      .hero-grid, .about-grid, .contact-wrap, .showcase-content, .services-grid, .highlight-band {
-        grid-template-columns: 1fr;
+      .hero-grid,
+      .about-grid,
+      .contact-wrap,
+      .why-grid,
+      .info-grid,
+      .apsiyon-grid,
+      .cert-grid,
+      .highlight-cards,
+      .services-grid,
+      .highlight-band {
+        grid-template-columns: 1fr 1fr;
       }
     }
 
@@ -638,13 +692,31 @@
 
       nav.active { display: flex; }
       .nav-actions .btn-secondary { display: none; }
+
+      .hero-grid,
+      .about-grid,
+      .contact-wrap,
+      .why-grid,
+      .info-grid,
+      .apsiyon-grid,
+      .cert-grid,
+      .highlight-cards,
+      .services-grid,
+      .highlight-band {
+        grid-template-columns: 1fr;
+      }
+
       .hero-grid { min-height: auto; }
+      .hero-stats { grid-template-columns: 1fr; }
+      .hero-image-box { min-height: 420px; }
     }
 
     @media (max-width: 560px) {
       .container { width: min(var(--container), calc(100% - 24px)); }
       .hero h1 { font-size: 2.4rem; }
       .brand-text strong { font-size: 1.45rem; }
+      .glass-card, .info-card, .apsiyon-card, .cert-card, .service-card { padding: 22px; }
+      .hero-badge { left: 14px; right: 14px; bottom: 14px; }
       .whatsapp-float { right: 12px; bottom: 12px; padding: 12px 15px; font-size: 0.92rem; }
     }
   </style>
@@ -656,7 +728,7 @@
         <div class="brand-mark">GG</div>
         <div class="brand-text">
           <strong>GÜZEY GRUP</strong>
-          <span>Bina ve Site Yönetim Hizmetleri</span>
+          <span>Profesyonel Yönetim Çözümleri</span>
         </div>
       </a>
 
@@ -665,6 +737,7 @@
       <nav id="navMenu">
         <a href="#about">Hakkımızda</a>
         <a href="#services">Hizmetler</a>
+        <a href="#apsiyon">APSİYON</a>
         <a href="#contact">İletişim</a>
       </nav>
 
@@ -679,8 +752,8 @@
       <div class="container hero-grid">
         <div class="hero-copy">
           <div class="eyebrow">Kurumsal Yönetimde Güven, Şeffaflık ve Düzen</div>
-          <h1>Profesyonel <span>Bina ve Site Yönetimi</span></h1>
-          <p>Güzey Grup olarak İzmir merkezli yapımızla; bina ve site yönetimi, hukuk, temizlik, güvenlik, peyzaj ve destek hizmetlerinde daha düzenli, daha güven veren ve kurumsal çözümler sunuyoruz.</p>
+          <h1>Profesyonel <span>Apartman, Site ve Tesis Yönetimi</span></h1>
+          <p>2005 yılından bu yana İzmir merkezli yapımızla; bina, apartman, site ve toplu yaşam alanlarında yönetim, hukuk, temizlik, güvenlik, emlak, ilaçlama, peyzaj ve mali takip hizmetlerini entegre şekilde sunuyoruz.</p>
 
           <div class="hero-actions">
             <a href="#services" class="btn btn-primary">Hizmetleri İncele</a>
@@ -688,68 +761,24 @@
           </div>
 
           <div class="hero-trust">
-            <span>Profesyonel görünüm</span>
-            <span>Düzenli operasyon</span>
-            <span>Hızlı iletişim</span>
+            <span>Şeffaf yönetim sistemi</span>
+            <span>Sertifikalı ekip yapısı</span>
+            <span>Tek çatı altında çözüm</span>
           </div>
 
           <div class="hero-stats">
-            <div class="stat"><strong>2005</strong><span>İzmir'de kurulan köklü yapı</span></div>
-            <div class="stat"><strong>7+ Hizmet</strong><span>Tek çatı altında çözüm</span></div>
-            <div class="stat"><strong>Kurumsal</strong><span>Planlı takip ve raporlama</span></div>
+            <div class="stat"><strong>2005</strong><span>İzmir’de başlayan kurumsal geçmiş</span></div>
+            <div class="stat"><strong>Ege Bölgesi</strong><span>Bölge genelinde faaliyet yaklaşımı</span></div>
+            <div class="stat"><strong>Entegre Hizmet</strong><span>Yönetimden bakıma çok yönlü destek</span></div>
           </div>
         </div>
 
-        <div class="hero-card">
-          <div class="hero-showcase">
-            <div class="showcase-topbar">
-              <div class="topbar-dots"><span></span><span></span><span></span></div>
-              <div class="topbar-label">Güzey Grup Kurumsal Hizmet Yapısı</div>
-            </div>
-
-            <div class="showcase-content">
-              <div class="showcase-panel">
-                <div>
-                  <h3>Güven veren<br>yönetim modeli</h3>
-                  <p>Site ve apartman yönetiminde düzenli süreç, güçlü iletişim ve kontrollü operasyon yapısı.</p>
-                </div>
-
-                <div class="showcase-mini-cards">
-                  <div class="showcase-mini-card">
-                    <div>
-                      <strong>Operasyon Takibi</strong>
-                      <span>Planlı ve kontrollü süreç yönetimi</span>
-                    </div>
-                    <div class="mini-status"></div>
-                  </div>
-
-                  <div class="showcase-mini-card">
-                    <div>
-                      <strong>Finansal Düzen</strong>
-                      <span>Takip edilebilir kurumsal yaklaşım</span>
-                    </div>
-                    <div class="mini-status"></div>
-                  </div>
-
-                  <div class="showcase-mini-card">
-                    <div>
-                      <strong>Hızlı İletişim</strong>
-                      <span>Destek taleplerine hızlı geri dönüş</span>
-                    </div>
-                    <div class="mini-status"></div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="logo-panel">
-                <div class="logo-wrap">
-                  <img src="logo.png" alt="Güzey Grup logo">
-                </div>
-                <div class="mini-badge">
-                  <strong>Profesyonel Yönetim Anlayışı</strong>
-                  <p>Kurumsal görünüm, düzenli iletişim ve güven veren hizmet yaklaşımı.</p>
-                </div>
-              </div>
+        <div class="hero-visual">
+          <div class="hero-image-box">
+            <img src="cover-01.png" alt="Güzey Grup profesyonel yönetim tanıtım görseli">
+            <div class="hero-badge">
+              <strong>Yaşam alanlarına değer katan yapı</strong>
+              <p>Mevzuata uygun, kontrollü, planlı ve güven veren profesyonel yönetim anlayışı.</p>
             </div>
           </div>
         </div>
@@ -766,8 +795,8 @@
 
         <div class="about-grid">
           <div class="glass-card about-text">
-            <p>2005 yılında İzmir'de kurulan Güzey Grup, bina ve site yönetimi alanında edindiği tecrübesini hukuk, temizlik, güvenlik, peyzaj ve destek hizmetleriyle birleştirerek kapsamlı bir hizmet yapısı sunmaktadır.</p>
-            <p>Amacımız; yaşam alanlarında düzeni artırmak, yönetsel yükü azaltmak ve kat malikleri ile sakinler için güven veren, erişilebilir ve sistemli bir yönetim modeli oluşturmaktır.</p>
+            <p>2005 yılında İzmir’de “Güzey Yönetim” olarak başlayan yapımız, zaman içinde “Güzey Grup” kimliğiyle büyümüş ve bugün Ege Bölgesi’nde profesyonel yönetim hizmetleri sunan entegre bir hizmet yapısına dönüşmüştür.</p>
+            <p>Kalite, dürüstlük ve müşteri odaklılık temel ilkelerimizdir. Amacımız; apartman, site ve yaşam alanlarında düzeni artırmak, yönetsel yükü azaltmak ve sakinler için daha güvenilir bir yapı oluşturmaktır.</p>
           </div>
 
           <div class="glass-card">
@@ -778,7 +807,7 @@
                 </div>
                 <div>
                   <strong>Şeffaf yönetim</strong>
-                  <p>Gider, süreç ve operasyon takibinde net, anlaşılır ve düzenli bir yapı.</p>
+                  <p>Gelir-gider, karar süreçleri ve operasyon takibinde net, düzenli ve hesap verebilir bir yapı.</p>
                 </div>
               </div>
 
@@ -788,7 +817,7 @@
                 </div>
                 <div>
                   <strong>Mevzuata uygun süreçler</strong>
-                  <p>Kat mülkiyeti ve yönetsel işlemlerde profesyonel kontrol ve hukuki destek.</p>
+                  <p>Kat Mülkiyeti Kanunu ve ilgili yönetsel işlemlerde profesyonel kontrol, takvim ve takip sistemi.</p>
                 </div>
               </div>
 
@@ -798,10 +827,80 @@
                 </div>
                 <div>
                   <strong>Tek noktadan çözüm</strong>
-                  <p>Yönetimden teknik desteğe kadar bütüncül hizmet organizasyonu.</p>
+                  <p>Yönetim, hukuk, mali takip, temizlik, güvenlik, ilaçlama, peyzaj ve emlak hizmetlerinde bütüncül yaklaşım.</p>
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="why">
+      <div class="container">
+        <div class="section-head">
+          <span class="tag">Neden Güzey Grup</span>
+          <h2>Neden bizi seçmelisiniz?</h2>
+          <p>Tecrübe, sertifikalı ekip yapısı ve profesyonel operasyon anlayışıyla yaşam alanlarınızda güven veren bir sistem kuruyoruz.</p>
+        </div>
+
+        <div class="why-grid">
+          <div class="info-card">
+            <h3>Tercih edilme nedenlerimiz</h3>
+            <div class="highlight-cards">
+              <div class="highlight-card">
+                <h4>Uzman yönetim</h4>
+                <p>Profesyonel yönetim için gerekli alanlarda bilgi sahibi deneyimli yönetici yapısı.</p>
+              </div>
+              <div class="highlight-card">
+                <h4>Sertifikalı ekip</h4>
+                <p>Milli Eğitim Bakanlığı ve üniversite onaylı sertifikalı ekiplerle desteklenen hizmet.</p>
+              </div>
+              <div class="highlight-card">
+                <h4>Eğitimli personel</h4>
+                <p>Alanında eğitim almış vasıflı personeller ile düzenli ve kontrollü operasyon.</p>
+              </div>
+              <div class="highlight-card">
+                <h4>Belgeli kurumsallık</h4>
+                <p>Belge ve sertifikalarla güçlendirilmiş profesyonel hizmet anlayışı.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="show-image-card">
+            <img src="neden-02.png" alt="Neden Güzey Grup görsel sunumu">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="process-section">
+      <div class="container">
+        <div class="section-head">
+          <span class="tag">Yönetim Anlayışımız</span>
+          <h2>Planlı, kontrollü ve mevzuata uygun süreç yapısı</h2>
+          <p>Şehirleşme ile değişen yaşam alanlarında profesyonel bina ve site yönetimi; yalnızca hukuki değil, aynı zamanda idari ve finansal bir uzmanlık gerektirir.</p>
+        </div>
+
+        <div class="info-grid">
+          <div class="info-card">
+            <h3>İdari ve hukuki işlemler</h3>
+            <div class="bullet-list">
+              <div class="bullet-item"><span class="bullet-dot"></span><p>634 Sayılı Kat Mülkiyeti Kanunu kapsamında site, rezidans ve apartman yönetim hizmetleri profesyonel olarak yürütülür.</p></div>
+              <div class="bullet-item"><span class="bullet-dot"></span><p>Karar defteri, işletme defteri ve benzeri yasal defterlerin noter tasdik işlemleri takip edilir.</p></div>
+              <div class="bullet-item"><span class="bullet-dot"></span><p>Genel kurul organizasyonları, karar süreçleri ve hukuki takip mekanizması düzenli şekilde yürütülür.</p></div>
+              <div class="bullet-item"><span class="bullet-dot"></span><p>Şeffaf, düzenli ve sürdürülebilir bir yönetim sistemi kurulmasına odaklanılır.</p></div>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <h3>Ortak alan kontrolü ve bakım</h3>
+            <ul class="mini-list">
+              <li>Merdivenler, asansörler, koridorlar, bina girişleri ve ortak kullanım alanlarının takibi</li>
+              <li>Çatı, baca, yağmur oluğu, yangın merdiveni ve ortak teknik bölümlerin kontrol organizasyonu</li>
+              <li>Temizlik, atık yönetimi, su deposu, baca ve haşere ilaçlama hizmetlerinde planlı koordinasyon</li>
+              <li>Bahçe bakımı, budama, sulama ve çevre estetiğini artıran peyzaj süreçleri</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -812,26 +911,136 @@
         <div class="section-head">
           <span class="tag">Hizmetlerimiz</span>
           <h2>Yaşam alanlarınız için kapsamlı hizmet yapısı</h2>
-          <p>Site ve apartman yönetiminde ihtiyaç duyulan temel operasyonları tek çatı altında planlı şekilde yürütüyoruz.</p>
+          <p>Bina, site ve toplu yaşam alanlarının ihtiyaçlarını tek çatı altında, entegre ve profesyonel hizmet anlayışıyla karşılıyoruz.</p>
         </div>
 
         <div class="services-grid">
-          <article class="service-card"><div class="service-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M3 21h18"></path><path d="M5 21V7l7-4 7 4v14"></path><path d="M9 21v-6h6v6"></path></svg></div><h3>Bina ve Site Yönetimi</h3><p>Yönetim planı, aidat takibi, operasyon organizasyonu ve mevzuata uygun düzenli yönetim süreçleri.</p></article>
-          <article class="service-card"><div class="service-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M12 3 4 7v5c0 5 3.5 8 8 9 4.5-1 8-4 8-9V7l-8-4Z"></path><path d="M9.5 12.5 11 14l3.5-3.5"></path></svg></div><h3>Hukuk Hizmetleri</h3><p>Kat mülkiyeti, site yönetimi ve yönetsel süreçlerde hukuki danışmanlık ve destek hizmetleri.</p></article>
-          <article class="service-card"><div class="service-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M4 19h16"></path><path d="M6 19l2-9h8l2 9"></path><path d="M9 10V6h6v4"></path></svg></div><h3>Temizlik Hizmetleri</h3><p>Ortak alanlarda düzenli, kontrollü ve hijyen odaklı periyodik temizlik çözümleri.</p></article>
-          <article class="service-card"><div class="service-icon"><svg class="icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"></circle><path d="m20 20-4.2-4.2"></path></svg></div><h3>Emlak Hizmetleri</h3><p>Güvenilir ve profesyonel gayrimenkul danışmanlığı ile ihtiyaçlara uygun yönlendirme desteği.</p></article>
-          <article class="service-card"><div class="service-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M7 14c0-5 3-8 5-10 2 2 5 5 5 10a5 5 0 0 1-10 0Z"></path><path d="M10 14c0 1.5.8 2.5 2 3"></path></svg></div><h3>İlaçlama</h3><p>Ortak yaşam alanlarında planlı, kontrollü ve çevreye duyarlı zararlı mücadele hizmetleri.</p></article>
-          <article class="service-card"><div class="service-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V7l-8-4-8 4v5c0 6 8 10 8 10Z"></path></svg></div><h3>Güvenlik</h3><p>Site ve apartmanlarda huzur, düzen ve kontrolü destekleyen güvenlik hizmetleri.</p></article>
-          <article class="service-card"><div class="service-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M12 21V11"></path><path d="M7 8c0-2.2 2.2-4 5-4s5 1.8 5 4-2.2 4-5 4-5-1.8-5-4Z"></path><path d="M5 21c.5-3.5 2.6-5 7-5s6.5 1.5 7 5"></path></svg></div><h3>Peyzaj</h3><p>Yaşam alanlarını daha estetik ve düzenli hale getiren çevre düzenleme ve bakım çözümleri.</p></article>
-          <article class="service-card"><div class="service-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M12 6v6l4 2"></path><circle cx="12" cy="12" r="9"></circle></svg></div><h3>Destek ve Takip</h3><p>Teknik konular, saha kontrolleri ve hizmet koordinasyonunda düzenli takip ve yönlendirme desteği.</p></article>
-          <article class="service-card"><div class="service-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M6 18V9"></path><path d="M12 18V5"></path><path d="M18 18v-7"></path></svg></div><h3>Raporlama</h3><p>Yönetim süreçlerini daha izlenebilir hale getiren planlı bilgi akışı ve düzenli durum bildirimi.</p></article>
+          <article class="service-card">
+            <div class="service-icon">
+              <svg class="icon" viewBox="0 0 24 24"><path d="M3 21h18"></path><path d="M5 21V7l7-4 7 4v14"></path><path d="M9 21v-6h6v6"></path></svg>
+            </div>
+            <h3>Bina ve Site Yönetimi</h3>
+            <p>Apartman, site ve toplu yapıların mevzuata uygun şekilde yönetilmesi; aidat planlaması, genel kurul takibi ve mali raporlama süreçleri.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">
+              <svg class="icon" viewBox="0 0 24 24"><path d="M4 19h16"></path><path d="M6 19l2-9h8l2 9"></path><path d="M9 10V6h6v4"></path></svg>
+            </div>
+            <h3>Profesyonel Temizlik</h3>
+            <p>Merdivenler, asansörler, sosyal alanlar ve ortak kullanım noktaları için günlük, haftalık ve periyodik planlara uygun temizlik hizmetleri.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">
+              <svg class="icon" viewBox="0 0 24 24"><path d="M12 3 4 7v5c0 5 3.5 8 8 9 4.5-1 8-4 8-9V7l-8-4Z"></path><path d="M9.5 12.5 11 14l3.5-3.5"></path></svg>
+            </div>
+            <h3>Hukuk Hizmetleri</h3>
+            <p>Kat Mülkiyeti Kanunu kapsamında hukuki danışmanlık, aidat tahsilatı, icra takipleri ve yönetime ilişkin uyuşmazlıkların hukuki zeminde çözümü.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">
+              <svg class="icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"></circle><path d="m20 20-4.2-4.2"></path></svg>
+            </div>
+            <h3>Emlak Hizmetleri</h3>
+            <p>Kiralama ve satış süreçlerinin profesyonel şekilde yürütülmesi, gayrimenkul değerleme ve pazarlama danışmanlığı.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">
+              <svg class="icon" viewBox="0 0 24 24"><path d="M7 14c0-5 3-8 5-10 2 2 5 5 5 10a5 5 0 0 1-10 0Z"></path><path d="M10 14c0 1.5.8 2.5 2 3"></path></svg>
+            </div>
+            <h3>İlaçlama Hizmetleri</h3>
+            <p>Haşere, kemirgen ve zararlılara karşı Sağlık Bakanlığı onaylı ürünlerle periyodik ve çevreye duyarlı ilaçlama uygulamaları.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">
+              <svg class="icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V7l-8-4-8 4v5c0 6 8 10 8 10Z"></path></svg>
+            </div>
+            <h3>Güvenlik Hizmetleri</h3>
+            <p>Giriş-çıkış kontrolü, devriye planlaması ve güvenlik personeli temini ile yaşam alanlarında huzur ve güvenliğin desteklenmesi.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">
+              <svg class="icon" viewBox="0 0 24 24"><path d="M12 21V11"></path><path d="M7 8c0-2.2 2.2-4 5-4s5 1.8 5 4-2.2 4-5 4-5-1.8-5-4Z"></path><path d="M5 21c.5-3.5 2.6-5 7-5s6.5 1.5 7 5"></path></svg>
+            </div>
+            <h3>Peyzaj ve Çevre Düzenleme</h3>
+            <p>Bahçe bakımı, budama, sulama, gübreleme ve çevre estetiğini artıran sürdürülebilir peyzaj planlaması.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">
+              <svg class="icon" viewBox="0 0 24 24"><path d="M6 18V9"></path><path d="M12 18V5"></path><path d="M18 18v-7"></path></svg>
+            </div>
+            <h3>Muhasebe ve Mali Yönetim</h3>
+            <p>Gelir-giderlerin yetkili muhasebeci kontrolünde şeffaf, düzenli, denetlenebilir ve mevzuata uygun şekilde izlenmesi.</p>
+          </article>
         </div>
 
         <div class="highlight-band">
-          <div class="highlight-item"><strong>Kurumsal iletişim</strong><span>Hızlı geri dönüş ve düzenli bilgilendirme</span></div>
-          <div class="highlight-item"><strong>Operasyon takibi</strong><span>Süreçlerin kontrollü ve planlı ilerlemesi</span></div>
-          <div class="highlight-item"><strong>Güven odaklı yapı</strong><span>Site sakinleri için düzenli yaşam alanları</span></div>
-          <div class="highlight-item"><strong>Tek çatı altında çözüm</strong><span>Birden fazla hizmette koordineli yönetim</span></div>
+          <div class="highlight-item"><strong>Ortak alanlarda düzen</strong><span>Hijyen, bakım ve operasyonun kontrollü yürütülmesi</span></div>
+          <div class="highlight-item"><strong>Mevzuata uygun yönetim</strong><span>Planlı, kontrollü ve hukuki zemini güçlü sistem</span></div>
+          <div class="highlight-item"><strong>Şeffaf mali yapı</strong><span>Gelir-gider takibi ve raporlama ile güven veren süreç</span></div>
+          <div class="highlight-item"><strong>Değer katan çözümler</strong><span>Yaşam alanlarını güçlendiren profesyonel yaklaşım</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="apsiyon">
+      <div class="container">
+        <div class="section-head">
+          <span class="tag">APSİYON Entegrasyonu</span>
+          <h2>Dijital takip, şeffaf erişim ve güçlü kontrol</h2>
+          <p>Yönetimini üstlendiğimiz yapılarda kullanıcı bazlı erişim ile gelir, gider, aidat ve karar süreçlerini kolay takip edilebilir hale getiriyoruz.</p>
+        </div>
+
+        <div class="apsiyon-grid">
+          <div class="apsiyon-card apsiyon-card--dark">
+            <h3>APSİYON ile sağlanan yapı</h3>
+            <p>Şirketimiz APSİYON ile anlaşmalı olarak hizmet verir. Her bağımsız bölüm için kullanıcı adı ve şifre tanımlanabilir; sistem kat malikleri ve kiracılar tarafından aktif şekilde kullanılabilir.</p>
+            <ul class="mini-list">
+              <li>Gelir ve giderlerin anlık ve detaylı takibi</li>
+              <li>Aidat tahakkuk ve ödeme bilgilerinin görüntülenmesi</li>
+              <li>Temizlik ve bakım giderlerinin izlenmesi</li>
+              <li>Üçüncü kişilerle yapılan sözleşmelerin kayıt altına alınması</li>
+              <li>Genel kurul ve toplantı kararlarının paylaşılması</li>
+              <li>Bankalar, e-Devlet ve belediye sistemleriyle entegrasyon yaklaşımı</li>
+              <li>Mekân ve zamandan bağımsız şeffaf bilgi erişimi</li>
+            </ul>
+          </div>
+
+          <div class="show-image-card">
+            <img src="apsiyon-24.png" alt="APSİYON sistemi avantajları görseli">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="certificates">
+      <div class="container">
+        <div class="section-head">
+          <span class="tag">Belge ve Sertifikalar</span>
+          <h2>Kurumsal yapımızı destekleyen belgeler</h2>
+          <p>Hizmet kalitemizi ve profesyonel yapımızı destekleyen belge ve sertifikalarımızla güven veren bir hizmet sunuyoruz.</p>
+        </div>
+
+        <div class="cert-grid">
+          <div class="cert-card">
+            <h3>Belgeli hizmet anlayışı</h3>
+            <p>Profesyonel yönetim, eğitimli ekip ve kurumsal operasyon anlayışımızı belgeleyen sertifika ve eğitim dokümanlarımızla hizmet veriyoruz.</p>
+            <p>Bu yaklaşım; yönetim kalitesini artırırken müşterilerimize daha güvenilir, daha sistemli ve daha profesyonel bir süreç sunmamızı sağlar.</p>
+            <div class="cta-box">
+              <strong>Kurumsal güven</strong>
+              <p>Belgelendirilmiş hizmet yapısı, eğitimli ekip ve düzenli operasyon süreçleri ile uzun vadeli yönetim desteği sunuyoruz.</p>
+            </div>
+          </div>
+
+          <div class="cert-image">
+            <img src="certs-25.png" alt="Güzey Grup belge ve sertifikaları">
+          </div>
         </div>
       </div>
     </section>
@@ -850,15 +1059,43 @@
             <p>Bilgi talebi ve hizmet detayları için aşağıdaki iletişim kanallarımızdan bize ulaşabilirsiniz.</p>
 
             <div class="contact-list">
-              <div class="contact-row"><div><svg class="icon" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 3.1 5.2 2 2 0 0 1 5.1 3h3a2 2 0 0 1 2 1.7l.4 2.6a2 2 0 0 1-.6 1.8l-1.4 1.4a16 16 0 0 0 5 5l1.4-1.4a2 2 0 0 1 1.8-.6l2.6.4A2 2 0 0 1 22 16.9Z"></path></svg></div><div><strong>Telefon</strong><a href="tel:+905074725877">0507 472 58 77</a><br><a href="tel:+905526620158">0552 662 01 58</a><br><a href="tel:+902324847332">0232 484 73 32</a></div></div>
-              <div class="contact-row"><div><svg class="icon" viewBox="0 0 24 24"><path d="M4 6h16v12H4z"></path><path d="m4 7 8 6 8-6"></path></svg></div><div><strong>E-Posta</strong><a href="mailto:info@gzygrup.com">info@gzygrup.com</a></div></div>
-              <div class="contact-row"><div><svg class="icon" viewBox="0 0 24 24"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11Z"></path><circle cx="12" cy="10" r="2.5"></circle></svg></div><div><strong>Adres</strong><span>Manas Bulvarı No: 39, Folkart Towers B Kule, Kat: 33, Daire No: 3306, Bayraklı / İzmir</span></div></div>
+              <div class="contact-row">
+                <div>
+                  <svg class="icon" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 3.1 5.2 2 2 0 0 1 5.1 3h3a2 2 0 0 1 2 1.7l.4 2.6a2 2 0 0 1-.6 1.8l-1.4 1.4a16 16 0 0 0 5 5l1.4-1.4a2 2 0 0 1 1.8-.6l2.6.4A2 2 0 0 1 22 16.9Z"></path></svg>
+                </div>
+                <div>
+                  <strong>Telefon</strong>
+                  <a href="tel:+905074725877">0507 472 58 77</a><br>
+                  <a href="tel:+905526620158">0552 662 01 58</a><br>
+                  <a href="tel:+902324847332">0232 484 73 32</a>
+                </div>
+              </div>
+
+              <div class="contact-row">
+                <div>
+                  <svg class="icon" viewBox="0 0 24 24"><path d="M4 6h16v12H4z"></path><path d="m4 7 8 6 8-6"></path></svg>
+                </div>
+                <div>
+                  <strong>E-Posta</strong>
+                  <a href="mailto:info@gzygrup.com">info@gzygrup.com</a>
+                </div>
+              </div>
+
+              <div class="contact-row">
+                <div>
+                  <svg class="icon" viewBox="0 0 24 24"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11Z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>
+                </div>
+                <div>
+                  <strong>Adres</strong>
+                  <span>Manas Bulvarı No: 39, Folkart Towers B Kule, Kat: 33, Daire No: 3306, Bayraklı / İzmir</span>
+                </div>
+              </div>
             </div>
           </div>
 
           <div class="glass-card contact-info">
             <h3>Neden Güzey Grup?</h3>
-            <p>Yönetim süreçlerinde yalnızca hizmet vermeyi değil, güven inşa etmeyi hedefliyoruz. Düzenli takip, profesyonel iletişim ve planlı operasyon anlayışıyla süreci uçtan uca yönetiyoruz.</p>
+            <p>Yönetim süreçlerinde yalnızca hizmet vermeyi değil, güven inşa etmeyi hedefliyoruz. Düzenli takip, profesyonel iletişim, mali şeffaflık ve planlı operasyon anlayışıyla süreci uçtan uca yönetiyoruz.</p>
 
             <div class="cta-box">
               <strong>Hızlı ulaşım</strong>
@@ -880,6 +1117,7 @@
       <div class="footer-links">
         <a href="#about">Hakkımızda</a>
         <a href="#services">Hizmetler</a>
+        <a href="#apsiyon">APSİYON</a>
         <a href="#contact">İletişim</a>
       </div>
     </div>
