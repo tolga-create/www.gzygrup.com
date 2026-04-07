@@ -13,9 +13,7 @@
       --gold: #b89133;
       --gold-dark: #8e6d1e;
       --bg: #f7f7f5;
-      --bg-soft: #ffffff;
       --panel: #ffffff;
-      --panel-2: #fcfcfa;
       --line: #e7e4dc;
       --line-dark: #d9d4c8;
       --text: #1b1f23;
@@ -39,7 +37,6 @@
 
     a { text-decoration: none; color: inherit; }
     img { max-width: 100%; display: block; }
-    button, input, select, textarea { font: inherit; }
 
     .container {
       width: min(var(--container), calc(100% - 34px));
@@ -166,19 +163,10 @@
       box-shadow: 0 12px 26px rgba(184,145,51,0.22);
     }
 
-    .btn-primary:hover {
-      transform: translateY(-2px);
-    }
-
     .btn-secondary {
       background: #fff;
       color: var(--text);
       border-color: var(--line);
-    }
-
-    .btn-secondary:hover {
-      border-color: var(--line-dark);
-      color: var(--gold-dark);
     }
 
     .menu-toggle {
@@ -304,7 +292,6 @@
       background: linear-gradient(180deg, #ffffff 0%, #f8f6f1 100%);
       border: 1px solid var(--line);
       overflow: hidden;
-      position: relative;
     }
 
     .showcase-topbar {
@@ -340,7 +327,6 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 18px;
-      height: calc(100% - 58px);
     }
 
     .showcase-panel,
@@ -387,17 +373,6 @@
       border: 1px solid var(--line);
     }
 
-    .showcase-mini-card strong {
-      display: block;
-      font-size: 0.96rem;
-      margin-bottom: 4px;
-    }
-
-    .showcase-mini-card span {
-      color: var(--muted);
-      font-size: 0.84rem;
-    }
-
     .mini-status {
       width: 13px;
       height: 13px;
@@ -411,17 +386,7 @@
       display: grid;
       place-items: center;
       position: relative;
-      overflow: hidden;
       background: linear-gradient(180deg, #fff 0%, #fbfaf6 100%);
-    }
-
-    .logo-panel::before {
-      content: "";
-      position: absolute;
-      inset: 22px;
-      border: 1px dashed #e8deca;
-      border-radius: 18px;
-      pointer-events: none;
     }
 
     .logo-wrap {
@@ -434,28 +399,21 @@
       border: 1px solid #eadfc5;
       box-shadow: 0 16px 30px rgba(184,145,51,0.12);
       padding: 22px;
-      position: relative;
-      z-index: 1;
     }
 
     .logo-wrap img {
       max-width: 100%;
       max-height: 100%;
       object-fit: contain;
-      filter: drop-shadow(0 8px 18px rgba(17,24,39,0.08));
     }
 
     .mini-badge {
-      position: absolute;
-      left: 22px;
-      right: 22px;
-      bottom: 22px;
+      margin-top: 18px;
       padding: 16px 18px;
       border-radius: 18px;
       background: rgba(255,255,255,0.95);
       border: 1px solid var(--line);
       box-shadow: var(--shadow-soft);
-      z-index: 1;
     }
 
     .mini-badge strong {
@@ -470,9 +428,7 @@
       font-size: 0.9rem;
     }
 
-    section {
-      padding: 92px 0;
-    }
+    section { padding: 92px 0; }
 
     .section-head {
       max-width: 760px;
@@ -517,44 +473,22 @@
       padding: 30px;
     }
 
-    .about-text p,
-    .contact-card p,
-    .contact-info p {
-      color: var(--muted);
-      margin-bottom: 16px;
-    }
-
-    .feature-list {
+    .feature-list,
+    .contact-list {
       display: grid;
       gap: 16px;
     }
 
-    .feature-item {
+    .feature-item,
+    .contact-row {
       display: flex;
       gap: 14px;
       align-items: flex-start;
     }
 
-    .feature-icon {
-      width: 44px;
-      height: 44px;
-      display: grid;
-      place-items: center;
-      border-radius: 14px;
-      background: #fffaf0;
-      border: 1px solid #eddcae;
+    .feature-icon,
+    .contact-row svg {
       color: var(--gold-dark);
-      flex: 0 0 auto;
-    }
-
-    .feature-item strong {
-      display: block;
-      margin-bottom: 4px;
-    }
-
-    .feature-item p {
-      color: var(--muted);
-      font-size: 0.96rem;
     }
 
     .services-grid {
@@ -569,13 +503,6 @@
       border-radius: 24px;
       padding: 26px;
       box-shadow: var(--shadow-soft);
-      transition: 0.25s ease;
-    }
-
-    .service-card:hover {
-      transform: translateY(-6px);
-      border-color: #dcc99a;
-      box-shadow: 0 20px 32px rgba(17, 24, 39, 0.08);
     }
 
     .service-icon {
@@ -596,9 +523,13 @@
       margin-bottom: 8px;
     }
 
-    .service-card p {
+    .service-card p,
+    .about-text p,
+    .contact-card p,
+    .contact-info p,
+    .contact-row span,
+    .contact-row a {
       color: var(--muted);
-      font-size: 0.96rem;
     }
 
     .highlight-band {
@@ -617,18 +548,6 @@
       box-shadow: var(--shadow-soft);
     }
 
-    .highlight-item strong {
-      display: block;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.22rem;
-      margin-bottom: 5px;
-    }
-
-    .highlight-item span {
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
     .contact-card h3,
     .contact-info h3 {
       font-family: 'Cormorant Garamond', serif;
@@ -636,35 +555,11 @@
       margin-bottom: 12px;
     }
 
-    .contact-list {
-      display: grid;
-      gap: 14px;
-      margin-top: 20px;
-    }
-
     .contact-row {
-      display: flex;
-      gap: 14px;
-      align-items: flex-start;
       padding: 16px 18px;
       background: #fcfbf8;
       border: 1px solid var(--line);
       border-radius: 18px;
-    }
-
-    .contact-row strong {
-      display: block;
-      margin-bottom: 4px;
-    }
-
-    .contact-row span,
-    .contact-row a {
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .contact-row a:hover {
-      color: var(--gold-dark);
     }
 
     .cta-box {
@@ -673,17 +568,6 @@
       border-radius: 20px;
       background: linear-gradient(180deg, #fffdf7 0%, #f7f0df 100%);
       border: 1px solid #ead9ab;
-    }
-
-    .cta-box strong {
-      display: block;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.45rem;
-      margin-bottom: 8px;
-    }
-
-    .cta-box p {
-      margin-bottom: 16px;
     }
 
     .cta-actions {
@@ -714,10 +598,6 @@
       flex-wrap: wrap;
     }
 
-    .footer-links a:hover {
-      color: var(--gold-dark);
-    }
-
     .whatsapp-float {
       position: fixed;
       right: 20px;
@@ -732,30 +612,13 @@
     }
 
     @media (max-width: 1100px) {
-      .hero-grid,
-      .about-grid,
-      .contact-wrap,
-      .showcase-content {
+      .hero-grid, .about-grid, .contact-wrap, .showcase-content, .services-grid, .highlight-band {
         grid-template-columns: 1fr;
-      }
-
-      .hero-showcase {
-        min-height: auto;
-      }
-
-      .services-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .highlight-band {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
 
     @media (max-width: 860px) {
-      .menu-toggle {
-        display: inline-flex;
-      }
+      .menu-toggle { display: inline-flex; }
 
       nav {
         position: absolute;
@@ -773,59 +636,16 @@
         box-shadow: var(--shadow);
       }
 
-      nav.active {
-        display: flex;
-      }
-
-      .nav-actions .btn-secondary {
-        display: none;
-      }
-
-      .hero {
-        padding-top: 54px;
-      }
-
-      .hero-grid {
-        min-height: auto;
-      }
-
-      .hero-stats,
-      .services-grid,
-      .highlight-band {
-        grid-template-columns: 1fr;
-      }
+      nav.active { display: flex; }
+      .nav-actions .btn-secondary { display: none; }
+      .hero-grid { min-height: auto; }
     }
 
     @media (max-width: 560px) {
-      .container {
-        width: min(var(--container), calc(100% - 24px));
-      }
-
-      .hero h1 {
-        font-size: 2.4rem;
-      }
-
-      .brand-text strong {
-        font-size: 1.45rem;
-      }
-
-      .showcase-panel,
-      .logo-panel,
-      .glass-card,
-      .service-card {
-        padding: 22px;
-      }
-
-      .logo-wrap {
-        width: min(76%, 230px);
-      }
-
-      .whatsapp-float {
-        right: 12px;
-        bottom: 12px;
-        padding: 12px 15px;
-        font-size: 0.92rem;
-      }
+      .container { width: min(var(--container), calc(100% - 24px)); }
+      .hero h1 { font-size: 2.4rem; }
+      .brand-text strong { font-size: 1.45rem; }
+      .whatsapp-float { right: 12px; bottom: 12px; padding: 12px 15px; font-size: 0.92rem; }
     }
   </style>
 </head>
@@ -923,7 +743,7 @@
 
               <div class="logo-panel">
                 <div class="logo-wrap">
-                  <img src="logo.png" alt="Güzey Grup logo" />
+                  <img src="logo.png" alt="Güzey Grup logo">
                 </div>
                 <div class="mini-badge">
                   <strong>Profesyonel Yönetim Anlayışı</strong>
@@ -954,10 +774,7 @@
             <div class="feature-list">
               <div class="feature-item">
                 <div class="feature-icon">
-                  <svg class="icon" viewBox="0 0 24 24">
-                    <path d="M3 10.5 12 3l9 7.5"></path>
-                    <path d="M5 9.5V21h14V9.5"></path>
-                  </svg>
+                  <svg class="icon" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"></path><path d="M5 9.5V21h14V9.5"></path></svg>
                 </div>
                 <div>
                   <strong>Şeffaf yönetim</strong>
@@ -967,13 +784,7 @@
 
               <div class="feature-item">
                 <div class="feature-icon">
-                  <svg class="icon" viewBox="0 0 24 24">
-                    <path d="M8 3h8"></path>
-                    <path d="M9 3v4"></path>
-                    <path d="M15 3v4"></path>
-                    <path d="M5 9h14"></path>
-                    <rect x="4" y="7" width="16" height="13" rx="2"></rect>
-                  </svg>
+                  <svg class="icon" viewBox="0 0 24 24"><path d="M8 3h8"></path><path d="M9 3v4"></path><path d="M15 3v4"></path><path d="M5 9h14"></path><rect x="4" y="7" width="16" height="13" rx="2"></rect></svg>
                 </div>
                 <div>
                   <strong>Mevzuata uygun süreçler</strong>
@@ -983,11 +794,7 @@
 
               <div class="feature-item">
                 <div class="feature-icon">
-                  <svg class="icon" viewBox="0 0 24 24">
-                    <path d="M4 12h16"></path>
-                    <path d="M12 4v16"></path>
-                    <circle cx="12" cy="12" r="9"></circle>
-                  </svg>
+                  <svg class="icon" viewBox="0 0 24 24"><path d="M4 12h16"></path><path d="M12 4v16"></path><circle cx="12" cy="12" r="9"></circle></svg>
                 </div>
                 <div>
                   <strong>Tek noktadan çözüm</strong>
@@ -1009,107 +816,15 @@
         </div>
 
         <div class="services-grid">
-          <article class="service-card">
-            <div class="service-icon">
-              <svg class="icon" viewBox="0 0 24 24">
-                <path d="M3 21h18"></path>
-                <path d="M5 21V7l7-4 7 4v14"></path>
-                <path d="M9 21v-6h6v6"></path>
-              </svg>
-            </div>
-            <h3>Bina ve Site Yönetimi</h3>
-            <p>Yönetim planı, aidat takibi, operasyon organizasyonu ve mevzuata uygun düzenli yönetim süreçleri.</p>
-          </article>
-
-          <article class="service-card">
-            <div class="service-icon">
-              <svg class="icon" viewBox="0 0 24 24">
-                <path d="M12 3 4 7v5c0 5 3.5 8 8 9 4.5-1 8-4 8-9V7l-8-4Z"></path>
-                <path d="M9.5 12.5 11 14l3.5-3.5"></path>
-              </svg>
-            </div>
-            <h3>Hukuk Hizmetleri</h3>
-            <p>Kat mülkiyeti, site yönetimi ve yönetsel süreçlerde hukuki danışmanlık ve destek hizmetleri.</p>
-          </article>
-
-          <article class="service-card">
-            <div class="service-icon">
-              <svg class="icon" viewBox="0 0 24 24">
-                <path d="M4 19h16"></path>
-                <path d="M6 19l2-9h8l2 9"></path>
-                <path d="M9 10V6h6v4"></path>
-              </svg>
-            </div>
-            <h3>Temizlik Hizmetleri</h3>
-            <p>Ortak alanlarda düzenli, kontrollü ve hijyen odaklı periyodik temizlik çözümleri.</p>
-          </article>
-
-          <article class="service-card">
-            <div class="service-icon">
-              <svg class="icon" viewBox="0 0 24 24">
-                <circle cx="11" cy="11" r="6"></circle>
-                <path d="m20 20-4.2-4.2"></path>
-              </svg>
-            </div>
-            <h3>Emlak Hizmetleri</h3>
-            <p>Güvenilir ve profesyonel gayrimenkul danışmanlığı ile ihtiyaçlara uygun yönlendirme desteği.</p>
-          </article>
-
-          <article class="service-card">
-            <div class="service-icon">
-              <svg class="icon" viewBox="0 0 24 24">
-                <path d="M7 14c0-5 3-8 5-10 2 2 5 5 5 10a5 5 0 0 1-10 0Z"></path>
-                <path d="M10 14c0 1.5.8 2.5 2 3"></path>
-              </svg>
-            </div>
-            <h3>İlaçlama</h3>
-            <p>Ortak yaşam alanlarında planlı, kontrollü ve çevreye duyarlı zararlı mücadele hizmetleri.</p>
-          </article>
-
-          <article class="service-card">
-            <div class="service-icon">
-              <svg class="icon" viewBox="0 0 24 24">
-                <path d="M12 22s8-4 8-10V7l-8-4-8 4v5c0 6 8 10 8 10Z"></path>
-              </svg>
-            </div>
-            <h3>Güvenlik</h3>
-            <p>Site ve apartmanlarda huzur, düzen ve kontrolü destekleyen güvenlik hizmetleri.</p>
-          </article>
-
-          <article class="service-card">
-            <div class="service-icon">
-              <svg class="icon" viewBox="0 0 24 24">
-                <path d="M12 21V11"></path>
-                <path d="M7 8c0-2.2 2.2-4 5-4s5 1.8 5 4-2.2 4-5 4-5-1.8-5-4Z"></path>
-                <path d="M5 21c.5-3.5 2.6-5 7-5s6.5 1.5 7 5"></path>
-              </svg>
-            </div>
-            <h3>Peyzaj</h3>
-            <p>Yaşam alanlarını daha estetik ve düzenli hale getiren çevre düzenleme ve bakım çözümleri.</p>
-          </article>
-
-          <article class="service-card">
-            <div class="service-icon">
-              <svg class="icon" viewBox="0 0 24 24">
-                <path d="M12 6v6l4 2"></path>
-                <circle cx="12" cy="12" r="9"></circle>
-              </svg>
-            </div>
-            <h3>Destek ve Takip</h3>
-            <p>Teknik konular, saha kontrolleri ve hizmet koordinasyonunda düzenli takip ve yönlendirme desteği.</p>
-          </article>
-
-          <article class="service-card">
-            <div class="service-icon">
-              <svg class="icon" viewBox="0 0 24 24">
-                <path d="M6 18V9"></path>
-                <path d="M12 18V5"></path>
-                <path d="M18 18v-7"></path>
-              </svg>
-            </div>
-            <h3>Raporlama</h3>
-            <p>Yönetim süreçlerini daha izlenebilir hale getiren planlı bilgi akışı ve düzenli durum bildirimi.</p>
-          </article>
+          <article class="service-card"><div class="service-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M3 21h18"></path><path d="M5 21V7l7-4 7 4v14"></path><path d="M9 21v-6h6v6"></path></svg></div><h3>Bina ve Site Yönetimi</h3><p>Yönetim planı, aidat takibi, operasyon organizasyonu ve mevzuata uygun düzenli yönetim süreçleri.</p></article>
+          <article class="service-card"><div class="service-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M12 3 4 7v5c0 5 3.5 8 8 9 4.5-1 8-4 8-9V7l-8-4Z"></path><path d="M9.5 12.5 11 14l3.5-3.5"></path></svg></div><h3>Hukuk Hizmetleri</h3><p>Kat mülkiyeti, site yönetimi ve yönetsel süreçlerde hukuki danışmanlık ve destek hizmetleri.</p></article>
+          <article class="service-card"><div class="service-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M4 19h16"></path><path d="M6 19l2-9h8l2 9"></path><path d="M9 10V6h6v4"></path></svg></div><h3>Temizlik Hizmetleri</h3><p>Ortak alanlarda düzenli, kontrollü ve hijyen odaklı periyodik temizlik çözümleri.</p></article>
+          <article class="service-card"><div class="service-icon"><svg class="icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"></circle><path d="m20 20-4.2-4.2"></path></svg></div><h3>Emlak Hizmetleri</h3><p>Güvenilir ve profesyonel gayrimenkul danışmanlığı ile ihtiyaçlara uygun yönlendirme desteği.</p></article>
+          <article class="service-card"><div class="service-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M7 14c0-5 3-8 5-10 2 2 5 5 5 10a5 5 0 0 1-10 0Z"></path><path d="M10 14c0 1.5.8 2.5 2 3"></path></svg></div><h3>İlaçlama</h3><p>Ortak yaşam alanlarında planlı, kontrollü ve çevreye duyarlı zararlı mücadele hizmetleri.</p></article>
+          <article class="service-card"><div class="service-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V7l-8-4-8 4v5c0 6 8 10 8 10Z"></path></svg></div><h3>Güvenlik</h3><p>Site ve apartmanlarda huzur, düzen ve kontrolü destekleyen güvenlik hizmetleri.</p></article>
+          <article class="service-card"><div class="service-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M12 21V11"></path><path d="M7 8c0-2.2 2.2-4 5-4s5 1.8 5 4-2.2 4-5 4-5-1.8-5-4Z"></path><path d="M5 21c.5-3.5 2.6-5 7-5s6.5 1.5 7 5"></path></svg></div><h3>Peyzaj</h3><p>Yaşam alanlarını daha estetik ve düzenli hale getiren çevre düzenleme ve bakım çözümleri.</p></article>
+          <article class="service-card"><div class="service-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M12 6v6l4 2"></path><circle cx="12" cy="12" r="9"></circle></svg></div><h3>Destek ve Takip</h3><p>Teknik konular, saha kontrolleri ve hizmet koordinasyonunda düzenli takip ve yönlendirme desteği.</p></article>
+          <article class="service-card"><div class="service-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M6 18V9"></path><path d="M12 18V5"></path><path d="M18 18v-7"></path></svg></div><h3>Raporlama</h3><p>Yönetim süreçlerini daha izlenebilir hale getiren planlı bilgi akışı ve düzenli durum bildirimi.</p></article>
         </div>
 
         <div class="highlight-band">
@@ -1135,45 +850,9 @@
             <p>Bilgi talebi ve hizmet detayları için aşağıdaki iletişim kanallarımızdan bize ulaşabilirsiniz.</p>
 
             <div class="contact-list">
-              <div class="contact-row">
-                <div>
-                  <svg class="icon" viewBox="0 0 24 24">
-                    <path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 3.1 5.2 2 2 0 0 1 5.1 3h3a2 2 0 0 1 2 1.7l.4 2.6a2 2 0 0 1-.6 1.8l-1.4 1.4a16 16 0 0 0 5 5l1.4-1.4a2 2 0 0 1 1.8-.6l2.6.4A2 2 0 0 1 22 16.9Z"></path>
-                  </svg>
-                </div>
-                <div>
-                  <strong>Telefon</strong>
-                  <a href="tel:+905074725877">0507 472 58 77</a><br>
-                  <a href="tel:+905526620158">0552 662 01 58</a><br>
-                  <a href="tel:+902324847332">0232 484 73 32</a>
-                </div>
-              </div>
-
-              <div class="contact-row">
-                <div>
-                  <svg class="icon" viewBox="0 0 24 24">
-                    <path d="M4 6h16v12H4z"></path>
-                    <path d="m4 7 8 6 8-6"></path>
-                  </svg>
-                </div>
-                <div>
-                  <strong>E-Posta</strong>
-                  <a href="mailto:info@gzygrup.com">info@gzygrup.com</a>
-                </div>
-              </div>
-
-              <div class="contact-row">
-                <div>
-                  <svg class="icon" viewBox="0 0 24 24">
-                    <path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11Z"></path>
-                    <circle cx="12" cy="10" r="2.5"></circle>
-                  </svg>
-                </div>
-                <div>
-                  <strong>Adres</strong>
-                  <span>Manas Bulvarı No: 39, Folkart Towers B Kule, Kat: 33, Daire No: 3306, Bayraklı / İzmir</span>
-                </div>
-              </div>
+              <div class="contact-row"><div><svg class="icon" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 3.1 5.2 2 2 0 0 1 5.1 3h3a2 2 0 0 1 2 1.7l.4 2.6a2 2 0 0 1-.6 1.8l-1.4 1.4a16 16 0 0 0 5 5l1.4-1.4a2 2 0 0 1 1.8-.6l2.6.4A2 2 0 0 1 22 16.9Z"></path></svg></div><div><strong>Telefon</strong><a href="tel:+905074725877">0507 472 58 77</a><br><a href="tel:+905526620158">0552 662 01 58</a><br><a href="tel:+902324847332">0232 484 73 32</a></div></div>
+              <div class="contact-row"><div><svg class="icon" viewBox="0 0 24 24"><path d="M4 6h16v12H4z"></path><path d="m4 7 8 6 8-6"></path></svg></div><div><strong>E-Posta</strong><a href="mailto:info@gzygrup.com">info@gzygrup.com</a></div></div>
+              <div class="contact-row"><div><svg class="icon" viewBox="0 0 24 24"><path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11Z"></path><circle cx="12" cy="10" r="2.5"></circle></svg></div><div><strong>Adres</strong><span>Manas Bulvarı No: 39, Folkart Towers B Kule, Kat: 33, Daire No: 3306, Bayraklı / İzmir</span></div></div>
             </div>
           </div>
 
@@ -1184,7 +863,6 @@
             <div class="cta-box">
               <strong>Hızlı ulaşım</strong>
               <p>Sorularınız için bize doğrudan WhatsApp hattımızdan veya e-posta üzerinden ulaşabilirsiniz.</p>
-
               <div class="cta-actions">
                 <a href="https://wa.me/905074725877" class="btn btn-primary" target="_blank" rel="noopener">WhatsApp’tan Ulaşın</a>
                 <a href="mailto:info@gzygrup.com" class="btn btn-secondary">E-Posta Gönderin</a>
