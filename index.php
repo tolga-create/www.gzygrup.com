@@ -195,7 +195,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['form_type'] ?? '') === 'qu
         }
 
         $_SESSION['quote_attempts'] = $_SESSION['quote_attempts'] ?? [];
-        $_SESSION['quote_attempts'] = array_filter($_SESSION['quote_attempts'], fn($t) => $t > time() - 60);
+        $_SESSION['quote_attempts'] = array_filter($_SESSION['quote_attempts'], function($t) { return $t > time() - 60; });
         if (count($_SESSION['quote_attempts']) >= 4) {
             json_response(false, 'Kısa süre içinde çok fazla deneme yapıldı. Lütfen biraz sonra tekrar deneyin.');
         }
